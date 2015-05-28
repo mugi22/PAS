@@ -621,6 +621,7 @@ public class UtilityController {
  @RequestMapping(value="/comboEaTkKantorAuditor.htm", method=RequestMethod.POST)
   public @ResponseBody String comboTkKantorAuditor(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
 		 String param =reg.getParameter("param");
+		 System.out.println("PARAM ************** "+param);
 		 Session sess = null;
 		 String x="";String z ="";
 		 try {
@@ -638,9 +639,9 @@ public class UtilityController {
 						selected="";
 					}
 				}else{//untuk tambah -> set default combobox nya 0002
-					if(tbl.getKodeTk().equals("00")){
-						selected = ","+'"'+"selected"+'"'+":true";
-					}
+//					if(tbl.getKodeTk().equals("00")){
+//						selected = ","+'"'+"selected"+'"'+":true";
+//					}
 				}
 				String item = "{"+'"'+"id"+'"'+":"+'"'+tbl.getKodeTk()+'"'+","+'"'+"text"+'"'+":"+'"'+tbl.getNamaTk()+'"'+selected+"},";	
 				sb.append(item);

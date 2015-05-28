@@ -76,6 +76,12 @@
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiTemuan"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiBidangKasus"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsHariLibur"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaJenisPemeriksaan"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaKetuaTimAuditor"/>
+    
+    
+    
+    
     <mapping class="co.id.pegadaian.pasg2.pojo.TblAnto"/>
     <!--    -->
     <!-- 

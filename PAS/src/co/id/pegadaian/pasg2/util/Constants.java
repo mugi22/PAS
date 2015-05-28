@@ -13,11 +13,11 @@ public interface Constants {
 	
 	public interface SysParam{
 		public String DownloadFolder  ="c:/download/";//H:\\Workspace\\CashProject
-		public String WorkSpaceFroder = "H:\\Workspace\\PAS";//"H:\\Workspace\\CashProject";
-		public String PojoFolder ="H:\\Workspace\\PAS\\src\\co\\id\\pegadaian\\pasg2\\pojo\\";//\\src\\com\\id\\kas\\DEVELOPMENT\\";
-		public String DaoForlder ="H:\\Workspace\\PAS\\src\\co\\id\\pegadaian\\pasg2\\dao\\";
-		public String ControllerForlder ="H:\\Workspace\\PAS\\src\\co\\id\\pegadaian\\pasg2\\controller\\";
-		public String FormControllerForlder ="H:\\Workspace\\PAS\\src\\co\\id\\pegadaian\\pasg2\\form\\";
+		public String WorkSpaceFroder = "H:\\Workspace\\PAS\\PAS";//"H:\\Workspace\\CashProject";
+		public String PojoFolder ="H:\\Workspace\\PAS\\PAS\\src\\co\\id\\pegadaian\\pasg2\\pojo\\";//\\src\\com\\id\\kas\\DEVELOPMENT\\";
+		public String DaoForlder ="H:\\Workspace\\PAS\\PAS\\src\\co\\id\\pegadaian\\pasg2\\dao\\";
+		public String ControllerForlder ="H:\\Workspace\\PAS\\PAS\\src\\co\\id\\pegadaian\\pasg2\\controller\\";
+		public String FormControllerForlder ="H:\\Workspace\\PAS\\PAS\\src\\co\\id\\pegadaian\\pasg2\\form\\";
 		public String JspForlder ="\\WebContent\\WEB-INF\\jsp\\";
 		public String JspReportForlder ="\\WebContent\\WEB-INF\\jsp\\report\\";
 		public String PropertiesFile ="\\WebContent\\WEB-INF\\pasg2.properties";

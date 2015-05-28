@@ -187,7 +187,7 @@ var branchcode;
 	
 	
 	
-	
+/*	pindah ke my.js blommm*/
 	function comboEaTkKantorAuditor(k) {
 		k.combobox({
 			url : 'comboEaTkKantorAuditor.htm?param=' + kodeTk+'&param2=',

@@ -147,9 +147,10 @@ $("document").ready(function() {
 	comboEaKantorAuditor($('#branchCodeAll'));
 });
 //comboPasEaKantorAuditorByTk //getPasEaKantorAuditor
+/*pindah my.js
 function comboEaKantorAuditor(cmbKantorAuditor,kantorAuditorSelected) {
 	cmbKantorAuditor.combobox({
-		url :'comboPasEaKantorAuditorByTk.htm?param='+/*argumen retrieval tk*/'01'+'&param2='+kantorAuditorSelected,
+		url :'comboPasEaKantorAuditorByTk.htm?param='+'&param2='+kantorAuditorSelected,
 		valueField : 'id',
 		textField : 'text',
 		panelHeight:'auto',
@@ -157,18 +158,18 @@ function comboEaKantorAuditor(cmbKantorAuditor,kantorAuditorSelected) {
 		}
 	});
 }
+*/
 
-
-
-
+/*
+pindah ke my.js
 function comboEaTkKantorAuditor(cmbTk,tkSelected,cmbKantorAuditor,kantorAuditorSelected) {
 	cmbTk.combobox({
-		url :'comboEaTkKantorAuditor.htm?tkSelected='+tkSelected,
+		url :'comboEaTkKantorAuditor.htm?param2='+tkSelected+'&param=',
 		valueField : 'id',
 		textField : 'text',
 		panelHeight:'auto',
 		onSelect: function(rec) {
-			alert(cmbTk.combobox('getValue'));
+			//alert(cmbTk.combobox('getValue'));
 			cmbKantorAuditor.combobox('clear');
 			urlz ='comboPasEaKantorAuditorByTk.htm?param='+cmbTk.combobox('getValue')+'&param2='+kantorAuditorSelected;
 			cmbKantorAuditor.combobox('reload',urlz);
@@ -176,7 +177,7 @@ function comboEaTkKantorAuditor(cmbTk,tkSelected,cmbKantorAuditor,kantorAuditorS
 	});
 }
 
-
+*/
 
 function doEdit() {
 	var t;
@@ -189,21 +190,27 @@ function doEdit() {
 		url = 'userEdit.htm?'+"userID="+"${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten;
 		upperCase($('#namax'));
 		branchcode = row.branchCode;			
+		
+		comboEaTkKantorAuditor($('#kodeTk'));
+		comboEaKantorAuditor($('#branchCodeAll'));
 	//ambil kantorauditor berdasarkan kodekantor pada table user getPasEaKantorAuditor
 		var t;
 		$.ajax({
 			url:'getPasEaKantorAuditor.htm?param='+branchcode,//cari kode parent nya
-			async: false,
+			async: true,
 			success	: function(result){
 				t = JSON.parse(result);
+				//alert("t.kodeTk "+t.kodeTk+" branchcode"+branchcode);
+				$('#kodeTk').combobox('clear');
+				comboEaTkKantorAuditor($('#kodeTk'),t.kodeTk,$('#branchCodeAll'),branchcode);//cmbTk,tkSelected,cmbKantorAuditor,kantorAuditorSelected
+				urlx= 'comboEaTkKantorAuditor.htm?param='+t.kodeTk+'&param2=';
+				$('#kodeTk').combobox('reload',urlx);
+				
+				$('#branchCodeAll').combobox('clear');
+				urlz ='comboPasEaKantorAuditorByTk.htm?param='+t.kodeTk+'&param2='+branchcode;
+				$('#branchCodeAll').combobox('reload',urlz);
 			}
 		});
-		
-		comboEaTkKantorAuditor($('#kodeTk'),t.kodeTk,$('#branchCodeAll'),branchcode);//cmbTk,tkSelected,cmbKantorAuditor,kantorAuditorSelected
-		comboEaKantorAuditor($('#branchCodeAll'),'');
-		urlz ='comboPasEaKantorAuditorByTk.htm?param='+t.kodeTk+'&param2='+branchcode;
-		$('#branchCodeAll').combobox('reload',urlz);
-		
 		onEdit();
 	}
 }

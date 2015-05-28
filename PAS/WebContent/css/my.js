@@ -99,7 +99,54 @@
 		groupId = '';
 	}
 	
+	/*Kantor auditor*/
+	function comboEaKantorAuditor(cmbKantorAuditor,kantorAuditorSelected) {
+		cmbKantorAuditor.combobox({
+			url :'comboPasEaKantorAuditorByTk.htm?param='+'&param2='+kantorAuditorSelected,
+			valueField : 'id',
+			textField : 'text',
+			panelHeight:'auto',
+			onSelect: function(rec) {
+			}
+		});
+	}
+/* combo tK kantor auditor, bila dipilih akan tampil  kantor audito yang tingkanya dipilih*/
+	function comboEaTkKantorAuditor(cmbTk,tkSelected,cmbKantorAuditor,kantorAuditorSelected) {
+		cmbTk.combobox({
+			url :'comboEaTkKantorAuditor.htm?param2='+tkSelected+'&param=',
+			valueField : 'id',
+			textField : 'text',
+			panelHeight:'auto',
+			onSelect: function(rec) {
+				//alert(cmbTk.combobox('getValue'));
+				cmbKantorAuditor.combobox('clear');
+				urlz ='comboPasEaKantorAuditorByTk.htm?param='+cmbTk.combobox('getValue')+'&param2='+kantorAuditorSelected;
+				cmbKantorAuditor.combobox('reload',urlz);
+			}
+		});
+	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/* Combo tingkat kantor
+	function comboEaTkKantorAuditor1(k,kodeTk) {
+		k.combobox({
+			url : 'comboEaTkKantorAuditor.htm?param=' + kodeTk+'&param2=',
+			valueField : 'id',
+			textField : 'text',
+			panelHeight:'auto'
+		});
+		kodeTk = '';
+	}	
+	*/
 //	comboGroup
 	//satatus pegawai
 /*		function comboGroup(t) {

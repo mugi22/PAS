@@ -199,9 +199,7 @@ XXXparamSearch
 					alertAll('Simpan Sukses');
 					$('#dlg').dialog('close'); // close the dialog
 					$('#dg').datagrid('reload'); // reload the user data
-					$('#dg').datagrid({
-						url : jsonurl
-					});
+					//$('#dg').datagrid({	url : jsonurl});
 				}
 			}
 		});
