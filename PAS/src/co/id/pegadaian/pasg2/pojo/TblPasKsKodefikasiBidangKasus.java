@@ -10,7 +10,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "TBL_PAS_KS_KODIFIKASI_BIDANG_KASUS", schema = "PASG2")
+@Table(name = "TBL_PAS_KS_KODE_BIDANG_KASUS", schema = "PASG2")
 public class TblPasKsKodefikasiBidangKasus extends AuditTrail implements
 		java.io.Serializable {
 	private String kodeBidangKasus;

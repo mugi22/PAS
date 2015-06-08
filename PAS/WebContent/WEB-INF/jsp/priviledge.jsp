@@ -32,12 +32,14 @@
             <thead>
                 <tr>
                     <th field="groupId" width="100"sortable="true"><%=properties.getProperty("priviledge.GroupId")%></th> 
+                    <th field="groupName" width="100"sortable="true"><%=properties.getProperty("group.GroupName")%></th> 
                     <th field="menuId" width="100"sortable="true"><%=properties.getProperty("priviledge.MenuId")%></th> 
+                     <th field="menuName" width="100"sortable="true"><%=properties.getProperty("menu.MenuName")%></th> 
                     <th field="isAdd" width="100"sortable="true"><%=properties.getProperty("priviledge.IsAdd")%></th> 
                     <th field="isDelete" width="100"sortable="true"><%=properties.getProperty("priviledge.IsDelete")%></th> 
                     <th field="isUpdate" width="100"sortable="true"><%=properties.getProperty("priviledge.IsUpdate")%></th> 
                     <th field="isView" width="100"sortable="true"><%=properties.getProperty("priviledge.IsView")%></th> 
-                     
+                    <!-- menuName -->
                 </tr>
             </thead>
         </table>        
@@ -93,6 +95,9 @@ var groupId;
 		comboYesNo($('#isDelete'));
 		comboYesNo($('#isView'));
 		comboYesNo($('#isUpdate'));
+		comboGroup($('#GroupId'));
+		comboMenu($('#MenuId'));
+		comboMenu($('#menuId'));
 		
 	});
 
@@ -103,7 +108,7 @@ var groupId;
 /* function untuk list data      param=' + $('#idSearch').val();//+'&param2='++ $('#idSearch2').val();*/
 	function retrieve() {		
 		var jsonurl = 'priviledgeListAll.htm?'+
-'GroupId='+$('#GroupId').val()+"&"+'MenuId='+$('#MenuId').val()+"&"+"userId="+"${userId}";
+'GroupId='+$('#GroupId').combobox('getValue')+"&"+'MenuId='+$('#MenuId').combobox('getValue')+"&"+"userId="+"${userId}";
 		$('#dg').datagrid({
 			url : jsonurl,
 			onLoadSuccess : function(data) {

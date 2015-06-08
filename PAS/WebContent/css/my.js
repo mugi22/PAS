@@ -88,16 +88,43 @@
 			panelHeight:'auto'
 		});		
 	}
-	
+//GROUP	
 	function comboGroup(t) {
 		t.combobox({
 			url : 'comboGroup.htm?param=' + groupId,
 			valueField : 'id',
-			textField : 'text',
-			panelHeight:'auto'
+			textField : 'text'/*,
+			panelHeight:'auto'*/
 		});
 		groupId = '';
 	}
+	
+//MENU  comboMenu	
+	function comboMenu(t) {
+		t.combobox({
+			url : 'comboMenu.htm?param=' + menuId,
+			valueField : 'id',
+			textField : 'text'
+		});
+		menuId = '';
+	}	
+	
+	
+	/*tingkat AUDITAN
+	 * 
+	 */
+	/*Kantor auditor*/
+	function comboEaTkAuditon(cmbTkAuditan,tkAuditanSelected) {
+		cmbTkAuditan.combobox({
+			url :'comboEaTkAuditon.htm?param='+'&param2='+tkAuditanSelected,
+			valueField : 'id',
+			textField : 'text',
+			panelHeight:'auto',
+			onSelect: function(rec) {
+			}
+		});
+	}
+	
 	
 	/*Kantor auditor*/
 	function comboEaKantorAuditor(cmbKantorAuditor,kantorAuditorSelected) {
@@ -125,6 +152,52 @@
 			}
 		});
 	}
+	
+	
+	/*Kantor jenis pemeriksaan*/
+	function comboEaJenisPemeriksaan(cmb,jenisSelected) {
+		cmb.combobox({
+			url :'comboEaJenisPemeriksaan.htm?param='+'&param2='+jenisSelected,
+			valueField : 'id',
+			textField : 'text',
+			panelHeight:'auto',
+			onSelect: function(rec) {
+			}
+		});
+	}	
+	
+/* REGION */
+	/*=========KABU{ATEN */
+	function comboKabupaten(cmbKab,kabupaten) {
+		cmbKab.combobox({
+			url : '',//'comboAllBranch.htm?param=' + kabupaten
+			valueField : 'id',
+			textField : 'text',
+			panelHeight:'auto'
+		});
+		kabupaten = '';
+	}
+
+	
+/*PROVINSI*/
+	function comboProvinsiToKabupaten(cmbProvinsi,provinsi,cmbKabupaten,kabupaten) {
+		cmbProvinsi.combobox({
+			url : 'comboProvinsi.htm?param=' + provinsi+'&param2='+provinsi,
+			valueField : 'id',
+			textField : 'text',
+			onSelect: function(rec) {
+				var z = cmbProvinsi.combobox('getValue');
+				//alert("kabupaten "+kabupaten);
+				cmbKabupaten.combobox('clear');		
+		        Urlk = 'comboKabupatenByProvinsi.htm?param='+z+'&param2='+kabupaten;//+          //"&selected="+unit;//11875
+		        cmbKabupaten.combobox('reload', Urlk);
+		         //alert("rec "+Urlk);
+				}
+		});
+		//status = '';
+	}	
+	
+	
 	
 	
 	

@@ -19,7 +19,7 @@ public abstract class AuditTrail implements Serializable {
 	protected Date createDate,updateDate;
 	protected BigDecimal versi;
 	
-	@Column(name = "CREATE_BY", length = 20)
+	@Column(name = "create_by", length = 20)
 	public String getCreateBy() {
 		return this.createBy;
 	}
@@ -28,7 +28,7 @@ public abstract class AuditTrail implements Serializable {
 		this.createBy = createBy;
 	}
 
-	@Column(name = "UPDATE_BY", length = 20)
+	@Column(name = "update_by", length = 20)
 	public String getUpdateBy() {
 		return this.updateBy;
 	}
@@ -37,8 +37,8 @@ public abstract class AuditTrail implements Serializable {
 		this.updateBy = updateBy;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATE_DATE", length = 29)
+	@Temporal(TemporalType.TIMESTAMP)//TIMESTAMP DATE
+	@Column(name = "create_date", length = 29)
 	public Date getCreateDate() {
 		return this.createDate;
 	}
@@ -47,8 +47,8 @@ public abstract class AuditTrail implements Serializable {
 		this.createDate = createDate;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "UPDATE_DATE", length = 29)
+	@Temporal(TemporalType.TIMESTAMP)//TIMESTAMP DATE
+	@Column(name = "update_date", length = 29)
 	public Date getUpdateDate() {
 		return this.updateDate;
 	}

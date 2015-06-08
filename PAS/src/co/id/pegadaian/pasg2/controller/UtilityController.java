@@ -18,18 +18,28 @@ import co.id.pegadaian.pasg2.dao.TblGroupDAO;
 import co.id.pegadaian.pasg2.dao.TblKabupatenDAO;
 import co.id.pegadaian.pasg2.dao.TblKecamatanDAO;
 import co.id.pegadaian.pasg2.dao.TblLookupDAO;
+import co.id.pegadaian.pasg2.dao.TblMenuDAO;
+import co.id.pegadaian.pasg2.dao.TblPasEaJenisPemeriksaanDAO;
 import co.id.pegadaian.pasg2.dao.TblPasEaKantorAuditorDAO;
-import co.id.pegadaian.pasg2.dao.TblPasEaTkKantorAuditorDAO;
+import co.id.pegadaian.pasg2.dao.TblPasEaKetuaTimAuditorDAO;
+import co.id.pegadaian.pasg2.dao.TblPasEaTkAuditanDAO;
+import co.id.pegadaian.pasg2.dao.PasEaTkKantorAuditorDAO;
 import co.id.pegadaian.pasg2.dao.TblProvinsiDAO;
+import co.id.pegadaian.pasg2.dao.TblUserDAO;
 import co.id.pegadaian.pasg2.db.HibernateUtil;
 import co.id.pegadaian.pasg2.pojo.TblBranch;
 import co.id.pegadaian.pasg2.pojo.TblGroup;
 import co.id.pegadaian.pasg2.pojo.TblKabupaten;
 import co.id.pegadaian.pasg2.pojo.TblKecamatan;
 import co.id.pegadaian.pasg2.pojo.TblLookup;
+import co.id.pegadaian.pasg2.pojo.TblMenu;
+import co.id.pegadaian.pasg2.pojo.TblPasEaJenisPemeriksaan;
 import co.id.pegadaian.pasg2.pojo.TblPasEaKantorAuditor;
-import co.id.pegadaian.pasg2.pojo.TblPasEaTkKantorAuditor;
+import co.id.pegadaian.pasg2.pojo.TblPasEaKetuaTimAuditor;
+import co.id.pegadaian.pasg2.pojo.PasEaTkAuditan;
+import co.id.pegadaian.pasg2.pojo.PasEaTkKantorAuditor;
 import co.id.pegadaian.pasg2.pojo.TblProvinsi;
+import co.id.pegadaian.pasg2.pojo.TblUser;
 
 import com.google.gson.Gson;
 
@@ -57,7 +67,6 @@ public class UtilityController {
 			TblBranchDAO dao = new TblBranchDAO(sess);
 			List<TblBranch> l = new ArrayList<TblBranch>();
 			TblBranch branch = dao.getById(reg.getParameter("param"));
-//			System.out.println(" ==================PARAM :"+reg.getParameter("param"));
 			if(param.length()>0){
 				l = dao.getByParent(/*branch.getParentId()*/param);
 			}
@@ -480,7 +489,7 @@ public class UtilityController {
 							selected = ","+'"'+"selected"+'"'+":true";
 						}
 					}
-					String item = "{"+'"'+"id"+'"'+":"+'"'+tbl.getGroupId()+'"'+","+'"'+"text"+'"'+":"+'"'+tbl.getGroupName()+'"'+selected+"},";	
+					String item = "{"+'"'+"id"+'"'+":"+'"'+tbl.getGroupId()+'"'+","+'"'+"text"+'"'+":"+'"'+tbl.getGroupId()+" - "+tbl.getGroupName()+'"'+selected+"},";	
 					sb.append(item);
 				}
 				x = (sb.toString()).substring(0,sb.toString().length()-1);
@@ -493,7 +502,51 @@ public class UtilityController {
 			 System.out.println(z);
 		 return z;
 		 }
-		
+
+	 
+//MENU
+	 @RequestMapping(value="/comboMenu.htm", method=RequestMethod.POST)
+	  public @ResponseBody String comboMenu(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+			 String param =reg.getParameter("param");
+			 Session sess = null;
+			 String x="";String z ="";
+			 try {
+				sess = HibernateUtil.getSessionFactory().openSession();
+				TblMenuDAO dao = new TblMenuDAO(sess);
+				List<TblMenu> l = dao.getAll();//getBy(param2);
+				StringBuffer sb = new StringBuffer();
+						sb.append("[");
+				for(TblMenu tbl : l){
+					String selected="";
+					if(param.length()>0){
+						if (tbl.getMenuId().equals(reg.getParameter("param"))){
+							selected = ","+'"'+"selected"+'"'+":true";
+						}else{
+							selected="";
+						}
+					}else{//untuk tambah -> set default combobox nya 0002
+//						if(tbl.getMenuId().equals("00002")){
+//							selected = ","+'"'+"selected"+'"'+":true";
+//						}
+					}
+					String item = "{"+'"'+"id"+'"'+":"+'"'+tbl.getMenuId()+'"'+","+'"'+"text"+'"'+":"+'"'+tbl.getMenuId()+" - "+tbl.getMenuName()+'"'+selected+"},";	
+					sb.append(item);
+				}
+				x = (sb.toString()).substring(0,sb.toString().length()-1);
+				 z = x+"]";
+				 if (z.equals("]") )z="[]";
+				 sess.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			 System.out.println("menu : "+z);
+		 return z;
+		 }
+
+	 	 	 
+	 
+	 
+	 
 //	 
 ///*
 // * 	 
@@ -626,11 +679,11 @@ public class UtilityController {
 		 String x="";String z ="";
 		 try {
 			sess = HibernateUtil.getSessionFactory().openSession();
-			TblPasEaTkKantorAuditorDAO dao = new TblPasEaTkKantorAuditorDAO(sess);
-			List<TblPasEaTkKantorAuditor> l = dao.getAll();//getBy(param2);
+			PasEaTkKantorAuditorDAO dao = new PasEaTkKantorAuditorDAO(sess);
+			List<PasEaTkKantorAuditor> l = dao.getAll();//getBy(param2);
 			StringBuffer sb = new StringBuffer();
 					sb.append("[");
-			for(TblPasEaTkKantorAuditor tbl : l){
+			for(PasEaTkKantorAuditor tbl : l){
 				String selected="";
 				if(param.length()>0){
 					if (tbl.getKodeTk().equals(reg.getParameter("param"))){
@@ -654,5 +707,153 @@ public class UtilityController {
 		}
 	 return z;
 	 }
+ 
+ //-----------------
+////EA TINGKAT AUDITAN
+@RequestMapping(value="/comboEaTkAuditon.htm", method=RequestMethod.POST)
+public @ResponseBody String comboEaTkAuditon(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+	 String param =reg.getParameter("param");
+	 System.out.println("PARAM ************** "+param);
+	 Session sess = null;
+	 String x="";String z ="";
+	 try {
+		sess = HibernateUtil.getSessionFactory().openSession();
+		TblPasEaTkAuditanDAO dao = new TblPasEaTkAuditanDAO(sess);
+		List<PasEaTkAuditan> l = dao.getAll();//getBy(param2);
+		StringBuffer sb = new StringBuffer();
+				sb.append("[");
+		for(PasEaTkAuditan tbl : l){
+			String selected="";
+			if(param.length()>0){
+				if (tbl.getKodeTkAuditan().equals(reg.getParameter("param"))){
+					selected = ","+'"'+"selected"+'"'+":true";
+				}else{
+					selected="";
+				}
+			}else{//untuk tambah -> set default combobox nya 0002
+//				if(tbl.getKodeTk().equals("00")){
+//					selected = ","+'"'+"selected"+'"'+":true";
+//				}
+			}
+			String item = "{"+'"'+"id"+'"'+":"+'"'+tbl.getKodeTkAuditan()+'"'+","+'"'+"text"+'"'+":"+'"'+tbl.getNamaTkAuditan()+'"'+selected+"},";	
+			sb.append(item);
+		}
+		x = (sb.toString()).substring(0,sb.toString().length()-1);
+		 z = x+"]";
+		 sess.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+ return z;
+ }
+ 
+ //------------
+// USER BY BRANCH CODE
+@RequestMapping(value="/comboUserBranch.htm", method=RequestMethod.POST)
+public @ResponseBody String comboUserBranch(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+	 String param =reg.getParameter("param");
+	 String param2 =reg.getParameter("param2");
+	 System.out.println("PARAM *****comboUserBranch********* "+param);
+	 Session sess = null;
+	 String x="";String z ="";
+	 try {
+		sess = HibernateUtil.getSessionFactory().openSession();
+		TblUserDAO dao = new TblUserDAO(sess);
+		List<TblUser> l = dao.getByBranch(param);//getBy(param2);
+		StringBuffer sb = new StringBuffer();
+				sb.append("[");
+		for(TblUser tbl : l){
+			String selected="";
+			if(param.length()>0){
+				if (tbl.getUserId().equals(reg.getParameter("param2"))){
+					selected = ","+'"'+"selected"+'"'+":true";
+				}else{
+					selected="";
+				}
+			}else{//untuk tambah -> set default combobox nya 0002
+//				if(tbl.getKodeTk().equals("00")){
+//					selected = ","+'"'+"selected"+'"'+":true";
+//				}
+			}
+			String item = "{"+'"'+"id"+'"'+":"+'"'+tbl.getUserId()+'"'+","+'"'+"text"+'"'+":"+'"'+tbl.getUserId()+" - "+tbl.getName()+'"'+selected+"},";	
+			sb.append(item);
+		}
+		x = (sb.toString()).substring(0,sb.toString().length()-1);
+		 z = x+"]";
+		 if(z.equals("]")) z="[]";
+		 System.out.println("zzzz   ==== "+z);
+		 sess.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+ return z;
+ } 
+
+
+//Ketua tim auditor BY BRANCH CODE
+@RequestMapping(value="/comboKetuaTimAuditor.htm", method=RequestMethod.GET)
+public @ResponseBody String comboKetuaTimAuditor(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+	 String param =reg.getParameter("param");
+	 System.out.println("PARAM ************** "+param);
+	 Session sess = null;
+	 String x="";String z ="";
+	 try {
+		sess = HibernateUtil.getSessionFactory().openSession();
+		TblPasEaKetuaTimAuditorDAO dao = new TblPasEaKetuaTimAuditorDAO(sess);
+		TblPasEaKetuaTimAuditor tbl = dao.getByBranch(param);//getBy(param2);
+		if(tbl.getKodeKantorAuditor().length()>0){
+			z= tbl.getKodeUserKetuaTimAuditor();
+		}
+		
+		 sess.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+return z;
+} 
+
+
+////EaJenisPemeriksaan
+@RequestMapping(value="/comboEaJenisPemeriksaan.htm", method=RequestMethod.POST)
+public @ResponseBody String comboEaJenisPemeriksaan(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+	 String param =reg.getParameter("param");
+	 System.out.println("PARAM ************** "+param);
+	 Session sess = null;
+	 String x="";String z ="";
+	 try {
+		sess = HibernateUtil.getSessionFactory().openSession();
+		TblPasEaJenisPemeriksaanDAO dao = new TblPasEaJenisPemeriksaanDAO(sess);
+		List<TblPasEaJenisPemeriksaan> l = dao.getAll();//getBy(param2);
+		StringBuffer sb = new StringBuffer();
+				sb.append("[");
+		for(TblPasEaJenisPemeriksaan tbl : l){
+			String selected="";
+			if(param.length()>0){
+				if (tbl.getKodeJenisPemeriksaan().equals(reg.getParameter("param"))){
+					selected = ","+'"'+"selected"+'"'+":true";
+				}else{
+					selected="";
+				}
+			}else{//untuk tambah -> set default combobox nya 0002
+//				if(tbl.getKodeTk().equals("00")){
+//					selected = ","+'"'+"selected"+'"'+":true";
+//				}
+			}
+			String item = "{"+'"'+"id"+'"'+":"+'"'+tbl.getKodeJenisPemeriksaan()+'"'+","+'"'+"text"+'"'+":"+'"'+tbl.getKodeJenisPemeriksaan()+" - "+tbl.getNamaJenisPemeriksaan()+'"'+selected+"},";	
+			sb.append(item);
+		}
+		x = (sb.toString()).substring(0,sb.toString().length()-1);
+		 z = x+"]";
+		 sess.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+return z;
+}
+
+
+
+
+
 	 
 }

@@ -70,8 +70,8 @@ public class TblPriviledgeDAO {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Criteria criteria =null;
 		criteria = session.createCriteria(TblPriviledge.class);
-                    if (GroupId.doubleValue()>0){criteria.add(Restrictions.eq("y", GroupId)); 	}
-                    if (MenuId.doubleValue()>0){criteria.add(Restrictions.eq("y", MenuId)); 	}
+                    if (GroupId.doubleValue()>0){criteria.add(Restrictions.eq("groupId", GroupId)); 	}
+                    if (MenuId.doubleValue()>0){criteria.add(Restrictions.eq("menuId", MenuId)); 	}
 		
 		return criteria;
 	}

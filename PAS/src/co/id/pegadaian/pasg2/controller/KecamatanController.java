@@ -130,8 +130,8 @@ public class KecamatanController  extends AbstractListScreen{
                
                sess.beginTransaction();
                dao.insert(tbl);
+             simpanLog(user.getUserId(),gson.toJson(tbl),"ADD",sess,tbl.getClass().getName());
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),gson.toJson(tbl));
                sess.close();
                x=gson.toJson("SUKSES");
          }catch(Exception e){
@@ -174,8 +174,8 @@ public class KecamatanController  extends AbstractListScreen{
                
                sess.beginTransaction();
                dao.update(tbl);
+             simpanLog(user.getUserId(),gson.toJson(tbl)+"OLD "+gson.toJson(tblOld),"MODIFY",sess,tbl.getClass().getName());
                sess.getTransaction().commit();
-                simpanLog(user.getUserId(),"MODIFY  : "+gson.toJson(tbl)+" OLD "+tblOld);
                sess.close();
                x=gson.toJson("UPDATE SUKSES");
          }catch(Exception e){
@@ -210,8 +210,8 @@ public class KecamatanController  extends AbstractListScreen{
                String tblDel = gson.toJson(tbl);
                sess.beginTransaction();
                dao.delete(tbl);
+             simpanLog(user.getUserId(),gson.toJson(tbl),"DELETE",sess,tbl.getClass().getName());     
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),"DELETE  : "+tblDel);
                sess.close();
                h.put("success", true);
                x=gson.toJson(h);

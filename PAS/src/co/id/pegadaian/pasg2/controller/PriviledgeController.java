@@ -30,8 +30,12 @@ import com.google.gson.GsonBuilder;
 import co.id.pegadaian.pasg2.util.AbstractListScreen;
 
 import co.id.pegadaian.pasg2.db.HibernateUtil;
+import co.id.pegadaian.pasg2.pojo.TblGroup;
+import co.id.pegadaian.pasg2.pojo.TblMenu;
 import co.id.pegadaian.pasg2.pojo.TblUser;
 import co.id.pegadaian.pasg2.pojo.TblPriviledge;//harap Sesuaikan
+import co.id.pegadaian.pasg2.dao.TblGroupDAO;
+import co.id.pegadaian.pasg2.dao.TblMenuDAO;
 import co.id.pegadaian.pasg2.dao.TblPriviledgeDAO;
 
 import co.id.pegadaian.pasg2.util.AbstractListScreen;
@@ -89,15 +93,15 @@ public class PriviledgeController  extends AbstractListScreen{
 			Map h = new HashMap<String, Object>();
 			List<TblPriviledge> l = new ArrayList<TblPriviledge>();
 				h = dao.getByPerPage(new BigDecimal(GroupId),new BigDecimal(MenuId),loffset, row);
-			sess.close();
-            result = gson.toJson(h);
-            System.out.println(result);
+			//sess.close();
+            //result = gson.toJson(h);
             
-            /**  BILA ADA PERUBAHAN DATA JSON
+            /**  BILA ADA PERUBAHAN DATA JSON*/
             String x = changeJson(h, sess);
             sess.close();
         	result ="{"+'"'+"total"+'"'+":"+h.get("total")+","+'"'+"rows"+'"'+":["+x+']'+'}';
-            */
+        	System.out.println(result);
+            
             
 			
 		} catch (Exception e) {
@@ -139,8 +143,8 @@ public class PriviledgeController  extends AbstractListScreen{
                
                sess.beginTransaction();
                dao.insert(tbl);
+               simpanLog(user.getUserId(),gson.toJson(tbl),"ADD",sess,tbl.getClass().getName());
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),gson.toJson(tbl));
                sess.close();
                x=gson.toJson("SUKSES");
          }catch(Exception e){
@@ -192,8 +196,8 @@ public class PriviledgeController  extends AbstractListScreen{
                
                sess.beginTransaction();
                dao.update(tbl);
+               simpanLog(user.getUserId(),gson.toJson(tbl)+"OLD "+gson.toJson(tblOld),"MODIFY",sess,tbl.getClass().getName());
                sess.getTransaction().commit();
-                simpanLog(user.getUserId(),"MODIFY  : "+gson.toJson(tbl)+" OLD "+tblOld);
                sess.close();
                x=gson.toJson("UPDATE SUKSES");
          }catch(Exception e){
@@ -236,8 +240,8 @@ public class PriviledgeController  extends AbstractListScreen{
                String tblDel = gson.toJson(tbl);
                sess.beginTransaction();
                dao.delete(tbl);
+               simpanLog(user.getUserId(),gson.toJson(tbl),"DELETE",sess,tbl.getClass().getName());     
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),"DELETE  : "+tblDel);
                sess.close();
                h.put("success", true);
                x=gson.toJson(h);
@@ -249,28 +253,32 @@ public class PriviledgeController  extends AbstractListScreen{
  	 }
 
 //----------BILA ADA PERUBAHAN DATA JSON, RUBAH DI SINI------------------------------------------
-//	public String changeJson(Map<String,Object> result, Session sess){//nemabhakan field nama group dan nama menu
-//		List<TblPriviledge> listPri = (List<TblPriviledge>) result.get("rows");
-////		List<TblPriviledge> priv = (List<TblPriviledge>) h.get("rows");
-//		Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
-//		StringBuffer sb = new StringBuffer();
-//		for(TblPriviledge pr : listPri){
-//			String s = gson.toJson(pr);			
-//			TblGroupDAO groupDAO = new TblGroupDAO(sess);
-//			TblGroup group = groupDAO.getById(pr.getGroupId());
-//			TblMenuDAO menuDAO = new TblMenuDAO(sess);
-//			TblMenu menu =  menuDAO.getById(pr.getMenuId());
-//			String a = s.replace("}", ","+'"'+"groupName"+'"'+":"+'"'+group.getGroupName()+'"'+","+'"'+"menuName"+'"'+":"+'"'+menu.getMenuName()+'"'+"},");
-//			sb.append(a);
-//		}
-//		String x="";
-//		if(sb.toString().length()>0){
-//			x= (sb.toString()).substring(0,sb.toString().length()-1);
-//		}	else{
-//			x="";
-//		}
-//		return x;
-//	}
+	public String changeJson(Map<String,Object> result, Session sess){//nemabhakan field nama group dan nama menu
+		List<TblPriviledge> listPri = (List<TblPriviledge>) result.get("rows");
+//		List<TblPriviledge> priv = (List<TblPriviledge>) h.get("rows");
+		Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
+		StringBuffer sb = new StringBuffer();
+		for(TblPriviledge pr : listPri){
+			if(pr.getMenuId().doubleValue() > 1.0){
+				String s = gson.toJson(pr);		
+				
+				TblGroupDAO groupDAO = new TblGroupDAO(sess);
+				TblGroup group = groupDAO.getById(pr.getGroupId());
+				TblMenuDAO menuDAO = new TblMenuDAO(sess);
+				TblMenu menu =  menuDAO.getById(pr.getMenuId());
+				System.out.println("****** "+pr.getMenuId()+" group "+pr.getGroupId());
+				String a = s.replace("}", ","+'"'+"groupName"+'"'+":"+'"'+group.getGroupName()+'"'+","+'"'+"menuName"+'"'+":"+'"'+menu.getMenuName()+'"'+"},");
+				sb.append(a);
+			}
+		}
+		String x="";
+		if(sb.toString().length()>0){
+			x= (sb.toString()).substring(0,sb.toString().length()-1);
+		}	else{
+			x="";
+		}
+		return x;
+	}
 
 //===============================REPORT====================================================
 

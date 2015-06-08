@@ -7,10 +7,16 @@
     <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
     <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
     <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
-    <property name="hibernate.connection.username">testdb</property>
-    <property name="hibernate.connection.password">password</property>
-    -->
-    
+    <property name="hibernate.connection.username">PASG2</property>
+    <property name="hibernate.connection.password">pegadaian</property>
+ -->   
+   <!--  LOKAL ORACLE
+	<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property> 
+	<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property> 
+	<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+	<property name="hibernate.connection.username">PASG2</property>
+	<property name="hibernate.connection.password">pegadaian</property> 
+	-->
     <!-- MYSQL -->
     <!--  -->
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -23,7 +29,7 @@
     
     <!-- property name="connection.autocommit">false</property-->
 		
-		<!-- Optional configuration -->
+		<!-- Optional configuration  -->
 		<property name="show_sql">true</property>
 		<property name="format_sql">false</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -36,10 +42,16 @@
 		<property name="hibernate.transaction.flush_before_completion">true</property>
         <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
       
+  
+   
+   
+
+   
+   
    
     <property name="hibernate.hbm2ddl.auto">update</property> <!-- untuk pembentukan/update table <property name="propertyName">propertyValue</property>-->
-    
-    <!-- property name="hibernate.ejb.event.post-insert">org.hibernate.ejb.event.EJB3PostInsertEventListener,org.hibernate.envers.event.AuditEventListener</property>
+    <!-- 
+    <property name="hibernate.ejb.event.post-insert">org.hibernate.ejb.event.EJB3PostInsertEventListener,org.hibernate.envers.event.AuditEventListener</property>
    <property name="hibernate.ejb.event.post-update">org.hibernate.ejb.event.EJB3PostUpdateEventListener,org.hibernate.envers.event.AuditEventListener</property>
    <property name="hibernate.ejb.event.post-delete">org.hibernate.ejb.event.EJB3PostDeleteEventListener,org.hibernate.envers.event.AuditEventListener</property>
    <property name="hibernate.ejb.event.pre-collection-update">org.hibernate.envers.event.AuditEventListener</property>
@@ -52,7 +64,9 @@
      -->
     
     
-    
+    <!--   -->
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasKsAuditTrail"/>
+	<mapping class="co.id.pegadaian.pasg2.pojo.PasEaTkAuditan"/>
     
     <mapping class="co.id.pegadaian.pasg2.pojo.TblUser"/>
  
@@ -68,7 +82,9 @@
     <mapping class="co.id.pegadaian.pasg2.pojo.TblKabupaten"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblKecamatan"/> 
 	<mapping class="co.id.pegadaian.pasg2.pojo.TblKelurahan"/> 
-	<mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaTkKantorAuditor"/>
+	<mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaAuditan"/>
+	
+	<mapping class="co.id.pegadaian.pasg2.pojo.PasEaTkKantorAuditor"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaKantorAuditor"/>
   	<mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiKasus"/>
   	<mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiSebab"/>
@@ -78,11 +94,12 @@
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsHariLibur"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaJenisPemeriksaan"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaKetuaTimAuditor"/>
-    
-    
-    
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaAnggotaTimAuditor"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaAspekPemeriksaan"/>
+   
     
     <mapping class="co.id.pegadaian.pasg2.pojo.TblAnto"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblCoba"/>
     <!--    -->
     <!-- 
     <mapping class="co.id.pegadaian.pasg2.pojo.TblParam"/>

@@ -48,8 +48,9 @@ jspTemplate
             <thead>
                 <tr>
                     <th field="userId" width="100"sortable="true"><%=properties.getProperty("userGroup.UserId")%></th> 
-                    <th field="groupId" width="100"sortable="true"data-options="formatter:function(value, row){return accounting.formatNumber(row.groupId,0,'.',','); }"align="right"><%=properties.getProperty("userGroup.GroupId")%></th> 
-                     
+                      <th field="userName" width="100"sortable="true"><%=properties.getProperty("user.Name")%></th>
+                    <th field="groupId" width="100"sortable="true"><%=properties.getProperty("userGroup.GroupId")%></th> 
+                      <th field="groupName" width="100"sortable="true"><%=properties.getProperty("group.GroupName")%></th> userName
                 </tr>
             </thead>
         </table>  
@@ -96,6 +97,8 @@ var branchcode;
 		$("#btnEdit").linkbutton('${btnEdit}');
 		$("#btnDelete").linkbutton('${btnDelete}');
 		$("#btnShow").linkbutton('${btnShow}');		
+		comboGroup($('#groupId'));
+		comboGroup($('#GroupId'));
 	});
 
 	function test() {
@@ -104,7 +107,7 @@ var branchcode;
 
 	function retrieve() {		
 		var jsonurl = 'userGroupListAll.htm?'+
-		'GroupId='+$('#GroupId').val()+"&"+'UserId='+$('#UserId').val()+"&"+"UID="+"${userId}";;
+		'GroupId='+$('#GroupId').combobox('getValue')+"&"+'UserId='+$('#UserId').val()+"&"+"UID="+"${userId}";;
 		$('#dg').datagrid({
 			url : jsonurl,
 			onLoadSuccess : function(data) {
@@ -221,7 +224,7 @@ var branchcode;
 	
 function idRequired(t){
                     $('#userId').textbox({   required: t});
-                    $('#groupId').textbox({   required: t});
+                    //$('#groupId').textbox({   required: t});
 
 
 	/*$('#idJurnalTransaksi').textbox({   required: t			});

@@ -16,7 +16,9 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
+import co.id.pegadaian.pasg2.dao.PasKsAuditTrailDAO;
 import co.id.pegadaian.pasg2.db.HibernateUtil;
+import co.id.pegadaian.pasg2.pojo.PasKsAuditTrail;
 import co.id.pegadaian.pasg2.pojo.TblUser;
 
 //import com.id.kas.db.HibernateUtil;
@@ -155,11 +157,33 @@ public abstract class AbstractListScreen {
 		return user;
 	}
 	
+	//old
+//	public void simpanLog(String sUserId,String sLog){
+//		String logger =sUserId+"  CRUD  "/*+ new Date()*/+" "+sLog; //engga [perlu pake data suda ada dari looger
+//		log.warn(logger);
+////		System.out.println(sLog);
+//	}
 	
-	public void simpanLog(String sUserId,String sLog){
-		String logger =sUserId+"  "/*+ new Date()*/+" "+sLog; //engga [perlu pake data suda ada dari looger
+	
+	public void simpanLog(String sUserId,String sLog,String aksi,Session sessLog,String pojo ){
+		//table name
+		GetTableNameFromPojo tableNameFromPojo = new GetTableNameFromPojo();
+		String tblName = tableNameFromPojo.getTableName(pojo);
+		System.out.println(tblName+"   "+pojo);
+		String logger =sUserId+"  CRUD  "/*+ new Date()*/+" "+sLog; //engga [perlu pake data suda ada dari looger
 		log.warn(logger);
-//		System.out.println(sLog);
+			PasKsAuditTrailDAO auditTrailDAO = new PasKsAuditTrailDAO(sessLog);
+			PasKsAuditTrail auditTrail = new PasKsAuditTrail();
+			auditTrail.setAksi(aksi+" : "+sLog);
+//			auditTrail.setAlamatIP("IP");
+			auditTrail.setCreateBy(sUserId);
+			auditTrail.setCreateDate(new Date());
+			auditTrail.setKodeAuditTrail(System.currentTimeMillis());
+//			auditTrail.setKodeRecord(System.currentTimeMillis());
+			auditTrail.setKodeUserPelaku(sUserId);
+			auditTrail.setNamaKomputer("");
+			auditTrail.setNamaTable(tblName);//nama class aja blom ketemu nama table
+			auditTrailDAO.insert(auditTrail);
 	}
 /*
  * Cek single login

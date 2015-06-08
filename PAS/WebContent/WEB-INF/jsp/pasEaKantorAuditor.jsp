@@ -146,7 +146,7 @@ var branchcode;
 		comboProvinsiToKabupaten($("#Provinsi"),'',$("#Kota"),'');//seacrh	
 	});
 
-
+/* pinda ke my.js
 	
 	function comboKabupaten(cmbKab,kabupaten) {
 		cmbKab.combobox({
@@ -180,7 +180,7 @@ var branchcode;
 	
 	
 	
-	
+*/
 	
 	
 	

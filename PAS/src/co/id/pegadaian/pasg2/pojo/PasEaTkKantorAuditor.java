@@ -10,15 +10,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "Tbl_Pas_Ea_Tk_Kantor_Auditor", schema = "PASG2")
-public class TblPasEaTkKantorAuditor extends AuditTrail implements
+@Table(name = "PAS_EA_TK_KANTOR_AUDITOR", schema = "PASG2")//Pas_Ea_Tk_Kantor_Auditor
+public class PasEaTkKantorAuditor extends AuditTrail implements
 		java.io.Serializable {
 	private String kodeTk;
 	private String namaTk;
 	private String keteranganTk;
 	private String statusTk;
-
-	public TblPasEaTkKantorAuditor() {
+ 
+	public PasEaTkKantorAuditor() {
 	}
 
 	@Id

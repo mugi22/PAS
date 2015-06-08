@@ -51,6 +51,15 @@ public class TblPasEaKetuaTimAuditorDAO {
 
 		return (TblPasEaKetuaTimAuditor)  criteria.uniqueResult();//session.get(TblPasEaKetuaTimAuditor.class, id);
 	}
+
+	public TblPasEaKetuaTimAuditor getByBranch(String  kodeKantorAuditor){
+		Criteria criteria =null;
+		criteria = session.createCriteria(TblPasEaKetuaTimAuditor.class);
+                    criteria.add(Restrictions.eq("kodeKantorAuditor", kodeKantorAuditor)); 	
+
+		return (TblPasEaKetuaTimAuditor)  criteria.uniqueResult();//session.get(TblPasEaKetuaTimAuditor.class, id);
+	}
+	
 	
 	public List<TblPasEaKetuaTimAuditor> getAll(){
 		return (List<TblPasEaKetuaTimAuditor>) session.createCriteria(TblPasEaKetuaTimAuditor.class).list();

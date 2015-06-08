@@ -15,6 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -129,8 +131,11 @@ public class AntoController  extends AbstractListScreen{
                
                sess.beginTransaction();
                dao.insert(tbl);
+               
+               System.out.println("-------------------------- "+tbl.getClass().getName()+" == ");
+              
+               simpanLog(user.getUserId(),gson.toJson(tbl),"ADD",sess,tbl.getClass().getName());
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),gson.toJson(tbl));
                sess.close();
                x=gson.toJson("SUKSES");
          }catch(Exception e){
@@ -172,8 +177,9 @@ public class AntoController  extends AbstractListScreen{
                
                sess.beginTransaction();
                dao.update(tbl);
-               sess.getTransaction().commit();
-                simpanLog(user.getUserId(),"MODIFY  : "+gson.toJson(tbl)+" OLD "+tblOld);
+              
+                simpanLog(user.getUserId(),gson.toJson(tbl)+" OLD "+tblOld,"MODIFY",sess,tbl.getClass().getName());
+                sess.getTransaction().commit();
                sess.close();
                x=gson.toJson("UPDATE SUKSES");
          }catch(Exception e){
@@ -207,8 +213,8 @@ public class AntoController  extends AbstractListScreen{
                String tblDel = gson.toJson(tbl);
                sess.beginTransaction();
                dao.delete(tbl);
+               simpanLog(user.getUserId(),"DELETE  : "+tblDel,"DELETE",sess,tbl.getClass().getName());
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),"DELETE  : "+tblDel);
                sess.close();
                h.put("success", true);
                x=gson.toJson(h);

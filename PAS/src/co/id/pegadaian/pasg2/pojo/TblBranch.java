@@ -19,11 +19,6 @@ import javax.persistence.TemporalType;
 public class TblBranch extends AuditTrail implements java.io.Serializable {
 
 	private String branchCode;
-//	private String createBy;
-//	private Date createDate;
-//	private String updateBy;
-//	private Date updateDate;
-//	private BigDecimal versi;
 	private String alternateId;
 	private Date closeDate;
 	private String kelas;
@@ -65,11 +60,6 @@ public class TblBranch extends AuditTrail implements java.io.Serializable {
 			String statusOperasional, String telp, Date tglSkPinca,
 			String versisbg) {
 		this.branchCode = branchCode;
-//		this.createBy = createBy;
-//		this.createDate = createDate;
-//		this.updateBy = updateBy;
-//		this.updateDate = updateDate;
-//		this.versi = versi;
 		this.alternateId = alternateId;
 		this.closeDate = closeDate;
 		this.kelas = kelas;
@@ -115,7 +105,7 @@ public class TblBranch extends AuditTrail implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "CLOSE_DATE", length = 7)
+	@Column(name = "CLOSE_DATE", length = 27)
 	public Date getCloseDate() {
 		return this.closeDate;
 	}
@@ -170,7 +160,7 @@ public class TblBranch extends AuditTrail implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "OPEN_DATE", length = 7)
+	@Column(name = "OPEN_DATE", length = 27)
 	public Date getOpenDate() {
 		return this.openDate;
 	}
@@ -279,7 +269,7 @@ public class TblBranch extends AuditTrail implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "TGL_SK_PINCA", length = 7)
+	@Column(name = "TGL_SK_PINCA", length = 27)
 	public Date getTglSkPinca() {
 		return this.tglSkPinca;
 	}

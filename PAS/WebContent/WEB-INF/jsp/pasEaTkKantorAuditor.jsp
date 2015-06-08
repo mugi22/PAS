@@ -102,7 +102,9 @@ var branchcode;
 		$("#btnAdd").linkbutton('${btnAdd}');
 		$("#btnEdit").linkbutton('${btnEdit}');
 		$("#btnDelete").linkbutton('${btnDelete}');
-		$("#btnShow").linkbutton('${btnShow}');		
+		$("#btnShow").linkbutton('${btnShow}');	
+		comboLookup($('#statusTk'),"STATUS");//form
+		comboLookup($('#StatusTk'),"STATUS");//form
 	});
 
 	function test() {
@@ -111,7 +113,7 @@ var branchcode;
 
 	function retrieve() {		
 		var jsonurl = 'pasEaTkKantorAuditorListAll.htm?'+
-'KodeTk='+$('#KodeTk').val()+"&"+'NamaTk='+$('#NamaTk').val()+"&"+'StatusTk='+$('#StatusTk').val()+"&"+"userId="+"${userId}";
+'KodeTk='+$('#KodeTk').val()+"&"+'NamaTk='+$('#NamaTk').val()+"&"+'StatusTk='+$('#StatusTk').combobox('getValue')+"&"+"userId="+"${userId}";
 		$('#dg').datagrid({
 			url : jsonurl,
 			onLoadSuccess : function(data) {

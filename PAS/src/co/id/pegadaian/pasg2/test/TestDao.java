@@ -11,12 +11,14 @@ import co.id.pegadaian.pasg2.dao.TblKabupatenDAO;
 import co.id.pegadaian.pasg2.dao.TblKecamatanDAO;
 import co.id.pegadaian.pasg2.dao.TblMenuDAO;
 import co.id.pegadaian.pasg2.dao.TblPasEaKantorAuditorDAO;
-import co.id.pegadaian.pasg2.dao.TblPasEaTkKantorAuditorDAO;
+import co.id.pegadaian.pasg2.dao.PasEaTkKantorAuditorDAO;
+import co.id.pegadaian.pasg2.dao.TblUserDAO;
 import co.id.pegadaian.pasg2.db.HibernateUtil;
 import co.id.pegadaian.pasg2.pojo.TblKabupaten;
 import co.id.pegadaian.pasg2.pojo.TblKecamatan;
 import co.id.pegadaian.pasg2.pojo.TblPasEaKantorAuditor;
-import co.id.pegadaian.pasg2.pojo.TblPasEaTkKantorAuditor;
+import co.id.pegadaian.pasg2.pojo.PasEaTkKantorAuditor;
+import co.id.pegadaian.pasg2.pojo.TblUser;
 
 public class TestDao {
 
@@ -34,7 +36,8 @@ public class TestDao {
 //			System.out.println(gson.toJson(tbl));
 //		}
 		//testKecamatanDao(sess);
-		testTblPasEaKantorAuditorDao(sess);
+		//testTblPasEaKantorAuditorDao(sess);
+		testTblUserDao(sess);
 		sess.close();
 	}
 	
@@ -59,4 +62,12 @@ public class TestDao {
 		}
 	}
 
+	public static void testTblUserDao(Session sess){
+		TblUserDAO dao = new TblUserDAO(sess);		
+		List<TblUser> l = dao.getByBranch("00002");
+		Gson gson = new Gson();
+		for(TblUser tbl : l){
+			System.out.println(gson.toJson(tbl));
+		}
+	}
 }

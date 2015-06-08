@@ -95,8 +95,7 @@
 				<label>End Time  </label> :<input name="endTime" class="easyui-datebox" id="endTime" data-options="formatter:myformatter,parser:myparser"/>
 			</div>
 			<div class="fitem">
-				<label>Enable</label> : 
-				<select class="easyui-combobox" name="enabled" id="enabled" style="width:60px;" data-options="panelHeight:'auto'">
+				<label>Status</label> :<select class="easyui-combobox" name="enabled" id="enabled" style="width:60px;" data-options="panelHeight:'auto'">
 							<option value="Y">Ya</option>
 							<option value="N">Tidak</option>
 				</select>

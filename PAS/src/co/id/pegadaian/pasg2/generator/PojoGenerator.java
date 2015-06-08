@@ -86,7 +86,7 @@ public class PojoGenerator {
 						"\n";
 		
 		String className="@Entity\n"+
-						"@Table(name = "+'"'+reg.getParameter("tblName")+'"'+", schema = "+'"'+"PASG2"+'"'+")\n"+
+						"@Table(name = "+'"'+(reg.getParameter("tblName")).toUpperCase()+'"'+", schema = "+'"'+"PASG2"+'"'+")\n"+
 						"public class "+namaPojo+" extends AuditTrail implements java.io.Serializable {\n";
 		
 		StringBuffer sProperti = new StringBuffer();

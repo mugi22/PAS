@@ -126,7 +126,7 @@ XXFormFild
                sess.beginTransaction();
                dao.insert(tbl);
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),gson.toJson(tbl));
+               simpanLog(user.getUserId(),"ADD     : "+gson.toJson(tbl));
                sess.close();
                x=gson.toJson("SUKSES");
          }catch(Exception e){

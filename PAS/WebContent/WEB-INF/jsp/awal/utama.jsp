@@ -30,14 +30,14 @@
 	<!-- div style="margin:  0px; padding: 0px"></div--> 
 	<div id="cc" class="easyui-layout" style="width: 100%; height: 700px; padding-top: 0px;">
 		<div data-options="region:'north'" style="height: 85px; background-color: #0081C2; ">
-			<h2>PAS G2 Project</h2>
+			<h2 style="color: #ffffff">PAS G2 Project</h2>
 			<table width="100%">
 			<tr>
-				<td align="left" width="20%" style="padding-bottom: 1px;"><br> ${user.userId} ${user.name} ${user.branchCode}
+				<td align="left" width="20%" style="color: #ffffff"><br> ${user.userId} ${user.name} ${user.branchCode}
 				<input type="hidden" id="key" value="${key}" >
 				</td>
 				<td align="right">
-				<a href="logout.htm?userId=${user.userId}">Logout</a>
+				<a style="color: #ffffff" href="logout.htm?userId=${user.userId}">Logout</a>
 					<!-- img alt="" src="image/java.jpg"  height="35" width="60">
 					<img alt="" src="image/eclipse.png"  height="35" width="100">
 					<img alt="" src= "image/hibernate.png" height="35" width="70">

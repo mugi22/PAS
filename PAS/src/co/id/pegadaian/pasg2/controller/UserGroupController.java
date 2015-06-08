@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import co.id.pegadaian.pasg2.dao.TblGroupDAO;
+import co.id.pegadaian.pasg2.dao.TblUserDAO;
 import co.id.pegadaian.pasg2.dao.TblUserGroupDAO;
 import co.id.pegadaian.pasg2.db.HibernateUtil;
+import co.id.pegadaian.pasg2.pojo.TblGroup;
 import co.id.pegadaian.pasg2.pojo.TblUser;
 import co.id.pegadaian.pasg2.pojo.TblUserGroup;
 import co.id.pegadaian.pasg2.util.AbstractListScreen;
@@ -82,15 +85,15 @@ if(!cekValidSession(session,UID)){
 			Map h = new HashMap<String, Object>();
 			List<TblUserGroup> l = new ArrayList<TblUserGroup>();
 				h = dao.getByPerPage(new BigDecimal(GroupId),UserId,loffset, row);
-			sess.close();
+//			sess.close();
             result = gson.toJson(h);
             System.out.println(result);
             
-            /**  BILA ADA PERUBAHAN DATA JSON
+            /**  BILA ADA PERUBAHAN DATA JSON */
             String x = changeJson(h, sess);
             sess.close();
         	result ="{"+'"'+"total"+'"'+":"+h.get("total")+","+'"'+"rows"+'"'+":["+x+']'+'}';
-            */
+           
             
 			
 		} catch (Exception e) {
@@ -130,7 +133,8 @@ if(!cekValidSession(session,UID)){
                sess.beginTransaction();
                dao.insert(tbl);
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),gson.toJson(tbl));
+               simpanLog(user.getUserId(),gson.toJson(tbl),"ADD",sess,tbl.getClass().getName());
+                      
                sess.close();
                x=gson.toJson("SUKSES");
          }catch(Exception e){
@@ -178,7 +182,7 @@ if(!cekValidSession(session,userId)){
                sess.beginTransaction();
                dao.update(tbl);
                sess.getTransaction().commit();
-                simpanLog(user.getUserId(),"MODIFY  : "+gson.toJson(tbl)+" OLD "+tblOld);
+               simpanLog(user.getUserId(),gson.toJson(tbl)+" OLD "+tblOld,"MODIFY",sess,tbl.getClass().getName());
                sess.close();
                x=gson.toJson("UPDATE SUKSES");
          }catch(Exception e){
@@ -220,7 +224,8 @@ String UserId=reg.getParameter("UserId");
                sess.beginTransaction();
                dao.delete(tbl);
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),"DELETE  : "+tblDel);
+               simpanLog(user.getUserId(),"DELETE  : "+tblDel,"DELETE",sess,tbl.getClass().getName());
+                      
                sess.close();
                h.put("success", true);
                x=gson.toJson(h);
@@ -232,28 +237,31 @@ String UserId=reg.getParameter("UserId");
  	 }
 
 //----------BILA ADA PERUBAHAN DATA JSON, RUBAH DI SINI------------------------------------------
-//	public String changeJson(Map<String,Object> result, Session sess){//nemabhakan field nama group dan nama menu
-//		List<TblPriviledge> listPri = (List<TblPriviledge>) result.get("rows");
-////		List<TblPriviledge> priv = (List<TblPriviledge>) h.get("rows");
-//		Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
-//		StringBuffer sb = new StringBuffer();
-//		for(TblPriviledge pr : listPri){
-//			String s = gson.toJson(pr);			
-//			TblGroupDAO groupDAO = new TblGroupDAO(sess);
-//			TblGroup group = groupDAO.getById(pr.getGroupId());
-//			TblMenuDAO menuDAO = new TblMenuDAO(sess);
-//			TblMenu menu =  menuDAO.getById(pr.getMenuId());
-//			String a = s.replace("}", ","+'"'+"groupName"+'"'+":"+'"'+group.getGroupName()+'"'+","+'"'+"menuName"+'"'+":"+'"'+menu.getMenuName()+'"'+"},");
-//			sb.append(a);
-//		}
-//		String x="";
-//		if(sb.toString().length()>0){
-//			x= (sb.toString()).substring(0,sb.toString().length()-1);
-//		}	else{
-//			x="";
-//		}
-//		return x;
-//	}
+	public String changeJson(Map<String,Object> result, Session sess){//nemabhakan field nama group dan nama menu
+		List<TblUserGroup> list = (List<TblUserGroup>) result.get("rows");
+//		List<TblPriviledge> priv = (List<TblPriviledge>) h.get("rows");
+		Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
+		StringBuffer sb = new StringBuffer();
+		for(TblUserGroup tbl : list){
+			String s = gson.toJson(tbl);		
+			//nama group
+			TblGroupDAO groupDAO = new TblGroupDAO(sess);
+			TblGroup group = groupDAO.getById(tbl.getGroupId());
+			//nama user
+			TblUserDAO userDAO = new TblUserDAO(sess);
+			TblUser user = userDAO.getById(tbl.getUserId());
+			System.out.println("userId "+tbl.getUserId());
+			String a = s.replace("}", ","+'"'+"groupName"+'"'+":"+'"'+group.getGroupName()+'"'+","+'"'+"userName"+'"'+":"+'"'+user.getName()+'"'+"},");
+			sb.append(a);
+		}
+		String x="";
+		if(sb.toString().length()>0){
+			x= (sb.toString()).substring(0,sb.toString().length()-1);
+		}	else{
+			x="";
+		}
+		return x;
+	}
 
 	
 }

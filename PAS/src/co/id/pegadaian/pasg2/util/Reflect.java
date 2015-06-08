@@ -14,10 +14,10 @@ public class Reflect {
 	 */
 	public static void main(String[] args) {
 		Reflect ref = new Reflect();
-		String className = "com.id.kas.pojo.TblBranch";
+		String className = "co.id.pegadaian.pasg2.pojo.TblMenu";
 //		ref.getClassMethode(className);
 		
-		ref.setClassName("com.id.kas.pojo.TblBranch");
+		ref.setClassName("co.id.pegadaian.pasg2.pojo.TblMenu");
 		ref.getClassField();
 		ref.getPropertyAndTypeByMehode();
 	}

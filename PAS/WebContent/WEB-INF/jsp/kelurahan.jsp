@@ -339,6 +339,14 @@ var branchcode;
 				}
 			}
 		});
+		
+		//clear combobox
+		comboProvinsiToKabupaten($("#KodeProvinsi"),"",$("#KodeKabupaten"),"",$("#KodeKecamatan"),"");//seacrh
+		Urlkab = 'comboKabupatenByProvinsi.htm?param='+"00"+'&param2='+"0000";//+ 
+		$("#KodeKabupaten").combobox('reload', Urlkab);
+		
+		UrlKec='comboKecamatanByKabupaten.htm?param='+"0000"+'&param2='+"000000";
+		$("#KodeKecamatan").combobox('reload', UrlKec);
 	}
 
 	/* END function untuk list data*/

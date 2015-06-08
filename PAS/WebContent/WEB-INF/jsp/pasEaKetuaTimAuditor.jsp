@@ -176,6 +176,14 @@ var branchcode;
 			$('#fm').form('clear');
 			$('#fm').form('load', row);
 			url = 'pasEaKetuaTimAuditorEdit.htm?' + "userId=" + "${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten; //SESUAIKAN
+			//-----------
+					
+				$('#kodeKantorAuditor').combobox('clear');
+				urlz ='comboPasEaKantorAuditorByTk.htm?param='+row.kodeTkKantorAuditor+'&param2='+row.kodeKantorAuditor;
+				$('#kodeKantorAuditor').combobox('reload',urlz);
+			
+			//-------
+			
 			onEdit();
 		}
 	}

@@ -78,6 +78,14 @@ Integer count = criteria.uniqueResult();
 		return (List<TblUser>) criteria.setFirstResult(start).setMaxResults(rowcount).list();
 	}
 	
+	public List<TblUser> getByBranch(String branchCode ){
+		Criteria 	criteria = session.createCriteria(TblUser.class);        
+        criteria.add(Restrictions.eq("branchCode", branchCode)); 	
+		return (List<TblUser>) criteria.list();
+	}
+	
+	
+	
 	public Long getByCount(String userId,String branchCode, int start, int rowcount  ){
 		Criteria criteria =getCriteria(userId,branchCode);
 		return (Long) criteria.setProjection(Projections.rowCount()).uniqueResult();

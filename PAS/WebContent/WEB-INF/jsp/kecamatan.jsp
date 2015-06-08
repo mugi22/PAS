@@ -206,16 +206,26 @@ var branchcode;
 	}
 
 	function doClear() {
+		//$("#KodeKabupaten").combobox('clear');
+		//comboKabupaten($("#KodeKabupaten"));
 		$('#formCari').form('clear');
 		var jsonurl = "listClear.htm";
 		$('#dg').datagrid({
 			url : jsonurl,
 			onLoadSuccess : function(data) {
+				//$("#KodeKabupaten").combobox('clear');
+				comboProvinsiToKabupaten($("#KodeProvinsi"),'',$("#KodeKabupaten"),'');
+				Urlk = 'comboKabupatenByProvinsi.htm?param='+"00"+'&param2='+"";//+ 
+				$("#KodeKabupaten").combobox('reload', Urlk);
 				if (data.total > 0) {
 					alert("Clear Gagal..................");
 				}
 			}
 		});
+		
+		//Urlk = 'comboKabupatenByProvinsi.htm?param='+'&param2=';//+ 
+		//
+		//comboProvinsiToKabupaten($("#KodeProvinsi"),'',$("#KodeKabupaten"),'');//seacrh
 	}
 
 	/* END function untuk list data*/
