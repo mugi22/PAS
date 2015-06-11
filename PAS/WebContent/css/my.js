@@ -116,7 +116,7 @@
 	/*Kantor auditor*/
 	function comboEaTkAuditon(cmbTkAuditan,tkAuditanSelected) {
 		cmbTkAuditan.combobox({
-			url :'comboEaTkAuditon.htm?param='+'&param2='+tkAuditanSelected,
+			url :'comboEaTkAuditon.htm?param='+tkAuditanSelected+'&param2='+tkAuditanSelected,
 			valueField : 'id',
 			textField : 'text',
 			panelHeight:'auto',
@@ -197,7 +197,16 @@
 		//status = '';
 	}	
 	
-	
+/* Combo PPL*/
+	//GROUP	comboEaPPL
+	function comboEaPPL(t) {
+		t.combobox({
+			url : 'comboEaPPL.htm?param=' +"" ,
+			valueField : 'id',
+			textField : 'text'/*,
+			panelHeight:'auto'*/
+		});
+	}
 	
 	
 	

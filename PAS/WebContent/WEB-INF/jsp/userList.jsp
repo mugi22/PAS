@@ -15,6 +15,8 @@
             <form name="FREG" id="formCari" method="post" action="#"  >    
                 <label>User Id</label> : 
                 <input name="userId" type="text" id="userIdSearch" size="30" maxlength="30"><br>
+                 <label>User Name</label> : 
+                <input name="userName" type="text" id="userName" size="30" maxlength="30"><br>
 				<label>Unit</label> : 
                 <input name="unitId" type="text" id="unitId" size="30" maxlength="30"><br>
                 <div id="btn">     
@@ -64,7 +66,7 @@
 		<form id="fm" method="post" novalidate>
 			<div class="fitem">
 				<label>User ID</label> :<input name="userId"	class="easyui-textbox" required="true" id="userId">
-				<input type="button" name="btnKirim" id="btnCariUser" value="Cari" onclick="cariUser()"> 
+				<!-- input type="button" name="btnKirim" id="btnCariUser" value="Cari" onclick="cariUser()"--> 
 			</div>
 			<div class="fitem">
 				<label>Nama User</label> :<input name="name" class="easyui-textbox" required="true"  id="namax">	
@@ -75,16 +77,19 @@
 				<label>Password</label> :<input type="password" name="password" class="easyui-textbox" required="true" id="password">
 			</div>			
 			<div class="fitem">
+				<label>Kode Kantor</label> :<input id="branchCodeAll" name="branchCodeAll"  	class="easyui-textbox" >
+				<input type="button" value="Kantor Auditor" style="width: 100px;" onclick="cariKantorAuditan();">
+			</div>
+			<div class="fitem">
+				<label>Nama Kantor</label> :<input id="branchName" name="branchName" 	class="easyui-textbox" style="width: 400px;" >
+			</div>
+			<div class="fitem">
 				<!-- label>Kode Kanwil</label> :<input id="branchCodeKanwil" name="branchCodeKanwil" value="aa" style="width: 300px;"-->
 				<div class="fitem">	<label>Tingkat</label> :<input name="kodeTk"	class="easyui-textbox" id="kodeTk"></div>
            
 			</div>
 			<div class="fitem">
-				<label>Kode Cabang</label> :<input id="branchCodeAll" name="branchCodeAll" value="aa" style="width: 300px;">
-			</div>
-			
-			<div class="fitem">
-				<label>Email</label> :<input name="email" class="easyui-textbox" validType="email" id="email">
+				<label>Email</label> :<input name="email" class="easyui-textbox" validType="email" id="email" 	class="easyui-textbox" >
 			</div>
 			
 			<div class="fitem">
@@ -116,140 +121,114 @@
 
 
 <script>
-//window pencarian
-/*function cariUser() {
-	//alert("testtttt..... click");
-	$('#win').window({
-        width:600,
-        height:400,
-        href:'cariUser.htm',
-        modal:true,
-        minimizable:false,
-        maximizable:false,
-        collapsible:false
-        
-        });
-    //$('#cari').show();
-}
-*/
 
-var url;
-var branchcode;
-$("document").ready(function() {
-	$("#btnAdd").linkbutton('${btnAdd}');
-	$("#btnEdit").linkbutton('${btnEdit}');
-	$("#btnDelete").linkbutton('${btnDelete}');
-	$("#btnShow").linkbutton('${btnShow}');
-	$('#cari').hide();
-	$('#cc').layout('panel', 'west').panel('tittle', 'abc');
-	comboEaTkKantorAuditor($('#kodeTk'));
-	comboEaKantorAuditor($('#branchCodeAll'));
-});
-//comboPasEaKantorAuditorByTk //getPasEaKantorAuditor
-/*pindah my.js
-function comboEaKantorAuditor(cmbKantorAuditor,kantorAuditorSelected) {
-	cmbKantorAuditor.combobox({
-		url :'comboPasEaKantorAuditorByTk.htm?param='+'&param2='+kantorAuditorSelected,
-		valueField : 'id',
-		textField : 'text',
-		panelHeight:'auto',
-		onSelect: function(rec) {
-		}
-	});
-}
-*/
-
-/*
-pindah ke my.js
-function comboEaTkKantorAuditor(cmbTk,tkSelected,cmbKantorAuditor,kantorAuditorSelected) {
-	cmbTk.combobox({
-		url :'comboEaTkKantorAuditor.htm?param2='+tkSelected+'&param=',
-		valueField : 'id',
-		textField : 'text',
-		panelHeight:'auto',
-		onSelect: function(rec) {
-			//alert(cmbTk.combobox('getValue'));
-			cmbKantorAuditor.combobox('clear');
-			urlz ='comboPasEaKantorAuditorByTk.htm?param='+cmbTk.combobox('getValue')+'&param2='+kantorAuditorSelected;
-			cmbKantorAuditor.combobox('reload',urlz);
-		}
-	});
-}
-
-*/
-
-function doEdit() {
-	var t;
-	$('#fm').form('clear');
-	var row = $('#dg').datagrid('getSelected');
-	if (row) {
-		$('#dlg').dialog('open').dialog('setTitle', 'Edit User');
-		$('#fm').form('clear');
-		$('#fm').form('load', row);
-		url = 'userEdit.htm?'+"userID="+"${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten;
-		upperCase($('#namax'));
-		branchcode = row.branchCode;			
-		
+	var url;
+	var branchcode;
+	$("document").ready(function() {
 		comboEaTkKantorAuditor($('#kodeTk'));
-		comboEaKantorAuditor($('#branchCodeAll'));
-	//ambil kantorauditor berdasarkan kodekantor pada table user getPasEaKantorAuditor
-		var t;
-		$.ajax({
-			url:'getPasEaKantorAuditor.htm?param='+branchcode,//cari kode parent nya
-			async: true,
-			success	: function(result){
-				t = JSON.parse(result);
-				//alert("t.kodeTk "+t.kodeTk+" branchcode"+branchcode);
-				$('#kodeTk').combobox('clear');
-				comboEaTkKantorAuditor($('#kodeTk'),t.kodeTk,$('#branchCodeAll'),branchcode);//cmbTk,tkSelected,cmbKantorAuditor,kantorAuditorSelected
-				urlx= 'comboEaTkKantorAuditor.htm?param='+t.kodeTk+'&param2=';
-				$('#kodeTk').combobox('reload',urlx);
-				
-				$('#branchCodeAll').combobox('clear');
-				urlz ='comboPasEaKantorAuditorByTk.htm?param='+t.kodeTk+'&param2='+branchcode;
-				$('#branchCodeAll').combobox('reload',urlz);
-			}
-		});
-		onEdit();
+		//*comboEaKantorAuditor($('#branchCodeAll'));
+		$('#branchCodeAll').textbox('readonly', true);
+		$('#branchName').textbox('readonly', true);
+		$('#kodeTk').textbox('readonly', true);
+	});
+
+	function test() {
+		alert("test...............");
 	}
-}
 
+	function cariKantorAuditan() {
+		$('#win').window(
+				{
+					width : 800,
+					height : 400,
+					href : 'pasEaKantorAuditorCari.htm?'
+							+ window.location.search.replace("?", ""),
+					modal : true,
+					minimizable : false,
+					maximizable : false,
+					collapsible : false
+				});
+	}
 
+	function ambil(s) {
+		var row = $('#dg2').datagrid('getSelected');
+		$("#branchCodeAll").textbox('setValue', row.kodeKantor);
+		$("#branchName").textbox('setValue', row.nama);
+		urlx= 'comboEaTkKantorAuditor.htm?param='+row.kodeTk+'&param2=';
+		$('#kodeTk').combobox('reload',urlx);
+		$('#win').window('close');
+	}
 
+	function doEdit() {
+		var t;
+		$('#fm').form('clear');
+		var row = $('#dg').datagrid('getSelected');
+		if (row) {
+			$('#dlg').dialog('open').dialog('setTitle', 'Edit User');
+			$('#fm').form('clear');
+			$('#fm').form('load', row);
+			url = 'userEdit.htm?' + "userID=" + "${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten;
+			upperCase($('#namax'));
+			branchcode = row.branchCode;
+			//ambil data kantor Auditor by id
+			$.ajax({
+				url:'getKantorAuditorById.htm?param='+row.branchCode,
+				success : function(result) {
+					//alert("result "+result);
+					t = JSON.parse(result);
+					urlx= 'comboEaTkKantorAuditor.htm?param='+t.kodeTk+'&param2=';
+					$('#kodeTk').combobox('reload',urlx);
+					$("#branchCodeAll").textbox('setValue', t.kodeKantor);
+					$("#branchName").textbox('setValue', t.nama);
+				}
+			});
+			
+			
+			
+			//*comboEaTkKantorAuditor($('#kodeTk'));
+			//*comboEaKantorAuditor($('#branchCodeAll'));
+			//ambil kantorauditor berdasarkan kodekantor pada table user getPasEaKantorAuditor
+			//var t;
+			//$.ajax({
+			//	url : 'getPasEaKantorAuditor.htm?param=' + branchcode,//cari kode parent nya
+			//	success : function(result) {
+					/*t = JSON.parse(result);
+					//alert("t.kodeTk "+t.kodeTk+" branchcode"+branchcode);
+					$('#kodeTk').combobox('clear');
+					comboEaTkKantorAuditor($('#kodeTk'),t.kodeTk,$('#branchCodeAll'),branchcode);//cmbTk,tkSelected,cmbKantorAuditor,kantorAuditorSelected
+					urlx= 'comboEaTkKantorAuditor.htm?param='+t.kodeTk+'&param2=';
+					$('#kodeTk').combobox('reload',urlx);
+					
+					$('#branchCodeAll').combobox('clear');
+					urlz ='comboPasEaKantorAuditorByTk.htm?param='+t.kodeTk+'&param2='+branchcode;
+					$('#branchCodeAll').combobox('reload',urlz);
+					 */
+			//	}
+			//});
+			onEdit();
+		}
+	}
 
+	function doAdd() {
+		$('#dlg').dialog('open').dialog('setTitle', 'Tambah User');
+		$('#fm').form('clear');
+		url = 'userAdd.htm?' + "userID=" + "${userId}";
+		upperCase($('#namax'));
+		upperCase($('#userId'));
+		branchcode = ''; //combobox tidak ada default
+		//*comboEaKantorAuditor($('#branchCodeAll'),'');
+		//*comboEaTkKantorAuditor($('#kodeTk'),'',$('#branchCodeAll'),'');
+		//$('#cari').hide();
+		//$('#btnCariUser').hide();
 
+		onAdd();
+	}
 
-
-
-function doAdd() {
-	$('#dlg').dialog('open').dialog('setTitle', 'Tambah User');
-	$('#fm').form('clear');
-	url = 'userAdd.htm?'+"userID="+"${userId}";
-	upperCase($('#namax'));
-	upperCase($('#userId'));
-	branchcode = ''; //combobox tidak ada default
-	comboEaKantorAuditor($('#branchCodeAll'),'');
-	comboEaTkKantorAuditor($('#kodeTk'),'',$('#branchCodeAll'),'');
-	
-	onAdd();
-}
-
-
-
-
-
-
-
-function doAmbil(){ //ambil key dari row yang dipilih/klik
-	var row = $('#dg2').datagrid('getSelected');
-	//alert(row.userId);
-	$('#userId').textbox('setValue',row.userId);
-	$('#win').window('close'); 
-}
-	
 	/* function untuk list data*/
 	function retrieve() {
-		var jsonurl = 'userListAll.htm?param=' + $('#userIdSearch').val()+"&"+"userID="+"${userId}"+'&'+"unitId="+$('#unitId').val();
+		var jsonurl = 'userListAll.htm?param=' + $('#userIdSearch').val() + "&"
+				+ "userID=" + "${userId}" + '&' + "unitId="
+				+ $('#unitId').val() + '&' + "nama=" + $('#userName').val();
 		$('#dg').datagrid({
 			url : jsonurl,
 			onLoadSuccess : function(data) {
@@ -259,7 +238,7 @@ function doAmbil(){ //ambil key dari row yang dipilih/klik
 			}
 		});
 	}
-	
+
 	function doClear() {
 		$('#formCari').form('clear');
 		var jsonurl = "listClear.htm";
@@ -277,78 +256,55 @@ function doAmbil(){ //ambil key dari row yang dipilih/klik
 
 	/* ============FORM FUNCTION ==========*/
 
-	
-	
-
 	function addComboBranch(branchcode) {
 		$('#branchCodeAll').combobox({
 			url : 'comboAllBranch.htm?param=' + branchcode,
 			valueField : 'id',
 			textField : 'text',
-			panelHeight:'auto'
+			panelHeight : 'auto'
 		});
 		branchcode = '';
 	}
-	
-
-
-function addComboKanwil(selectedValue,unit) {
-	$('#branchCodeKanwil').combobox({
-		url : 'comboAllKanwil.htm?param=' + selectedValue,
-		valueField : 'id',
-		textField : 'text',
-		panelHeight:'auto',
-		onSelect: function(rec) {	
-            /*alert('kode kanwil   --->'+$('#branchCodeKanwil').combobox('getValue')+"unit  "+unit);*/
-			$('#branchCodeAll').combobox('clear');
-		     urlk = 'comboAllBranch.htm?param='+$('#branchCodeKanwil').combobox('getValue')+"&selected="+unit;//11875
-	         $('#branchCodeAll').combobox('reload', urlk);
-			}
-		});
-	selectedValue = '';
-}
-
-	
 /*
- * 
-function addComboByParent(parent) {	
-	$('#branchCodeKanwil').combobox({
-		url : 'comboAllBranch.htm?param=' + parent,
-		valueField : 'id',
-		textField : 'text',
-		panelHeight:'auto',
-		 onSelect: function(rec) {			
-			 $('#branchCodeAll').combobox('clear');
-			 var urlk = 'comboAllBranch.htm?param='+rec.id;
-	            $('#branchCodeAll').combobox('reload', urlk);			
-		}
-	});
-	branchcode = '';
-}	
+	function addComboKanwil(selectedValue, unit) {
+		$('#branchCodeKanwil').combobox(
+				{
+					url : 'comboAllKanwil.htm?param=' + selectedValue,
+					valueField : 'id',
+					textField : 'text',
+					panelHeight : 'auto',
+					onSelect : function(rec) {
+						/*alert('kode kanwil   --->'+$('#branchCodeKanwil').combobox('getValue')+"unit  "+unit);
+						$('#branchCodeAll').combobox('clear');
+						urlk = 'comboAllBranch.htm?param='
+								+ $('#branchCodeKanwil').combobox('getValue')
+								+ "&selected=" + unit;//11875
+						$('#branchCodeAll').combobox('reload', urlk);
+					}
+				});
+		selectedValue = '';
+	}
+*/
+	/*
+	 * 
+	 function addComboByParent(parent) {	
+	 $('#branchCodeKanwil').combobox({
+	 url : 'comboAllBranch.htm?param=' + parent,
+	 valueField : 'id',
+	 textField : 'text',
+	 panelHeight:'auto',
+	 onSelect: function(rec) {			
+	 $('#branchCodeAll').combobox('clear');
+	 var urlk = 'comboAllBranch.htm?param='+rec.id;
+	 $('#branchCodeAll').combobox('reload', urlk);			
+	 }
+	 });
+	 branchcode = '';
+	 }	
 	
- */	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	 */
+
 	function doShow() {
-		/*$('#fm').form('clear');
-		var row = $('#dg').datagrid('getSelected');
-		if (row) {
-			$('#dlg').dialog('open').dialog('setTitle', 'Edit User');
-			$('#fm').form('clear');
-			$('#fm').form('load', row);
-			url = 'userEdit.htm?'+"userID="+"${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten;
-			upperCase($('#namax'));
-	
-			onShow();
-		}*/
 		doEdit();
 		onShow();
 	}
@@ -361,7 +317,7 @@ function addComboByParent(parent) {
 						if (r) {
 							$.post('userDelete.htm', {
 								userId : row.userId,
-								userID:"${userId}"
+								userID : "${userId}"
 							}, function(result) {
 								if (result.success) {
 									$('#dg').datagrid('reload'); // reload the user data
@@ -409,7 +365,7 @@ function addComboByParent(parent) {
 	/*inputan readonly atau tidak saat onShow */
 	function onShow() {
 		//list button
-		$('#btnCariUser').hide();
+		//$('#btnCariUser').hide();
 		$('#userId').textbox('readonly', true);
 		$('#namax').textbox('readonly', true);
 		$('#password').textbox('readonly', true);
@@ -420,51 +376,38 @@ function addComboByParent(parent) {
 		$('#enabled').combobox('readonly', true);
 		//form button
 		$('#btnSave').linkbutton('disable');
-		
+
 	}
 	/*inputan readonly atau tidak saat Add*/
 	function onAdd() {
 		//list button
-		$('#btnCariUser').show();
+		//$('#btnCariUser').show();
 		$('#userId').textbox('readonly', false);
 		$('#namax').textbox('readonly', false);
 		$('#password').textbox('readonly', false);
-		$('#branchCodeAll').textbox('readonly', false);
+		$('#branchCodeAll').textbox('readonly', true);
 		$('#email').textbox('readonly', false);
 		$('#startTime').textbox('readonly', false);
 		$('#endTime').textbox('readonly', false);
 		$('#enabled').combobox('readonly', false);
 		//form button
 		$('#btnSave').linkbutton('enable');
-	
+
 	}
 	/*inputan readonly atau tidak saat Edit */
 	function onEdit() {
 		//list buttonbtn CariUser
-		$('#btnCariUser').hide();
+		//$('#btnCariUser').hide();
 		$('#userId').textbox('readonly', true);
 		$('#namax').textbox('readonly', false);
 		$('#password').textbox('readonly', false);
-		$('#branchCodeAll').textbox('readonly', false);
+		$('#branchCodeAll').textbox('readonly', true);
 		$('#email').textbox('readonly', false);
 		$('#startTime').textbox('readonly', false);
 		$('#endTime').textbox('readonly', false);
 		$('#enabled').combobox('readonly', false);
 		//form button
 		$('#btnSave').linkbutton('enable');
-		
+
 	}
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 </script>

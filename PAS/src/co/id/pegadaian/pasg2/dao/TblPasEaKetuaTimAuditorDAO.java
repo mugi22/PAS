@@ -20,7 +20,7 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-import co.id.pegadaian.pasg2.pojo.TblPasEaKetuaTimAuditor;
+import co.id.pegadaian.pasg2.pojo.PasEaKetuaTimAuditor;
 
 public class TblPasEaKetuaTimAuditorDAO {
 	private Session session;
@@ -30,56 +30,56 @@ public class TblPasEaKetuaTimAuditorDAO {
 	}
 	
 	
-	public void insert(TblPasEaKetuaTimAuditor tblpaseaketuatimauditor){
+	public void insert(PasEaKetuaTimAuditor tblpaseaketuatimauditor){
 		session.save(tblpaseaketuatimauditor);
 	}
 		
-	public void delete(TblPasEaKetuaTimAuditor tblpaseaketuatimauditor){
+	public void delete(PasEaKetuaTimAuditor tblpaseaketuatimauditor){
 		session.delete(tblpaseaketuatimauditor);
 	}
 	
-	public void update(TblPasEaKetuaTimAuditor tblpaseaketuatimauditor){
+	public void update(PasEaKetuaTimAuditor tblpaseaketuatimauditor){
 		session.update(tblpaseaketuatimauditor);
 	}
 //====================================================================	
-	public TblPasEaKetuaTimAuditor getById(String  kodeTkKantorAuditor,String  kodeKantorAuditor,String  kodeUserKetuaTimAuditor){
+	public PasEaKetuaTimAuditor getById(String  kodeTkKantorAuditor,String  kodeKantorAuditor,String  kodeUserKetuaTimAuditor){
 		Criteria criteria =null;
-		criteria = session.createCriteria(TblPasEaKetuaTimAuditor.class);
+		criteria = session.createCriteria(PasEaKetuaTimAuditor.class);
                     if (kodeTkKantorAuditor.length()>0){criteria.add(Restrictions.eq("kodeTkKantorAuditor", kodeTkKantorAuditor)); 	}
                     if (kodeKantorAuditor.length()>0){criteria.add(Restrictions.eq("kodeKantorAuditor", kodeKantorAuditor)); 	}
                     if (kodeUserKetuaTimAuditor.length()>0){criteria.add(Restrictions.eq("kodeUserKetuaTimAuditor", kodeUserKetuaTimAuditor)); 	}
 
-		return (TblPasEaKetuaTimAuditor)  criteria.uniqueResult();//session.get(TblPasEaKetuaTimAuditor.class, id);
+		return (PasEaKetuaTimAuditor)  criteria.uniqueResult();//session.get(TblPasEaKetuaTimAuditor.class, id);
 	}
 
-	public TblPasEaKetuaTimAuditor getByBranch(String  kodeKantorAuditor){
+	public PasEaKetuaTimAuditor getByBranch(String  kodeKantorAuditor){
 		Criteria criteria =null;
-		criteria = session.createCriteria(TblPasEaKetuaTimAuditor.class);
+		criteria = session.createCriteria(PasEaKetuaTimAuditor.class);
                     criteria.add(Restrictions.eq("kodeKantorAuditor", kodeKantorAuditor)); 	
 
-		return (TblPasEaKetuaTimAuditor)  criteria.uniqueResult();//session.get(TblPasEaKetuaTimAuditor.class, id);
+		return (PasEaKetuaTimAuditor)  criteria.uniqueResult();//session.get(TblPasEaKetuaTimAuditor.class, id);
 	}
 	
 	
-	public List<TblPasEaKetuaTimAuditor> getAll(){
-		return (List<TblPasEaKetuaTimAuditor>) session.createCriteria(TblPasEaKetuaTimAuditor.class).list();
+	public List<PasEaKetuaTimAuditor> getAll(){
+		return (List<PasEaKetuaTimAuditor>) session.createCriteria(PasEaKetuaTimAuditor.class).list();
 	}
 	
 	
 	
 	public Long getAllCount(){
-		return (Long) session.createCriteria(TblPasEaKetuaTimAuditor.class).setProjection(Projections.rowCount()).uniqueResult();
+		return (Long) session.createCriteria(PasEaKetuaTimAuditor.class).setProjection(Projections.rowCount()).uniqueResult();
 	}
 
-	public List<TblPasEaKetuaTimAuditor> getAll(int start, int rowcount ){
-		return (List<TblPasEaKetuaTimAuditor>) session.createCriteria(TblPasEaKetuaTimAuditor.class).setFirstResult(start).setMaxResults(rowcount).list();
+	public List<PasEaKetuaTimAuditor> getAll(int start, int rowcount ){
+		return (List<PasEaKetuaTimAuditor>) session.createCriteria(PasEaKetuaTimAuditor.class).setFirstResult(start).setMaxResults(rowcount).list();
 	}
 
 /*//SESUAIKAN DENGAN KRITERIA*/	
 	public Criteria getCriteria(String KodeTkKantorAuditor,String KodeKantorAuditor,String KodeUserKetuaTimAuditor){
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Criteria criteria =null;
-		criteria = session.createCriteria(TblPasEaKetuaTimAuditor.class);
+		criteria = session.createCriteria(PasEaKetuaTimAuditor.class);
                     if (KodeTkKantorAuditor.length()>0){criteria.add(Restrictions.eq("kodeTkKantorAuditor", KodeTkKantorAuditor)); 	}
                     if (KodeKantorAuditor.length()>0){criteria.add(Restrictions.eq("kodeKantorAuditor", KodeKantorAuditor)); 	}
                     if (KodeUserKetuaTimAuditor.length()>0){criteria.add(Restrictions.eq("kodeUserKetuaTimAuditor", KodeUserKetuaTimAuditor)); 	}
@@ -87,9 +87,9 @@ public class TblPasEaKetuaTimAuditorDAO {
 		return criteria;
 	}
 
-	public List<TblPasEaKetuaTimAuditor> getBy(String KodeTkKantorAuditor,String KodeKantorAuditor,String KodeUserKetuaTimAuditor ,int start, int rowcount ){
+	public List<PasEaKetuaTimAuditor> getBy(String KodeTkKantorAuditor,String KodeKantorAuditor,String KodeUserKetuaTimAuditor ,int start, int rowcount ){
 		Criteria criteria =getCriteria(KodeTkKantorAuditor,KodeKantorAuditor,KodeUserKetuaTimAuditor);
-		return (List<TblPasEaKetuaTimAuditor>) criteria.setFirstResult(start).setMaxResults(rowcount).list();
+		return (List<PasEaKetuaTimAuditor>) criteria.setFirstResult(start).setMaxResults(rowcount).list();
 	}
 	
 	public Long getByCount(String KodeTkKantorAuditor,String KodeKantorAuditor,String KodeUserKetuaTimAuditor, int start, int rowcount  ){
@@ -100,7 +100,7 @@ public class TblPasEaKetuaTimAuditorDAO {
 	public Map<String,Object> getByPerPage(String KodeTkKantorAuditor,String KodeKantorAuditor,String KodeUserKetuaTimAuditor ,int start, int rowcount ){
 		Map map = new HashMap<String, Object>();		
 		long rowCount =  getByCount(KodeTkKantorAuditor,KodeKantorAuditor,KodeUserKetuaTimAuditor,  start,rowcount);//total jumlah row
-		List<TblPasEaKetuaTimAuditor> l = getBy(KodeTkKantorAuditor,KodeKantorAuditor,KodeUserKetuaTimAuditor, start,rowcount);//data result nya
+		List<PasEaKetuaTimAuditor> l = getBy(KodeTkKantorAuditor,KodeKantorAuditor,KodeUserKetuaTimAuditor, start,rowcount);//data result nya
 		map.put("total", rowCount);
 		map.put("rows", l);
 		return map;
@@ -108,9 +108,9 @@ public class TblPasEaKetuaTimAuditorDAO {
 
 //==============================REPORT====================================
 /** Retrieve by kriteria tanpa batasan row */
-	public List<TblPasEaKetuaTimAuditor> getBy(String KodeTkKantorAuditor,String KodeKantorAuditor,String KodeUserKetuaTimAuditor  ){
+	public List<PasEaKetuaTimAuditor> getBy(String KodeTkKantorAuditor,String KodeKantorAuditor,String KodeUserKetuaTimAuditor  ){
 		Criteria criteria =getCriteria(KodeTkKantorAuditor,KodeKantorAuditor,KodeUserKetuaTimAuditor);
-		return (List<TblPasEaKetuaTimAuditor>) criteria.list();
+		return (List<PasEaKetuaTimAuditor>) criteria.list();
 	}
 
 

@@ -20,59 +20,59 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-import co.id.pegadaian.pasg2.pojo.TblPasEaAuditan;
+import co.id.pegadaian.pasg2.pojo.PasEaAuditan;
 
-public class TblPasEaAuditanDAO {
+public class PasEaAuditanDAO {
 	private Session session;
 	
-	public TblPasEaAuditanDAO(Session session){
+	public PasEaAuditanDAO(Session session){
 		this.session = session;
 	}
 	
 	
-	public void insert(TblPasEaAuditan tblpaseaauditan){
+	public void insert(PasEaAuditan tblpaseaauditan){
 		session.save(tblpaseaauditan);
 	}
 		
-	public void delete(TblPasEaAuditan tblpaseaauditan){
+	public void delete(PasEaAuditan tblpaseaauditan){
 		session.delete(tblpaseaauditan);
 	}
 	
-	public void update(TblPasEaAuditan tblpaseaauditan){
+	public void update(PasEaAuditan tblpaseaauditan){
 		session.update(tblpaseaauditan);
 	}
 //====================================================================	
-	public TblPasEaAuditan getById(String  kodeTkAuditan,String  kodeAuditan){
+	public PasEaAuditan getById(String  kodeTkAuditan,String  kodeAuditan){
 		Criteria criteria =null;
-		criteria = session.createCriteria(TblPasEaAuditan.class);
+		criteria = session.createCriteria(PasEaAuditan.class);
                     if (kodeTkAuditan.length()>0){criteria.add(Restrictions.eq("kodeTkAuditan", kodeTkAuditan)); 	}
                     if (kodeAuditan.length()>0){criteria.add(Restrictions.eq("kodeAuditan", kodeAuditan)); 	}
 
-		return (TblPasEaAuditan)  criteria.uniqueResult();//session.get(TblPasEaAuditan.class, id);
+		return (PasEaAuditan)  criteria.uniqueResult();//session.get(TblPasEaAuditan.class, id);
 	}
 	
-	public List<TblPasEaAuditan> getAll(){
-		return (List<TblPasEaAuditan>) session.createCriteria(TblPasEaAuditan.class).list();
+	public List<PasEaAuditan> getAll(){
+		return (List<PasEaAuditan>) session.createCriteria(PasEaAuditan.class).list();
 	}
 	
 	
 	
 	public Long getAllCount(){
-		return (Long) session.createCriteria(TblPasEaAuditan.class).setProjection(Projections.rowCount()).uniqueResult();
+		return (Long) session.createCriteria(PasEaAuditan.class).setProjection(Projections.rowCount()).uniqueResult();
 	}
 
-	public List<TblPasEaAuditan> getAll(int start, int rowcount ){
-		return (List<TblPasEaAuditan>) session.createCriteria(TblPasEaAuditan.class).setFirstResult(start).setMaxResults(rowcount).list();
+	public List<PasEaAuditan> getAll(int start, int rowcount ){
+		return (List<PasEaAuditan>) session.createCriteria(PasEaAuditan.class).setFirstResult(start).setMaxResults(rowcount).list();
 	}
 
 /*//SESUAIKAN DENGAN KRITERIA*/	
 	public Criteria getCriteria(String KodeTkAuditan,String KodeAuditan,String NamaAuditan,String KotaAuditan,String ProvinsiAuditan,String KdParent){
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Criteria criteria =null;
-		criteria = session.createCriteria(TblPasEaAuditan.class);
+		criteria = session.createCriteria(PasEaAuditan.class);
                     if (KodeTkAuditan.length()>0){criteria.add(Restrictions.eq("kodeTkAuditan", KodeTkAuditan)); 	}
                     if (KodeAuditan.length()>0){criteria.add(Restrictions.eq("kodeAuditan", KodeAuditan)); 	}
-                    if (NamaAuditan.length()>0){criteria.add(Restrictions.eq("namaAuditan", NamaAuditan)); 	}
+                    if (NamaAuditan.length()>0){criteria.add(Restrictions.like("namaAuditan", "%"+NamaAuditan+"%")); 	}
                     if (KotaAuditan.length()>0){criteria.add(Restrictions.eq("kotaAuditan", KotaAuditan)); 	}
                     if (ProvinsiAuditan.length()>0){criteria.add(Restrictions.eq("provinsiAuditan", ProvinsiAuditan)); 	}
                     if (KdParent.length()>0){criteria.add(Restrictions.eq("kdParent", KdParent)); 	}
@@ -80,9 +80,9 @@ public class TblPasEaAuditanDAO {
 		return criteria;
 	}
 
-	public List<TblPasEaAuditan> getBy(String KodeTkAuditan,String KodeAuditan,String NamaAuditan,String KotaAuditan,String ProvinsiAuditan,String KdParent ,int start, int rowcount ){
+	public List<PasEaAuditan> getBy(String KodeTkAuditan,String KodeAuditan,String NamaAuditan,String KotaAuditan,String ProvinsiAuditan,String KdParent ,int start, int rowcount ){
 		Criteria criteria =getCriteria(KodeTkAuditan,KodeAuditan,NamaAuditan,KotaAuditan,ProvinsiAuditan,KdParent);
-		return (List<TblPasEaAuditan>) criteria.setFirstResult(start).setMaxResults(rowcount).list();
+		return (List<PasEaAuditan>) criteria.setFirstResult(start).setMaxResults(rowcount).list();
 	}
 	
 	public Long getByCount(String KodeTkAuditan,String KodeAuditan,String NamaAuditan,String KotaAuditan,String ProvinsiAuditan,String KdParent, int start, int rowcount  ){
@@ -93,7 +93,7 @@ public class TblPasEaAuditanDAO {
 	public Map<String,Object> getByPerPage(String KodeTkAuditan,String KodeAuditan,String NamaAuditan,String KotaAuditan,String ProvinsiAuditan,String KdParent ,int start, int rowcount ){
 		Map map = new HashMap<String, Object>();		
 		long rowCount =  getByCount(KodeTkAuditan,KodeAuditan,NamaAuditan,KotaAuditan,ProvinsiAuditan,KdParent,  start,rowcount);//total jumlah row
-		List<TblPasEaAuditan> l = getBy(KodeTkAuditan,KodeAuditan,NamaAuditan,KotaAuditan,ProvinsiAuditan,KdParent, start,rowcount);//data result nya
+		List<PasEaAuditan> l = getBy(KodeTkAuditan,KodeAuditan,NamaAuditan,KotaAuditan,ProvinsiAuditan,KdParent, start,rowcount);//data result nya
 		map.put("total", rowCount);
 		map.put("rows", l);
 		return map;
@@ -101,9 +101,9 @@ public class TblPasEaAuditanDAO {
 
 //==============================REPORT====================================
 /** Retrieve by kriteria tanpa batasan row */
-	public List<TblPasEaAuditan> getBy(String KodeTkAuditan,String KodeAuditan,String NamaAuditan,String KotaAuditan,String ProvinsiAuditan,String KdParent  ){
+	public List<PasEaAuditan> getBy(String KodeTkAuditan,String KodeAuditan,String NamaAuditan,String KotaAuditan,String ProvinsiAuditan,String KdParent  ){
 		Criteria criteria =getCriteria(KodeTkAuditan,KodeAuditan,NamaAuditan,KotaAuditan,ProvinsiAuditan,KdParent);
-		return (List<TblPasEaAuditan>) criteria.list();
+		return (List<PasEaAuditan>) criteria.list();
 	}
 
 

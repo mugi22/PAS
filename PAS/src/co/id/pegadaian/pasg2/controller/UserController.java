@@ -29,14 +29,6 @@ import co.id.pegadaian.pasg2.util.AbstractListScreen;
 import com.dframework.jpos.security.SecurityUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-//import com.id.kas.db.HibernateUtil;
-//import com.id.kas.pojo.TblKabupaten;
-//import com.id.kas.pojo.TblPriviledge;
-//import com.id.kas.pojo.TblUser;
-//import com.id.kas.pojo.TblUserGroup;
-//import com.id.kas.pojo.dao.TblKabupatenDAO;
-//import com.id.kas.pojo.dao.TblUserDAO;
-//import com.id.kas.util.AbstractListScreen;
 @Controller
 public class UserController extends AbstractListScreen {
 
@@ -61,6 +53,7 @@ public class UserController extends AbstractListScreen {
      public @ResponseBody String userListAll(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
 		 String userId = reg.getParameter("userID");
 		 String unitId = reg.getParameter("unitId");
+		 String sNama = reg.getParameter("nama");
          TblUser user = (TblUser) session.getAttribute("user"+userId);
          
          //model.put("session", ses);
@@ -79,7 +72,7 @@ public class UserController extends AbstractListScreen {
  			TblUserDAO dao = new TblUserDAO(sess);
  			Map h = new HashMap<String, Object>();
  			List<TblUser> l = new ArrayList<TblUser>();
- 				h = dao.getByPerPage(reg.getParameter("param"),unitId,loffset, row);
+ 				h = dao.getByPerPage(reg.getParameter("param"),unitId,sNama,loffset, row);
  			sess.close();
              result = gson.toJson(h);
              System.out.println(result);

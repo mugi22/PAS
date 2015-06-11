@@ -67,6 +67,18 @@
     <!--   -->
     <mapping class="co.id.pegadaian.pasg2.pojo.PasKsAuditTrail"/>
 	<mapping class="co.id.pegadaian.pasg2.pojo.PasEaTkAuditan"/>
+	<mapping class="co.id.pegadaian.pasg2.pojo.PasEaAuditan"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaFormasiAuditan"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaPPL"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaPPLUser"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaKantorAuditor"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaKetuaTimAuditor"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaAnggotaTimAuditor"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaJenisPemeriksaan"/>
+    
+    
+    
+    
     
     <mapping class="co.id.pegadaian.pasg2.pojo.TblUser"/>
  
@@ -82,19 +94,14 @@
     <mapping class="co.id.pegadaian.pasg2.pojo.TblKabupaten"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblKecamatan"/> 
 	<mapping class="co.id.pegadaian.pasg2.pojo.TblKelurahan"/> 
-	<mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaAuditan"/>
 	
 	<mapping class="co.id.pegadaian.pasg2.pojo.PasEaTkKantorAuditor"/>
-    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaKantorAuditor"/>
   	<mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiKasus"/>
   	<mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiSebab"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiTkTemuan"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiTemuan"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiBidangKasus"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsHariLibur"/>
-    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaJenisPemeriksaan"/>
-    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaKetuaTimAuditor"/>
-    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaAnggotaTimAuditor"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.TblPasEaAspekPemeriksaan"/>
    
     

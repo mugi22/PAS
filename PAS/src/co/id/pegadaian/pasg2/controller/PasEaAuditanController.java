@@ -31,8 +31,8 @@ import co.id.pegadaian.pasg2.util.AbstractListScreen;
 
 import co.id.pegadaian.pasg2.db.HibernateUtil;
 import co.id.pegadaian.pasg2.pojo.TblUser;
-import co.id.pegadaian.pasg2.pojo.TblPasEaAuditan;//harap Sesuaikan
-import co.id.pegadaian.pasg2.dao.TblPasEaAuditanDAO;
+import co.id.pegadaian.pasg2.pojo.PasEaAuditan;//harap Sesuaikan
+import co.id.pegadaian.pasg2.dao.PasEaAuditanDAO;
 
 import co.id.pegadaian.pasg2.util.AbstractListScreen;
 
@@ -83,9 +83,9 @@ public class PasEaAuditanController  extends AbstractListScreen{
          try {
         	long rowCount=0;
 			sess = HibernateUtil.getSessionFactory().openSession();
-			TblPasEaAuditanDAO dao = new TblPasEaAuditanDAO(sess);
+			PasEaAuditanDAO dao = new PasEaAuditanDAO(sess);
 			Map h = new HashMap<String, Object>();
-			List<TblPasEaAuditan> l = new ArrayList<TblPasEaAuditan>();
+			List<PasEaAuditan> l = new ArrayList<PasEaAuditan>();
 				h = dao.getByPerPage(KodeTkAuditan,KodeAuditan,NamaAuditan,KotaAuditan,ProvinsiAuditan,KdParent,loffset, row);
 			sess.close();
             result = gson.toJson(h);
@@ -122,8 +122,8 @@ public class PasEaAuditanController  extends AbstractListScreen{
          SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
          try {
                sess = HibernateUtil.getSessionFactory().openSession();
-               TblPasEaAuditanDAO dao = new TblPasEaAuditanDAO(sess);
-               TblPasEaAuditan tbl = new TblPasEaAuditan();
+               PasEaAuditanDAO dao = new PasEaAuditanDAO(sess);
+               PasEaAuditan tbl = new PasEaAuditan();
                     tbl.setKodeTkAuditan(reg.getParameter("kodeTkAuditan"));
                     tbl.setKodeAuditan(reg.getParameter("kodeAuditan"));
                     tbl.setNamaAuditan(reg.getParameter("namaAuditan"));
@@ -179,8 +179,8 @@ public class PasEaAuditanController  extends AbstractListScreen{
          SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
          try {
                sess = HibernateUtil.getSessionFactory().openSession();
-               TblPasEaAuditanDAO dao = new TblPasEaAuditanDAO(sess);
-               TblPasEaAuditan tbl = dao.getById(KodeTkAuditan,KodeAuditan);
+               PasEaAuditanDAO dao = new PasEaAuditanDAO(sess);
+               PasEaAuditan tbl = dao.getById(KodeTkAuditan,KodeAuditan);
                 String tblOld = gson.toJson(tbl);
                     tbl.setKodeTkAuditan(reg.getParameter("kodeTkAuditan"));
                     tbl.setKodeAuditan(reg.getParameter("kodeAuditan"));
@@ -205,7 +205,7 @@ public class PasEaAuditanController  extends AbstractListScreen{
                
                sess.beginTransaction();
                dao.update(tbl);
-               simpanLog(user.getUserId(),gson.toJson(tbl)+" OLD "+gson.toJson(tblOld),"MODIFY",sess,tbl.getClass().getName());
+               simpanLog(user.getUserId(),gson.toJson(tbl)+" OLD "+tblOld,"MODIFY",sess,tbl.getClass().getName());
                sess.getTransaction().commit();
                sess.close();
                x=gson.toJson("UPDATE SUKSES");
@@ -236,12 +236,12 @@ public class PasEaAuditanController  extends AbstractListScreen{
          Gson gson = new Gson();
          try {
                sess = HibernateUtil.getSessionFactory().openSession();
-               TblPasEaAuditanDAO dao = new TblPasEaAuditanDAO(sess);
-               TblPasEaAuditan tbl = dao.getById(KodeTkAuditan,KodeAuditan);
+               PasEaAuditanDAO dao = new PasEaAuditanDAO(sess);
+               PasEaAuditan tbl = dao.getById(KodeTkAuditan,KodeAuditan);
                String tblDel = gson.toJson(tbl);
                sess.beginTransaction();
                dao.delete(tbl);
-               simpanLog(user.getUserId(),tblDel,"DELETE",sess,tbl.getClass().getName());
+               simpanLog(user.getUserId(),gson.toJson(tbl),"DELETE",sess,tbl.getClass().getName()); 
                sess.getTransaction().commit();
                  
                sess.close();
@@ -310,8 +310,8 @@ public class PasEaAuditanController  extends AbstractListScreen{
          try {
         	long rowCount=0;
 			sess = HibernateUtil.getSessionFactory().openSession();
-			TblPasEaAuditanDAO dao = new TblPasEaAuditanDAO(sess);
-			List<TblPasEaAuditan> l = new ArrayList<TblPasEaAuditan>();
+			PasEaAuditanDAO dao = new PasEaAuditanDAO(sess);
+			List<PasEaAuditan> l = new ArrayList<PasEaAuditan>();
 				l = dao.getBy(KodeTkAuditan,KodeAuditan,NamaAuditan,KotaAuditan,ProvinsiAuditan,KdParent);
 			sess.close();
             result = gson.toJson(l);

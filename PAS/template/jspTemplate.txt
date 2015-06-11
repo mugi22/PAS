@@ -207,9 +207,9 @@ XXXparamSearch
 	
 	
 function idRequired(t){
+/*
 XXXREQ
-
-	/*$('#idJurnalTransaksi').textbox({   required: t			});
+	$('#idJurnalTransaksi').textbox({   required: t			});
 	$('#jurnalId').textbox({   required: t	});
 	*/
 }	

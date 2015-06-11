@@ -10,13 +10,13 @@ import com.google.gson.Gson;
 import co.id.pegadaian.pasg2.dao.TblKabupatenDAO;
 import co.id.pegadaian.pasg2.dao.TblKecamatanDAO;
 import co.id.pegadaian.pasg2.dao.TblMenuDAO;
-import co.id.pegadaian.pasg2.dao.TblPasEaKantorAuditorDAO;
+import co.id.pegadaian.pasg2.dao.PasEaKantorAuditorDAO;
 import co.id.pegadaian.pasg2.dao.PasEaTkKantorAuditorDAO;
 import co.id.pegadaian.pasg2.dao.TblUserDAO;
 import co.id.pegadaian.pasg2.db.HibernateUtil;
 import co.id.pegadaian.pasg2.pojo.TblKabupaten;
 import co.id.pegadaian.pasg2.pojo.TblKecamatan;
-import co.id.pegadaian.pasg2.pojo.TblPasEaKantorAuditor;
+import co.id.pegadaian.pasg2.pojo.PasEaKantorAuditor;
 import co.id.pegadaian.pasg2.pojo.PasEaTkKantorAuditor;
 import co.id.pegadaian.pasg2.pojo.TblUser;
 
@@ -54,10 +54,10 @@ public class TestDao {
 	}
 	
 	public static void testTblPasEaKantorAuditorDao(Session sess) {
-		TblPasEaKantorAuditorDAO auditor = new TblPasEaKantorAuditorDAO(sess);
-		List<TblPasEaKantorAuditor> l = auditor.getByKodeTk("02");
+		PasEaKantorAuditorDAO auditor = new PasEaKantorAuditorDAO(sess);
+		List<PasEaKantorAuditor> l = auditor.getByKodeTk("02");
 		Gson gson = new Gson();
-		for(TblPasEaKantorAuditor tbl : l){
+		for(PasEaKantorAuditor tbl : l){
 			System.out.println(gson.toJson(tbl));
 		}
 	}

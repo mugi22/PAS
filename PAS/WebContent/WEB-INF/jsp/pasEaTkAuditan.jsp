@@ -16,25 +16,29 @@ jspTemplate
 
 <!-- ******************************FORM PENCARIAN******************************* -->   
         <div id="div2">
-            <form name="FREG" id="formCari" method="post" action="#"  >   
-            <table align="center">  	                       
-                    <tr>
-<td><label style="width: 150px;"><%=properties.getProperty("pasEaTkAuditan.KodeTkAuditan")%></label> : <input name="KodeTkAuditan" type="text" id="KodeTkAuditan" size="30" maxlength="30"></td>
-</tr>
-                    <tr>
-<td><label style="width: 150px;"><%=properties.getProperty("pasEaTkAuditan.NamaTkAuditan")%></label> : <input name="NamaTkAuditan" type="text" id="NamaTkAuditan" size="30" maxlength="30"></td>
-</tr>
+            <form name="FREG" id="formCari" method="post" action="#"  >
+			<table align="center">
+				<tr>
+					<td><label style="width: 150px;"><%=properties.getProperty("pasEaTkAuditan.KodeTkAuditan")%></label>
+						: <input name="KodeTkAuditan" type="text" id="KodeTkAuditan"
+						size="30" maxlength="30"></td>
+				</tr>
+				<tr>
+					<td><label style="width: 150px;"><%=properties.getProperty("pasEaTkAuditan.NamaTkAuditan")%></label>
+						: <input name="NamaTkAuditan" type="text" id="NamaTkAuditan"
+						size="30" maxlength="30"></td>
+				</tr>
 
-				 <tr>
-	            	<td colspan="1">
-	                <div id="btn">     
-	                    <%@ include file="/util/searchButton.jsp" %>
-	                </div>
-            	</td>
-	            	
-	            </tr>  
-            </table>  
-            </form> 
+				<tr>
+					<td colspan="1">
+						<div id="btn">
+							<%@ include file="/util/searchButton.jsp"%>
+						</div>
+					</td>
+
+				</tr>
+			</table>
+		</form> 
             <div id="result"></div>
         </div>
         <hr>
@@ -77,7 +81,6 @@ jspTemplate
                     <tr><td><div class="fitem">	<label><%=properties.getProperty("pasEaTkAuditan.NamaTkAuditan")%></label> :<input name="namaTkAuditan"	class="easyui-textbox" id="namaTkAuditan"></div></td></tr>	
                     <tr><td><div class="fitem">	<label><%=properties.getProperty("pasEaTkAuditan.KeteranganTkAuditan")%></label> :<input name="keteranganTkAuditan"	class="easyui-textbox" id="keteranganTkAuditan"></div></td></tr>	
                     <tr><td><div class="fitem">	<label><%=properties.getProperty("pasEaTkAuditan.StatusTkAuditan")%></label> :<input name="statusTkAuditan"	class="easyui-textbox" id="statusTkAuditan"></div></td></tr>	
-			
 		</table>
 		</form>
 	</div>

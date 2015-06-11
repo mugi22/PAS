@@ -132,6 +132,7 @@ public class LookupController  extends AbstractListScreen{
                sess.beginTransaction();
                dao.insert(tbl);
              simpanLog(user.getUserId(),gson.toJson(tbl),"ADD",sess,tbl.getClass().getName());
+             sess.getTransaction().commit();
                sess.close();
                x=gson.toJson("SUKSES");
          }catch(Exception e){

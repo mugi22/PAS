@@ -31,7 +31,7 @@ import co.id.pegadaian.pasg2.util.AbstractListScreen;
 
 import co.id.pegadaian.pasg2.db.HibernateUtil;
 import co.id.pegadaian.pasg2.pojo.TblUser;
-import co.id.pegadaian.pasg2.pojo.TblPasEaJenisPemeriksaan;//harap Sesuaikan
+import co.id.pegadaian.pasg2.pojo.PasEaJenisPemeriksaan;//harap Sesuaikan
 import co.id.pegadaian.pasg2.dao.TblPasEaJenisPemeriksaanDAO;
 
 import co.id.pegadaian.pasg2.util.AbstractListScreen;
@@ -83,7 +83,7 @@ public class PasEaJenisPemeriksaanController  extends AbstractListScreen{
 			sess = HibernateUtil.getSessionFactory().openSession();
 			TblPasEaJenisPemeriksaanDAO dao = new TblPasEaJenisPemeriksaanDAO(sess);
 			Map h = new HashMap<String, Object>();
-			List<TblPasEaJenisPemeriksaan> l = new ArrayList<TblPasEaJenisPemeriksaan>();
+			List<PasEaJenisPemeriksaan> l = new ArrayList<PasEaJenisPemeriksaan>();
 				h = dao.getByPerPage(Status,KodeJenisPemeriksaan,NamaJenisPemeriksaan,KeteranganJenisPemeriksaan,loffset, row);
 			sess.close();
             result = gson.toJson(h);
@@ -121,7 +121,7 @@ public class PasEaJenisPemeriksaanController  extends AbstractListScreen{
          try {
                sess = HibernateUtil.getSessionFactory().openSession();
                TblPasEaJenisPemeriksaanDAO dao = new TblPasEaJenisPemeriksaanDAO(sess);
-               TblPasEaJenisPemeriksaan tbl = new TblPasEaJenisPemeriksaan();
+               PasEaJenisPemeriksaan tbl = new PasEaJenisPemeriksaan();
                     tbl.setStatus(reg.getParameter("status"));
                     tbl.setKodeJenisPemeriksaan(reg.getParameter("kodeJenisPemeriksaan"));
                     tbl.setNamaJenisPemeriksaan(reg.getParameter("namaJenisPemeriksaan"));
@@ -132,8 +132,8 @@ public class PasEaJenisPemeriksaanController  extends AbstractListScreen{
                
                sess.beginTransaction();
                dao.insert(tbl);
+             simpanLog(user.getUserId(),gson.toJson(tbl),"ADD",sess,tbl.getClass().getName());
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),gson.toJson(tbl));
                sess.close();
                x=gson.toJson("SUKSES");
          }catch(Exception e){
@@ -164,7 +164,7 @@ public class PasEaJenisPemeriksaanController  extends AbstractListScreen{
          try {
                sess = HibernateUtil.getSessionFactory().openSession();
                TblPasEaJenisPemeriksaanDAO dao = new TblPasEaJenisPemeriksaanDAO(sess);
-               TblPasEaJenisPemeriksaan tbl = dao.getById(KodeJenisPemeriksaan);
+               PasEaJenisPemeriksaan tbl = dao.getById(KodeJenisPemeriksaan);
                 String tblOld = gson.toJson(tbl);
                     tbl.setStatus(reg.getParameter("status"));
                     tbl.setKodeJenisPemeriksaan(reg.getParameter("kodeJenisPemeriksaan"));
@@ -176,8 +176,8 @@ public class PasEaJenisPemeriksaanController  extends AbstractListScreen{
                
                sess.beginTransaction();
                dao.update(tbl);
+             simpanLog(user.getUserId(),gson.toJson(tbl)+"OLD "+tblOld,"MODIFY",sess,tbl.getClass().getName());
                sess.getTransaction().commit();
-                simpanLog(user.getUserId(),"MODIFY  : "+gson.toJson(tbl)+" OLD "+tblOld);
                sess.close();
                x=gson.toJson("UPDATE SUKSES");
          }catch(Exception e){
@@ -207,12 +207,12 @@ public class PasEaJenisPemeriksaanController  extends AbstractListScreen{
          try {
                sess = HibernateUtil.getSessionFactory().openSession();
                TblPasEaJenisPemeriksaanDAO dao = new TblPasEaJenisPemeriksaanDAO(sess);
-               TblPasEaJenisPemeriksaan tbl = dao.getById(KodeJenisPemeriksaan);
+               PasEaJenisPemeriksaan tbl = dao.getById(KodeJenisPemeriksaan);
                String tblDel = gson.toJson(tbl);
                sess.beginTransaction();
                dao.delete(tbl);
+             simpanLog(user.getUserId(),gson.toJson(tbl),"DELETE",sess,tbl.getClass().getName());     
                sess.getTransaction().commit();
-               simpanLog(user.getUserId(),"DELETE  : "+tblDel);
                sess.close();
                h.put("success", true);
                x=gson.toJson(h);
@@ -278,7 +278,7 @@ public class PasEaJenisPemeriksaanController  extends AbstractListScreen{
         	long rowCount=0;
 			sess = HibernateUtil.getSessionFactory().openSession();
 			TblPasEaJenisPemeriksaanDAO dao = new TblPasEaJenisPemeriksaanDAO(sess);
-			List<TblPasEaJenisPemeriksaan> l = new ArrayList<TblPasEaJenisPemeriksaan>();
+			List<PasEaJenisPemeriksaan> l = new ArrayList<PasEaJenisPemeriksaan>();
 				l = dao.getBy(Status,KodeJenisPemeriksaan,NamaJenisPemeriksaan,KeteranganJenisPemeriksaan);
 			sess.close();
             result = gson.toJson(l);

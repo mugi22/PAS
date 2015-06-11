@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.Criteria;
@@ -108,7 +109,7 @@ public class TblLookupDAO {
 	}
 	//ambil semua
 	public List<TblLookup> getBy(String LookupName ){
-		Criteria criteria =getCriteria(LookupName);
+		Criteria criteria =getCriteria(LookupName).addOrder(Order.asc("noUrut"));
 		return (List<TblLookup>) criteria.list();
 	}
 	

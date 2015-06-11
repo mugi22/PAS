@@ -68,14 +68,29 @@ jspTemplate
     
           
 <!-- ************************** FORM ******************************************** -->
-	<div id="dlg" class="easyui-dialog"	style="width: 750px;  padding: 10px 20px" closed="true"	buttons="#dlg-buttons" data-options="modal:true">
+	<div id="dlg" class="easyui-dialog"	style="width: 90%;  padding: 10px 20px" closed="true"	buttons="#dlg-buttons" data-options="modal:true">
 		<div class="ftitle">USERGROUP</div>
 		<form id="fm" method="post" novalidate>
-		<table align="center"> 
-                    <tr><td><div class="fitem">	<label><%=properties.getProperty("userGroup.UserId")%></label> :<input name="userId"	class="easyui-textbox" id="userId"></div></td></tr>	
-                    <tr><td><div class="fitem">	<label><%=properties.getProperty("userGroup.GroupId")%></label> :<input name="groupId"	class="easyui-numberbox" data-options="min:0,precision:0,groupSeparator:','" id="groupId"></div></td></tr>	
-			
-		</table>
+			<table align="center">
+				<tr>
+					<td><div class="fitem">
+							<label><%=properties.getProperty("userGroup.UserId")%></label> :<input
+								name="userId" class="easyui-textbox" id="userId">
+						</div></td>
+						<td><input type="button" value="User Cari" style="width: 80px;" onclick="cariuser();"></td>
+						<td><input type="text" style="width: 300px;" nama="namaUser" id="namaUser" class="easyui-textbox" ></td>
+				</tr>
+				<tr>
+					<td><div class="fitem">
+							<label><%=properties.getProperty("userGroup.GroupId")%></label> :<input
+								name="groupId" class="easyui-numberbox"
+								data-options="min:0,precision:0,groupSeparator:','" id="groupId">
+						</div></td>
+						<td></td>
+						<td></td>
+				</tr>
+
+			</table>
 		</form>
 	</div>
 	<div id="dlg-buttons">
@@ -83,7 +98,7 @@ jspTemplate
 		<a href="javascript:void(0)" class="easyui-linkbutton" 	iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')"style="width: 90px" id="btnCancel">Cancel</a>
 	</div>
 	<!-- ************************************************END FORM******************* -->
-
+<div id="win"></div>
 </body>
 </html>
 
@@ -97,10 +112,37 @@ var branchcode;
 		$("#btnEdit").linkbutton('${btnEdit}');
 		$("#btnDelete").linkbutton('${btnDelete}');
 		$("#btnShow").linkbutton('${btnShow}');		
+		$('#namaUser').textbox('readonly', true);
 		comboGroup($('#groupId'));
 		comboGroup($('#GroupId'));
 	});
 
+	
+
+	function cariuser() {
+		$('#win').window(
+				{
+					width : 800,
+					height : 400,
+					href : 'userCari.htm?'	+ window.location.search.replace("?", ""),
+					modal : true,					minimizable : false,					maximizable : false,					collapsible : false
+				});
+	}
+
+	
+	function ambilauditan(s) {
+		var row = $('#dg2').datagrid('getSelected');
+		$("#namaUser").textbox('setValue', row.name);
+		$("#userId").textbox('setValue', row.userId);
+		$('#win').window('close');
+	}
+	
+	
+	
+	
+	
+	
+	
 	function test() {
 		alert("testtttt..... click");
 	}
@@ -151,6 +193,15 @@ var branchcode;
 			$('#fm').form('clear');
 			$('#fm').form('load', row);
 			url = 'userGroupEdit.htm?'+"userId="+"${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten; //SESUAIKAN
+			$.ajax({
+				url:'getUserByUserId.htm?param='+row.userId,
+			 	success	: function(result){
+			 		var x = JSON.parse(result);
+			 		$("#namaUser").textbox('setValue', x.name);
+				 //alert("result "+result);
+				 
+			 }
+			});
 			onEdit();
 		}
 	}
@@ -243,39 +294,42 @@ function idRequired(t){
 		});
 	}
 	
+	
 	/*inputan readonly atau tidak saat onShow  XXXenableField */
 	function onShow() {
-		                    $('#userId').textbox('readonly', true);
-                    $('#groupId').textbox('readonly', true);
+		$('#userId').textbox('readonly', true);
+		$('#groupId').textbox('readonly', true);
 
 		$('#btnSave').linkbutton('disable');
 	}
-	
+
 	/*inputan readonly atau tidak saat Add*/
 	function onAdd() {
-		                    $('#userId').textbox('readonly', false);
-                    $('#groupId').textbox('readonly', false);
-		
+		$('#userId').textbox('readonly', true);
+		$('#groupId').textbox('readonly', false);
+
 		$('#btnSave').linkbutton('enable');
-	}
-	
-	/*inputan readonly atau tidak saat Edit */
-	function onEdit() {
-		                    $('#userId').textbox('readonly', true);
-                    $('#groupId').textbox('readonly', true);
-	
-		$('#btnSave').linkbutton('enable');
-	}
-/*===============================================REPORT==================================*/
-function doCetak(){
-		var repUrl = 'userGroupReport.htm?'+
-					  'UserId='+$('#UserId').val()+"&"+'GroupId='+$('#GroupId').val()+"&"+"userId="+"${userId}";;
-		var s = window.location.search.replace("?", "");
-		window.open(repUrl+"&"+s,
-				"_blank", 
-				"toolbar=no, scrollbars=yes, resizable=yes,	directories=no, location=no, \
-				 menubar=no, status=no,'");
 	}
 
-	
+	/*inputan readonly atau tidak saat Edit */
+	function onEdit() {
+		$('#userId').textbox('readonly', true);
+		$('#groupId').textbox('readonly', true);
+
+		$('#btnSave').linkbutton('enable');
+	}
+	/*===============================================REPORT==================================*/
+	function doCetak() {
+		var repUrl = 'userGroupReport.htm?' + 'UserId=' + $('#UserId').val()
+				+ "&" + 'GroupId=' + $('#GroupId').val() + "&" + "userId="
+				+ "${userId}";
+		;
+		var s = window.location.search.replace("?", "");
+		window
+				.open(
+						repUrl + "&" + s,
+						"_blank",
+						"toolbar=no, scrollbars=yes, resizable=yes,	directories=no, location=no, \
+				 menubar=no, status=no,'");
+	}
 </script>

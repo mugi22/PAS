@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import co.id.pegadaian.pasg2.dao.PasEaAuditanDAO;
+import co.id.pegadaian.pasg2.dao.PasEaPPLDAO;
+import co.id.pegadaian.pasg2.dao.PasEaTkKantorAuditorDAO;
 import co.id.pegadaian.pasg2.dao.TblBranchDAO;
 import co.id.pegadaian.pasg2.dao.TblGroupDAO;
 import co.id.pegadaian.pasg2.dao.TblKabupatenDAO;
@@ -20,24 +23,25 @@ import co.id.pegadaian.pasg2.dao.TblKecamatanDAO;
 import co.id.pegadaian.pasg2.dao.TblLookupDAO;
 import co.id.pegadaian.pasg2.dao.TblMenuDAO;
 import co.id.pegadaian.pasg2.dao.TblPasEaJenisPemeriksaanDAO;
-import co.id.pegadaian.pasg2.dao.TblPasEaKantorAuditorDAO;
+import co.id.pegadaian.pasg2.dao.PasEaKantorAuditorDAO;
 import co.id.pegadaian.pasg2.dao.TblPasEaKetuaTimAuditorDAO;
 import co.id.pegadaian.pasg2.dao.TblPasEaTkAuditanDAO;
-import co.id.pegadaian.pasg2.dao.PasEaTkKantorAuditorDAO;
 import co.id.pegadaian.pasg2.dao.TblProvinsiDAO;
 import co.id.pegadaian.pasg2.dao.TblUserDAO;
 import co.id.pegadaian.pasg2.db.HibernateUtil;
+import co.id.pegadaian.pasg2.pojo.PasEaAuditan;
+import co.id.pegadaian.pasg2.pojo.PasEaJenisPemeriksaan;
+import co.id.pegadaian.pasg2.pojo.PasEaKantorAuditor;
+import co.id.pegadaian.pasg2.pojo.PasEaKetuaTimAuditor;
+import co.id.pegadaian.pasg2.pojo.PasEaPPL;
+import co.id.pegadaian.pasg2.pojo.PasEaTkAuditan;
+import co.id.pegadaian.pasg2.pojo.PasEaTkKantorAuditor;
 import co.id.pegadaian.pasg2.pojo.TblBranch;
 import co.id.pegadaian.pasg2.pojo.TblGroup;
 import co.id.pegadaian.pasg2.pojo.TblKabupaten;
 import co.id.pegadaian.pasg2.pojo.TblKecamatan;
 import co.id.pegadaian.pasg2.pojo.TblLookup;
 import co.id.pegadaian.pasg2.pojo.TblMenu;
-import co.id.pegadaian.pasg2.pojo.TblPasEaJenisPemeriksaan;
-import co.id.pegadaian.pasg2.pojo.TblPasEaKantorAuditor;
-import co.id.pegadaian.pasg2.pojo.TblPasEaKetuaTimAuditor;
-import co.id.pegadaian.pasg2.pojo.PasEaTkAuditan;
-import co.id.pegadaian.pasg2.pojo.PasEaTkKantorAuditor;
 import co.id.pegadaian.pasg2.pojo.TblProvinsi;
 import co.id.pegadaian.pasg2.pojo.TblUser;
 
@@ -331,11 +335,11 @@ public class UtilityController {
 					 String x="";String z ="";
 					 try {
 						sess = HibernateUtil.getSessionFactory().openSession();
-						TblPasEaKantorAuditorDAO dao = new TblPasEaKantorAuditorDAO(sess);
-						List<TblPasEaKantorAuditor> l = dao.getByKodeTk(param);
+						PasEaKantorAuditorDAO dao = new PasEaKantorAuditorDAO(sess);
+						List<PasEaKantorAuditor> l = dao.getByKodeTk(param);
 						StringBuffer sb = new StringBuffer();
 								sb.append("[");
-						for(TblPasEaKantorAuditor tbl : l){
+						for(PasEaKantorAuditor tbl : l){
 							String selected="";
 							if(param.length()>0){
 								if (tbl.getKodeKantor().equals(reg.getParameter("param2"))){
@@ -367,16 +371,12 @@ public class UtilityController {
 					 String param =reg.getParameter("param");
 					 Session sess = null;
 					 String x="";String z ="";
-					 TblPasEaKantorAuditor tblPasEaKantorAuditor = null;
+					 PasEaKantorAuditor tblPasEaKantorAuditor = null;
 					 try {
 						sess = HibernateUtil.getSessionFactory().openSession();
-						TblPasEaKantorAuditorDAO pasEaKantorAuditor = new TblPasEaKantorAuditorDAO(sess);
+						PasEaKantorAuditorDAO pasEaKantorAuditor = new PasEaKantorAuditorDAO(sess);
 						 tblPasEaKantorAuditor = pasEaKantorAuditor.getById(param);
 						
-//						for(TblPasEaKantorAuditor tbl : l){
-////							System.out.println("kode kabupaten "+tbl.getKodeKabupaten()+" "+tbl.getNamaKabupaten());
-//							tblPasEaKantorAuditor=tbl;
-//						}
 						
 					 } catch(Exception e){
 						 e.printStackTrace();
@@ -388,7 +388,29 @@ public class UtilityController {
 			 
 	
 	
-			
+//				=============ambil TblPasEaAudiTAN berdasarkan kodekantor=========================
+				@RequestMapping(value="/getPasEaAuditan.htm", method=RequestMethod.GET)
+			    public @ResponseBody String getPasEaAuditan(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+					 String param =reg.getParameter("param");
+					 String param2 =reg.getParameter("param2");
+					 Session sess = null;
+					 System.out.println("parent "+param+" tk "+param2);
+					 String x="";String z ="";
+					 PasEaAuditan pasEaAuditan = null;
+					 try {
+						sess = HibernateUtil.getSessionFactory().openSession();
+						PasEaAuditanDAO pasEaKantorAuditor = new PasEaAuditanDAO(sess);
+						pasEaAuditan = pasEaKantorAuditor.getById(param2,param);//tk,kode auditan
+						
+						
+					 } catch(Exception e){
+						 e.printStackTrace();
+					 }
+					 Gson gson = new Gson();
+					 System.out.println("pasEaAuditan : "+gson.toJson(pasEaAuditan));
+				 return gson.toJson(pasEaAuditan);
+				 }	
+					
 			
 			
 			
@@ -713,7 +735,9 @@ public class UtilityController {
 @RequestMapping(value="/comboEaTkAuditon.htm", method=RequestMethod.POST)
 public @ResponseBody String comboEaTkAuditon(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
 	 String param =reg.getParameter("param");
+	 String param2 =reg.getParameter("param2");
 	 System.out.println("PARAM ************** "+param);
+	 System.out.println("PARAM *******222******* "+param2);
 	 Session sess = null;
 	 String x="";String z ="";
 	 try {
@@ -725,7 +749,7 @@ public @ResponseBody String comboEaTkAuditon(Map<String, Object> model,HttpSessi
 		for(PasEaTkAuditan tbl : l){
 			String selected="";
 			if(param.length()>0){
-				if (tbl.getKodeTkAuditan().equals(reg.getParameter("param"))){
+				if (tbl.getKodeTkAuditan().equals(param2)){
 					selected = ","+'"'+"selected"+'"'+":true";
 				}else{
 					selected="";
@@ -800,7 +824,7 @@ public @ResponseBody String comboKetuaTimAuditor(Map<String, Object> model,HttpS
 	 try {
 		sess = HibernateUtil.getSessionFactory().openSession();
 		TblPasEaKetuaTimAuditorDAO dao = new TblPasEaKetuaTimAuditorDAO(sess);
-		TblPasEaKetuaTimAuditor tbl = dao.getByBranch(param);//getBy(param2);
+		PasEaKetuaTimAuditor tbl = dao.getByBranch(param);//getBy(param2);
 		if(tbl.getKodeKantorAuditor().length()>0){
 			z= tbl.getKodeUserKetuaTimAuditor();
 		}
@@ -823,10 +847,10 @@ public @ResponseBody String comboEaJenisPemeriksaan(Map<String, Object> model,Ht
 	 try {
 		sess = HibernateUtil.getSessionFactory().openSession();
 		TblPasEaJenisPemeriksaanDAO dao = new TblPasEaJenisPemeriksaanDAO(sess);
-		List<TblPasEaJenisPemeriksaan> l = dao.getAll();//getBy(param2);
+		List<PasEaJenisPemeriksaan> l = dao.getAll();//getBy(param2);
 		StringBuffer sb = new StringBuffer();
 				sb.append("[");
-		for(TblPasEaJenisPemeriksaan tbl : l){
+		for(PasEaJenisPemeriksaan tbl : l){
 			String selected="";
 			if(param.length()>0){
 				if (tbl.getKodeJenisPemeriksaan().equals(reg.getParameter("param"))){
@@ -852,8 +876,91 @@ return z;
 }
 
 
+//COMBO MASTER PPL
+@RequestMapping(value="/comboEaPPL.htm", method=RequestMethod.POST)
+ public @ResponseBody String comboEaPPL(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+		 String param =reg.getParameter("param");
+		 Session sess = null;
+		 String x="";String z ="";
+		 try {
+			sess = HibernateUtil.getSessionFactory().openSession();
+			PasEaPPLDAO  dao = new PasEaPPLDAO(sess);
+			List<PasEaPPL> l = dao.getAll();//getBy(param2);
+			StringBuffer sb = new StringBuffer();
+					sb.append("[");
+			for(PasEaPPL tbl : l){
+				String selected="";
+				if(param.length()>0){
+					if (tbl.getKodePPL().equals(reg.getParameter("param"))){
+						selected = ","+'"'+"selected"+'"'+":true";
+					}else{
+						selected="";
+					}
+				}else{//untuk tambah -> set default combobox nya 0002
+					if(tbl.getKodePPL().equals("00002")){
+						selected = ","+'"'+"selected"+'"'+":true";
+					}
+				}
+				String item = "{"+'"'+"id"+'"'+":"+'"'+tbl.getKodePPL()+'"'+","+'"'+"text"+'"'+":"+'"'+tbl.getKodePPL()+" - "+tbl.getNamaPPL()+'"'+selected+"},";	
+				sb.append(item);
+			}
+			x = (sb.toString()).substring(0,sb.toString().length()-1);
+			 z = x+"]";
+			 if (z.equals("]") )z="[]";
+			 sess.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		 System.out.println(z);
+	 return z;
+	 }
 
 
 
+
+//=============ambil tblUser by userId=========================
+@RequestMapping(value="/getUserByUserId.htm", method=RequestMethod.GET)
+public @ResponseBody String getUserByUserId(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+	 String param =reg.getParameter("param");
+	 Session sess = null;
+	 String x="";String z ="";
+	 TblUser tblUser = null;
+	 try {
+		sess = HibernateUtil.getSessionFactory().openSession();
+		TblUserDAO tblUserDAO = new TblUserDAO(sess);
+		 tblUser = tblUserDAO.getById(param);
+		
+		
+	 } catch(Exception e){
+		 e.printStackTrace();
+	 }
+	 Gson gson = new Gson();
+	 System.out.println("tblPasEaKantorAuditor "+gson.toJson(tblUser));
+	 return gson.toJson(tblUser);
+ }	
+
+//get kantor auditor
+
+
+//=============ambil tblUser by userId=========================
+@RequestMapping(value="/getKantorAuditorById.htm", method=RequestMethod.GET)
+public @ResponseBody String getKantorAuditorById(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+	 String param =reg.getParameter("param");
+	 Session sess = null;
+	 String x="";String z ="";
+	 PasEaKantorAuditor tbl = null;
+	 try {
+		sess = HibernateUtil.getSessionFactory().openSession();
+		PasEaKantorAuditorDAO dao = new PasEaKantorAuditorDAO(sess);
+		 tbl = dao.getById(param);
+		
+		
+	 } catch(Exception e){
+		 e.printStackTrace();
+	 }
+	 Gson gson = new Gson();
+	 System.out.println("PasEaKantorAuditor "+gson.toJson(tbl));
+	 return gson.toJson(tbl);
+}	
 	 
 }

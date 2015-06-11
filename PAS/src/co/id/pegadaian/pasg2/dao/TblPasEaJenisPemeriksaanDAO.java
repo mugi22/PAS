@@ -20,7 +20,7 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-import co.id.pegadaian.pasg2.pojo.TblPasEaJenisPemeriksaan;
+import co.id.pegadaian.pasg2.pojo.PasEaJenisPemeriksaan;
 
 public class TblPasEaJenisPemeriksaanDAO {
 	private Session session;
@@ -30,45 +30,45 @@ public class TblPasEaJenisPemeriksaanDAO {
 	}
 	
 	
-	public void insert(TblPasEaJenisPemeriksaan tblpaseajenispemeriksaan){
+	public void insert(PasEaJenisPemeriksaan tblpaseajenispemeriksaan){
 		session.save(tblpaseajenispemeriksaan);
 	}
 		
-	public void delete(TblPasEaJenisPemeriksaan tblpaseajenispemeriksaan){
+	public void delete(PasEaJenisPemeriksaan tblpaseajenispemeriksaan){
 		session.delete(tblpaseajenispemeriksaan);
 	}
 	
-	public void update(TblPasEaJenisPemeriksaan tblpaseajenispemeriksaan){
+	public void update(PasEaJenisPemeriksaan tblpaseajenispemeriksaan){
 		session.update(tblpaseajenispemeriksaan);
 	}
 //====================================================================	
-	public TblPasEaJenisPemeriksaan getById(String  kodeJenisPemeriksaan){
+	public PasEaJenisPemeriksaan getById(String  kodeJenisPemeriksaan){
 		Criteria criteria =null;
-		criteria = session.createCriteria(TblPasEaJenisPemeriksaan.class);
+		criteria = session.createCriteria(PasEaJenisPemeriksaan.class);
                     if (kodeJenisPemeriksaan.length()>0){criteria.add(Restrictions.eq("kodeJenisPemeriksaan", kodeJenisPemeriksaan)); 	}
 
-		return (TblPasEaJenisPemeriksaan)  criteria.uniqueResult();//session.get(TblPasEaJenisPemeriksaan.class, id);
+		return (PasEaJenisPemeriksaan)  criteria.uniqueResult();//session.get(TblPasEaJenisPemeriksaan.class, id);
 	}
 	
-	public List<TblPasEaJenisPemeriksaan> getAll(){
-		return (List<TblPasEaJenisPemeriksaan>) session.createCriteria(TblPasEaJenisPemeriksaan.class).list();
+	public List<PasEaJenisPemeriksaan> getAll(){
+		return (List<PasEaJenisPemeriksaan>) session.createCriteria(PasEaJenisPemeriksaan.class).list();
 	}
 	
 	
 	
 	public Long getAllCount(){
-		return (Long) session.createCriteria(TblPasEaJenisPemeriksaan.class).setProjection(Projections.rowCount()).uniqueResult();
+		return (Long) session.createCriteria(PasEaJenisPemeriksaan.class).setProjection(Projections.rowCount()).uniqueResult();
 	}
 
-	public List<TblPasEaJenisPemeriksaan> getAll(int start, int rowcount ){
-		return (List<TblPasEaJenisPemeriksaan>) session.createCriteria(TblPasEaJenisPemeriksaan.class).setFirstResult(start).setMaxResults(rowcount).list();
+	public List<PasEaJenisPemeriksaan> getAll(int start, int rowcount ){
+		return (List<PasEaJenisPemeriksaan>) session.createCriteria(PasEaJenisPemeriksaan.class).setFirstResult(start).setMaxResults(rowcount).list();
 	}
 
 /*//SESUAIKAN DENGAN KRITERIA*/	
 	public Criteria getCriteria(String Status,String KodeJenisPemeriksaan,String NamaJenisPemeriksaan,String KeteranganJenisPemeriksaan){
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Criteria criteria =null;
-		criteria = session.createCriteria(TblPasEaJenisPemeriksaan.class);
+		criteria = session.createCriteria(PasEaJenisPemeriksaan.class);
                     if (Status.length()>0){criteria.add(Restrictions.eq("status", Status)); 	}
                     if (KodeJenisPemeriksaan.length()>0){criteria.add(Restrictions.eq("kodeJenisPemeriksaan", KodeJenisPemeriksaan)); 	}
                     if (NamaJenisPemeriksaan.length()>0){criteria.add(Restrictions.eq("namaJenisPemeriksaan", NamaJenisPemeriksaan)); 	}
@@ -77,9 +77,9 @@ public class TblPasEaJenisPemeriksaanDAO {
 		return criteria;
 	}
 
-	public List<TblPasEaJenisPemeriksaan> getBy(String Status,String KodeJenisPemeriksaan,String NamaJenisPemeriksaan,String KeteranganJenisPemeriksaan ,int start, int rowcount ){
+	public List<PasEaJenisPemeriksaan> getBy(String Status,String KodeJenisPemeriksaan,String NamaJenisPemeriksaan,String KeteranganJenisPemeriksaan ,int start, int rowcount ){
 		Criteria criteria =getCriteria(Status,KodeJenisPemeriksaan,NamaJenisPemeriksaan,KeteranganJenisPemeriksaan);
-		return (List<TblPasEaJenisPemeriksaan>) criteria.setFirstResult(start).setMaxResults(rowcount).list();
+		return (List<PasEaJenisPemeriksaan>) criteria.setFirstResult(start).setMaxResults(rowcount).list();
 	}
 	
 	public Long getByCount(String Status,String KodeJenisPemeriksaan,String NamaJenisPemeriksaan,String KeteranganJenisPemeriksaan, int start, int rowcount  ){
@@ -90,7 +90,7 @@ public class TblPasEaJenisPemeriksaanDAO {
 	public Map<String,Object> getByPerPage(String Status,String KodeJenisPemeriksaan,String NamaJenisPemeriksaan,String KeteranganJenisPemeriksaan ,int start, int rowcount ){
 		Map map = new HashMap<String, Object>();		
 		long rowCount =  getByCount(Status,KodeJenisPemeriksaan,NamaJenisPemeriksaan,KeteranganJenisPemeriksaan,  start,rowcount);//total jumlah row
-		List<TblPasEaJenisPemeriksaan> l = getBy(Status,KodeJenisPemeriksaan,NamaJenisPemeriksaan,KeteranganJenisPemeriksaan, start,rowcount);//data result nya
+		List<PasEaJenisPemeriksaan> l = getBy(Status,KodeJenisPemeriksaan,NamaJenisPemeriksaan,KeteranganJenisPemeriksaan, start,rowcount);//data result nya
 		map.put("total", rowCount);
 		map.put("rows", l);
 		return map;
@@ -98,9 +98,9 @@ public class TblPasEaJenisPemeriksaanDAO {
 
 //==============================REPORT====================================
 /** Retrieve by kriteria tanpa batasan row */
-	public List<TblPasEaJenisPemeriksaan> getBy(String Status,String KodeJenisPemeriksaan,String NamaJenisPemeriksaan,String KeteranganJenisPemeriksaan  ){
+	public List<PasEaJenisPemeriksaan> getBy(String Status,String KodeJenisPemeriksaan,String NamaJenisPemeriksaan,String KeteranganJenisPemeriksaan  ){
 		Criteria criteria =getCriteria(Status,KodeJenisPemeriksaan,NamaJenisPemeriksaan,KeteranganJenisPemeriksaan);
-		return (List<TblPasEaJenisPemeriksaan>) criteria.list();
+		return (List<PasEaJenisPemeriksaan>) criteria.list();
 	}
 
 

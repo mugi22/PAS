@@ -63,18 +63,49 @@ Integer count = criteria.uniqueResult();
 
 	
 	/*//SESUAIKAN DENGAN KRITERIA*/	
-	public Criteria getCriteria(String userId,String branchCode){
+	public Criteria getCriteria(String userId,String branchCode,String sName){
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Criteria criteria =null;
 		System.out.println("branchCode "+ branchCode);
 		criteria = session.createCriteria(TblUser.class);
-                    if (userId.length()>0){criteria.add(Restrictions.eq("userId", userId)); 	}
+                    if (userId.length()>0){criteria.add(Restrictions.eq("userId", userId)); }
+                    if (sName.length()>0){criteria.add(Restrictions.like("name", "%"+sName+"%")); }
                     if (branchCode.length()>0){criteria.add(Restrictions.eq("branchCode", branchCode)); 	}          
 		return criteria;
 	}
 	
-	public List<TblUser> getBy(String userId,String branchCode,int start, int rowcount ){
-		Criteria criteria =getCriteria(userId,branchCode);
+//	public Criteria getCriteria2(String sNama,String userId){
+//		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+//		Criteria criteria =null;
+//		criteria = session.createCriteria(TblUser.class);
+//		if (userId.length()>0){criteria.add(Restrictions.eq("userId", userId)); 	}
+//		if (sNama.length()>0){criteria.add(Restrictions.like("name", "%"+sNama+"%"));}	
+//		return criteria;
+//	}
+//	
+//	public List<TblUser> getBy2(String sNama,String userId,int start, int rowcount ){
+//		Criteria criteria =getCriteria2(sNama,userId);
+//		return (List<TblUser>) criteria.setFirstResult(start).setMaxResults(rowcount).list();
+//	}
+//	
+//
+//	public Long getByCount2(String sNama,String userId, int start, int rowcount  ){
+//		Criteria criteria =getCriteria2(sNama,userId);
+//		return (Long) criteria.setProjection(Projections.rowCount()).uniqueResult();
+//	}
+//	
+//	public Map<String,Object> getByPerPage2(String sNama,String userId ,int start, int rowcount ){
+//		Map map = new HashMap<String, Object>();		
+//		long rowCount =  getByCount2(sNama,userId,  start,rowcount);//total jumlah row
+//		List<TblUser> l = getBy2(sNama ,userId, start,rowcount);//data result nya
+//		map.put("total", rowCount);
+//		map.put("rows", l);
+//		return map;
+//	}
+////================================================================================
+	
+	public List<TblUser> getBy(String userId,String branchCode,String sName,int start, int rowcount ){
+		Criteria criteria =getCriteria(userId,branchCode,sName);
 		return (List<TblUser>) criteria.setFirstResult(start).setMaxResults(rowcount).list();
 	}
 	
@@ -86,16 +117,24 @@ Integer count = criteria.uniqueResult();
 	
 	
 	
-	public Long getByCount(String userId,String branchCode, int start, int rowcount  ){
-		Criteria criteria =getCriteria(userId,branchCode);
+	public Long getByCount(String userId,String branchCode,String sName, int start, int rowcount  ){
+		Criteria criteria =getCriteria(userId,branchCode,sName);
 		return (Long) criteria.setProjection(Projections.rowCount()).uniqueResult();
 	}
 	
-	
-	public Map<String,Object> getByPerPage(String userId,String branchCode ,int start, int rowcount ){
+	/**
+	 * 
+	 * @param userId
+	 * @param branchCode
+	 * @param sName
+	 * @param start
+	 * @param rowcount
+	 * @return
+	 */
+	public Map<String,Object> getByPerPage(String userId,String branchCode ,String sName,int start, int rowcount ){
 		Map map = new HashMap<String, Object>();		
-		long rowCount =  getByCount(userId,branchCode,  start,rowcount);//total jumlah row
-		List<TblUser> l = getBy(userId,branchCode , start,rowcount);//data result nya
+		long rowCount =  getByCount(userId,branchCode,sName,  start,rowcount);//total jumlah row
+		List<TblUser> l = getBy(userId,branchCode ,sName, start,rowcount);//data result nya
 		map.put("total", rowCount);
 		map.put("rows", l);
 		return map;

@@ -103,7 +103,7 @@ jspTemplate
     
           
 <!-- ************************** FORM ******************************************** -->
-	<div id="dlg" class="easyui-dialog"	style="width: 750px;  padding: 10px 20px" closed="true"	buttons="#dlg-buttons" data-options="modal:true">
+	<div id="dlg" class="easyui-dialog"	style="width: 90%;  padding: 10px 20px" closed="true"	buttons="#dlg-buttons" data-options="modal:true">
 		<div class="ftitle">PASEAAUDITAN</div>
 		<form id="fm" method="post" novalidate>
 			<table align="center">
@@ -111,38 +111,40 @@ jspTemplate
 					<td><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.KodeTkAuditan")%></label>
 							:<input name="kodeTkAuditan" class="easyui-textbox"
-								id="kodeTkAuditan">
+								id="kodeTkAuditan" required="true">
 						</div></td>
-				
+				<td></td>
 					<td><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.KodeAuditan")%></label>
 							:<input name="kodeAuditan" class="easyui-textbox"
-								id="kodeAuditan">
-						</div></td>
+								id="kodeAuditan" required="true">
+						</div>
+					</td>
 				</tr>
 				<tr>
-					<td><div class="fitem">
+					<td colspan="3"><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.NamaAuditan")%></label>
-							:<input name="namaAuditan" class="easyui-textbox"
-								id="namaAuditan">
+							:<input name="namaAuditan" class="easyui-textbox"	id="namaAuditan" style="width: 300px;" required="true">
 						</div></td>
 				
-					<td><div class="fitem">
+				</tr>
+				<tr>
+					<td colspan="3"><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.AlamatAuditan")%></label>
-							:<input name="alamatAuditan" class="easyui-textbox"
-								id="alamatAuditan">
+							:<input name="alamatAuditan" class="easyui-textbox"	id="alamatAuditan" style="width: 500px;">
+						</div></td>
+				</tr>
+				
+				<tr>
+					<td colspan="3"><div class="fitem">
+							<label><%=properties.getProperty("pasEaAuditan.ProvinsiAuditan")%></label>
+							:<input name="provinsiAuditan" class="easyui-textbox" id="provinsiAuditan" style="width: 300px;">
 						</div></td>
 				</tr>
 				<tr>
-					<td><div class="fitem">
-							<label><%=properties.getProperty("pasEaAuditan.ProvinsiAuditan")%></label>
-							:<input name="provinsiAuditan" class="easyui-textbox"
-								id="provinsiAuditan">
-						</div></td>
-					<td><div class="fitem">
+					<td colspan="3"><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.KotaAuditan")%></label>
-							:<input name="kotaAuditan" class="easyui-textbox"
-								id="kotaAuditan">
+							:<input name="kotaAuditan" class="easyui-textbox"id="kotaAuditan" style="width: 300px;">
 						</div></td>
 				
 				</tr>
@@ -151,35 +153,40 @@ jspTemplate
 							<label><%=properties.getProperty("pasEaAuditan.KoordinatAuditan")%></label>
 							:<input name="koordinatAuditan" class="easyui-textbox"
 								id="koordinatAuditan">
-						</div></td>
-				
+						</div>
+					</td>
+					<td></td>
 					<td><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.TelephoneAuditan")%></label>
 							:<input name="telephoneAuditan" class="easyui-textbox"
 								id="telephoneAuditan">
-						</div></td>
+						</div>
+					</td>
 				</tr>
 				<tr>
 					<td><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.FaximiliAuditan")%></label>
 							:<input name="faximiliAuditan" class="easyui-textbox"
 								id="faximiliAuditan">
-						</div></td>
-				
-					<td><div class="fitem">
+						</div>
+					</td>
+					<td></td>
+					<td colspan="1"><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.UserNamePicTl")%></label>
 							:<input name="userNamePicTl" class="easyui-textbox"
 								id="userNamePicTl">
-						</div></td>
+						</div>
+					</td>
 				</tr>
 				<tr>
 					<td><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.PasswordPicTl")%></label>
 							:<input name="passwordPicTl" class="easyui-textbox"
 								id="passwordPicTl">
-						</div></td>
-				
-					<td><div class="fitem">
+						</div>
+					</td>
+					<td></td>
+					<td colspan="1"><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.StatusAuditan")%></label>
 							:<input name="statusAuditan" class="easyui-textbox"
 								id="statusAuditan">
@@ -188,30 +195,41 @@ jspTemplate
 				<tr>
 					<td><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.KdParent")%></label>
-							:<input name="kdParent" class="easyui-textbox" id="kdParent">
-						</div></td>
-				
+							:<input name="kdParent" class="easyui-textbox" id="kdParent" required="true">							
+						</div>
+					</td>
+					<td>
+						<input name="cariUnit" value="Cari" type="button" onclick="cariAuditan()" style="width: 35px;">
+					</td>
+					<td>
+						<input name="namaParentx" class="easyui-textbox"  id="namaParentx" style="width: 100%" >
+					</td>
+				</tr>
+				<tr>
 					<td><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.NikPicTl")%></label>
 							:<input name="nikPicTl" class="easyui-textbox" id="nikPicTl">
-						</div></td>
-				</tr>
-				<tr>
-					<td><div class="fitem">
+						</div>
+					</td>
+					<td></td>
+					<td colspan="1"><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.NamaPicTl")%></label>
 							:<input name="namaPicTl" class="easyui-textbox" id="namaPicTl">
-						</div></td>
-				
+						</div>
+					</td>
+				</tr>
+				<tr>
 					<td><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.NoHpPicTl")%></label>
 							:<input name="noHpPicTl" class="easyui-textbox" id="noHpPicTl">
-						</div></td>
-				</tr>
-				<tr>
+						</div>
+					</td>
+					<td></td>
 					<td><div class="fitem">
 							<label><%=properties.getProperty("pasEaAuditan.EmailPicTl")%></label>
 							:<input name="emailPicTl" class="easyui-textbox" id="emailPicTl">
-						</div></td>
+						</div>
+					</td>
 				</tr>
 
 			</table>
@@ -222,13 +240,18 @@ jspTemplate
 		<a href="javascript:void(0)" class="easyui-linkbutton" 	iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')"style="width: 90px" id="btnCancel">Cancel</a>
 	</div>
 	<!-- ************************************************END FORM******************* -->
-
+<div id="win"></div>
 </body>
 </html>
 
 
 
 <script>
+
+
+
+
+
 var url;
 var branchcode;
 	$("document").ready(function() {
@@ -245,18 +268,46 @@ var branchcode;
 		
 		comboKabupaten($("#kotaAuditan"));
 		comboProvinsiToKabupaten($("#provinsiAuditan"),'',$("#kotaAuditan"),'');//seacrh	
-		
+		 $('#namaParentx').textbox('readonly', true);
+		 $('#kdParent').textbox('readonly', true);
 	});
+
+	
+	function cariAuditan() {
+		$('#win').window(
+				{
+					width : 800,
+					height : 400,
+					href : 'pasEaAuditanCari.htm?'
+							+ window.location.search.replace("?", ""),
+					modal : true,
+					minimizable : false,
+					maximizable : false,
+					collapsible : false
+				});
+	}
+
+	function ambilauditan(s) {
+		var row = $('#dg2').datagrid('getSelected');
+		$("#kdParent").textbox('setValue', row.kodeAuditan);
+		$("#namaParentx").textbox('setValue', row.namaAuditan);
+		$('#win').window('close');
+	}
 
 	function test() {
 		alert("testtttt..... click");
 	}
 
-	function retrieve() {		
-		var jsonurl = 'pasEaAuditanListAll.htm?'+
-						'KodeTkAuditan='+$('#KodeTkAuditan').combobox('getValue')+"&"+'KodeAuditan='+$('#KodeAuditan').val()+"&"+
-						'NamaAuditan='+$('#NamaAuditan').val()+"&"+'KotaAuditan='+$('#KotaAuditan').val()+"&"+'ProvinsiAuditan='+
-						$('#ProvinsiAuditan').combobox('getValue')+"&"+'KdParent='+$('#KdParent').val()+"&"+"userId="+"${userId}";
+	function retrieve() {
+		var jsonurl = 'pasEaAuditanListAll.htm?' + 'KodeTkAuditan='
+				+ $('#KodeTkAuditan').combobox('getValue') + "&"
+				+ 'KodeAuditan=' + $('#KodeAuditan').val() + "&"
+				+ 'NamaAuditan=' + $('#NamaAuditan').val() + "&"
+				+ 'KotaAuditan=' + $('#KotaAuditan').val() + "&"
+				+ 'ProvinsiAuditan='
+				+ $('#ProvinsiAuditan').combobox('getValue') + "&"
+				+ 'KdParent=' + $('#KdParent').val() + "&" + "userId="
+				+ "${userId}";
 		$('#dg').datagrid({
 			url : jsonurl,
 			onLoadSuccess : function(data) {
@@ -281,17 +332,19 @@ var branchcode;
 	}
 
 	/* END function untuk list data*/
-	
+
 	/* ============FORM FUNCTION ========== pasEaAuditantambah*/
 
-	function doAdd() { 
+	
+	function doAdd() {
 		idRequired(true);
 		$('#dlg').dialog('open').dialog('setTitle', 'Tambah');
 		$('#fm').form('clear');
-		url = 'pasEaAuditanAdd.htm?'+"userId="+"${userId}";
-		comboProvinsiToKabupaten($("#provinsiAuditan"),'',$("#kotaAuditan"),'');//seacrh
+		url = 'pasEaAuditanAdd.htm?' + "userId=" + "${userId}";
+		comboProvinsiToKabupaten($("#provinsiAuditan"), '', $("#kotaAuditan"),'');//seacrh
 		onAdd();
 	}
+	
 	function doEdit() {
 		//idRequired(false);
 		$('#fm').form('clear');
@@ -300,21 +353,29 @@ var branchcode;
 			$('#dlg').dialog('open').dialog('setTitle', 'Edit');
 			$('#fm').form('clear');
 			$('#fm').form('load', row);
-			url = 'pasEaAuditanEdit.htm?'+"userId="+"${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten; //SESUAIKAN
+			url = 'pasEaAuditanEdit.htm?' + "userId=" + "${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten; //SESUAIKAN
 			$.ajax({
-				url:'getKodeKabupaten.htm?param='+row.kotaAuditan,
-				success	: function(result){
-					t = JSON.parse(result);
-					//alert(t.kodeProvinsi+"=="+t.kodeKabupaten);
-					//untuk combop provinsi bila di klik
-					comboProvinsiToKabupaten($("#provinsiAuditan"),t.kodeProvinsi,$("#kotaAuditan"),t.kodeKabupaten);//seacrh
-					//default combox kabupaten yang diambil dari selectnya
-					Urlk = 'comboKabupatenByProvinsi.htm?param='+t.kodeProvinsi+'&param2='+t.kodeKabupaten;//+ 
-					$("#kotaAuditan").combobox('reload', Urlk);
-				}
-			});
-			
-			
+						url : 'getKodeKabupaten.htm?param=' + row.kotaAuditan,
+						success : function(result) {
+							t = JSON.parse(result);
+							//alert(t.kodeProvinsi+"=="+t.kodeKabupaten);untuk combop provinsi bila di klik
+							comboProvinsiToKabupaten($("#provinsiAuditan"),	t.kodeProvinsi, $("#kotaAuditan"),t.kodeKabupaten);//seacrh
+							//default combox kabupaten yang diambil dari selectnya
+							Urlk = 'comboKabupatenByProvinsi.htm?param='+ t.kodeProvinsi + '&param2='+ t.kodeKabupaten;//+ 
+							$("#kotaAuditan").combobox('reload', Urlk);
+							
+							//alert("kdParent "+row.kdParent+"row.kodeTkAuditan :"+row.kodeTkAuditan);
+							$.ajax({
+								url:'getPasEaAuditan.htm?param='+row.kdParent+"&param2="+row.kodeTkAuditan,
+								success : function(hasil) {
+									d=JSON.parse(hasil);
+									$("#kdParent").textbox('setValue', row.kodeAuditan);
+									$("#namaParentx").textbox('setValue', row.namaAuditan);
+								}
+							});
+						}
+					});
+
 			onEdit();
 		}
 	}
@@ -323,19 +384,19 @@ var branchcode;
 		doEdit();
 		onShow();
 		$('#dlg').dialog('open').dialog('setTitle', 'Tampil');
-	/*
-		$('#fm').form('clear');
-		var row = $('#dg').datagrid('getSelected');		
-		if (row) {
-			$('#dlg').dialog('open').dialog('setTitle', 'Tampil');
+		/*
 			$('#fm').form('clear');
-			$('#fm').form('load', row);
-			url = 'pasEaAuditanEdit.htm?'+"userId="+"${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten;
-			onShow();
-		}
-		*/
+			var row = $('#dg').datagrid('getSelected');		
+			if (row) {
+				$('#dlg').dialog('open').dialog('setTitle', 'Tampil');
+				$('#fm').form('clear');
+				$('#fm').form('load', row);
+				url = 'pasEaAuditanEdit.htm?'+"userId="+"${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten;
+				onShow();
+			}
+		 */
 	}
-	
+
 	function doDelete() {
 		idRequired(false);
 		var row = $('#dg').datagrid('getSelected');
@@ -344,9 +405,9 @@ var branchcode;
 					function(r) {
 						if (r) {
 							$.post('pasEaAuditanDelete.htm', {
-							                    kodeTkAuditan : row.kodeTkAuditan,
-                    kodeAuditan : row.kodeAuditan,
-							userId:"${userId}"
+								kodeTkAuditan : row.kodeTkAuditan,
+								kodeAuditan : row.kodeAuditan,
+								userId : "${userId}"
 							}, function(result) {
 								if (result.success) {
 									$('#dg').datagrid('reload'); // reload the user data
@@ -363,7 +424,7 @@ var branchcode;
 	}
 
 	function doSave() {
-	idRequired(false);
+		idRequired(false);
 		$('#fm').form('submit', {
 			url : url,
 			onSubmit : function() {
@@ -372,7 +433,7 @@ var branchcode;
 			success : function(result) {
 				var resultx = eval('(' + result + ')');
 				if (resultx === 'fail' || result === null) {
-					alertError("Simpan Gagal");					
+					alertError("Simpan Gagal");
 				} else {
 					alertAll('Simpan Sukses');
 					$('#dlg').dialog('close'); // close the dialog
@@ -382,105 +443,108 @@ var branchcode;
 			}
 		});
 	}
-	
-	
-function idRequired(t){
-	/*                $('#kodeTkAuditan').textbox({   required: t});
-                    $('#kodeAuditan').textbox({   required: t});
-	$('#idJurnalTransaksi').textbox({   required: t			});
-	$('#jurnalId').textbox({   required: t	});
-	*/
-}	
-	
-	
+
+	function idRequired(t) {
+		/*                $('#kodeTkAuditan').textbox({   required: t});
+		                $('#kodeAuditan').textbox({   required: t});
+		$('#idJurnalTransaksi').textbox({   required: t			});
+		$('#jurnalId').textbox({   required: t	});
+		 */
+	}
+
 	/* ================TAMBAHAN=================*/
 
-	
 	/*Untuk membuat menjadi huruf besar semua */
 	function upperCase(t) {
 		t.textbox('textbox').bind('keyup', function(e) {
 			$(this).val($(this).val().toUpperCase());
 		});
 	}
-	
+
 	/*inputan readonly atau tidak saat onShow  XXXenableField */
 	function onShow() {
-		                    $('#kodeTkAuditan').textbox('readonly', true);
-                    $('#kodeAuditan').textbox('readonly', true);
-                    $('#namaAuditan').textbox('readonly', true);
-                    $('#alamatAuditan').textbox('readonly', true);
-                    $('#kotaAuditan').textbox('readonly', true);
-                    $('#provinsiAuditan').textbox('readonly', true);
-                    $('#koordinatAuditan').textbox('readonly', true);
-                    $('#telephoneAuditan').textbox('readonly', true);
-                    $('#faximiliAuditan').textbox('readonly', true);
-                    $('#userNamePicTl').textbox('readonly', true);
-                    $('#passwordPicTl').textbox('readonly', true);
-                    $('#statusAuditan').textbox('readonly', true);
-                    $('#kdParent').textbox('readonly', true);
-                    $('#nikPicTl').textbox('readonly', true);
-                    $('#namaPicTl').textbox('readonly', true);
-                    $('#noHpPicTl').textbox('readonly', true);
-                    $('#emailPicTl').textbox('readonly', true);
+		$('#kodeTkAuditan').textbox('readonly', true);
+		$('#kodeAuditan').textbox('readonly', true);
+		$('#namaAuditan').textbox('readonly', true);
+		$('#alamatAuditan').textbox('readonly', true);
+		$('#kotaAuditan').textbox('readonly', true);
+		$('#provinsiAuditan').textbox('readonly', true);
+		$('#koordinatAuditan').textbox('readonly', true);
+		$('#telephoneAuditan').textbox('readonly', true);
+		$('#faximiliAuditan').textbox('readonly', true);
+		$('#userNamePicTl').textbox('readonly', true);
+		$('#passwordPicTl').textbox('readonly', true);
+		$('#statusAuditan').textbox('readonly', true);
+		$('#kdParent').textbox('readonly', true);
+		$('#nikPicTl').textbox('readonly', true);
+		$('#namaPicTl').textbox('readonly', true);
+		$('#noHpPicTl').textbox('readonly', true);
+		$('#emailPicTl').textbox('readonly', true);
 
 		$('#btnSave').linkbutton('disable');
 	}
-	
+
 	/*inputan readonly atau tidak saat Add*/
 	function onAdd() {
-		                    $('#kodeTkAuditan').textbox('readonly', false);
-                    $('#kodeAuditan').textbox('readonly', false);
-                    $('#namaAuditan').textbox('readonly', false);
-                    $('#alamatAuditan').textbox('readonly', false);
-                    $('#kotaAuditan').textbox('readonly', false);
-                    $('#provinsiAuditan').textbox('readonly', false);
-                    $('#koordinatAuditan').textbox('readonly', false);
-                    $('#telephoneAuditan').textbox('readonly', false);
-                    $('#faximiliAuditan').textbox('readonly', false);
-                    $('#userNamePicTl').textbox('readonly', false);
-                    $('#passwordPicTl').textbox('readonly', false);
-                    $('#statusAuditan').textbox('readonly', false);
-                    $('#kdParent').textbox('readonly', false);
-                    $('#nikPicTl').textbox('readonly', false);
-                    $('#namaPicTl').textbox('readonly', false);
-                    $('#noHpPicTl').textbox('readonly', false);
-                    $('#emailPicTl').textbox('readonly', false);
-		
+		$('#kodeTkAuditan').textbox('readonly', false);
+		$('#kodeAuditan').textbox('readonly', false);
+		$('#namaAuditan').textbox('readonly', false);
+		$('#alamatAuditan').textbox('readonly', false);
+		$('#kotaAuditan').textbox('readonly', false);
+		$('#provinsiAuditan').textbox('readonly', false);
+		$('#koordinatAuditan').textbox('readonly', false);
+		$('#telephoneAuditan').textbox('readonly', false);
+		$('#faximiliAuditan').textbox('readonly', false);
+		$('#userNamePicTl').textbox('readonly', false);
+		$('#passwordPicTl').textbox('readonly', false);
+		$('#statusAuditan').textbox('readonly', false);
+		$('#kdParent').textbox('readonly', true);
+		$('#nikPicTl').textbox('readonly', false);
+		$('#namaPicTl').textbox('readonly', false);
+		$('#noHpPicTl').textbox('readonly', false);
+		$('#emailPicTl').textbox('readonly', false);
+
 		$('#btnSave').linkbutton('enable');
-	}
-	
-	/*inputan readonly atau tidak saat Edit */
-	function onEdit() {
-		                    $('#kodeTkAuditan').textbox('readonly', true);
-                    $('#kodeAuditan').textbox('readonly', true);
-                    $('#namaAuditan').textbox('readonly', false);
-                    $('#alamatAuditan').textbox('readonly', false);
-                    $('#kotaAuditan').textbox('readonly', false);
-                    $('#provinsiAuditan').textbox('readonly', false);
-                    $('#koordinatAuditan').textbox('readonly', false);
-                    $('#telephoneAuditan').textbox('readonly', false);
-                    $('#faximiliAuditan').textbox('readonly', false);
-                    $('#userNamePicTl').textbox('readonly', false);
-                    $('#passwordPicTl').textbox('readonly', false);
-                    $('#statusAuditan').textbox('readonly', false);
-                    $('#kdParent').textbox('readonly', false);
-                    $('#nikPicTl').textbox('readonly', false);
-                    $('#namaPicTl').textbox('readonly', false);
-                    $('#noHpPicTl').textbox('readonly', false);
-                    $('#emailPicTl').textbox('readonly', false);
-	
-		$('#btnSave').linkbutton('enable');
-	}
-/*===============================================REPORT==================================*/
-function doCetak(){
-		var repUrl = 'pasEaAuditanReport.htm?'+
-					  'KodeTkAuditan='+$('#KodeTkAuditan').val()+"&"+'KodeAuditan='+$('#KodeAuditan').val()+"&"+'NamaAuditan='+$('#NamaAuditan').val()+"&"+'KotaAuditan='+$('#KotaAuditan').val()+"&"+'ProvinsiAuditan='+$('#ProvinsiAuditan').val()+"&"+'KdParent='+$('#KdParent').val()+"&"+"userId="+"${userId}";;
-		var s = window.location.search.replace("?", "");
-		window.open(repUrl+"&"+s,
-				"_blank", 
-				"toolbar=no, scrollbars=yes, resizable=yes,	directories=no, location=no, \
-				 menubar=no, status=no,'");
 	}
 
-	
+	/*inputan readonly atau tidak saat Edit */
+	function onEdit() {
+		$('#kodeTkAuditan').textbox('readonly', true);
+		$('#kodeAuditan').textbox('readonly', true);
+		$('#namaAuditan').textbox('readonly', false);
+		$('#alamatAuditan').textbox('readonly', false);
+		$('#kotaAuditan').textbox('readonly', false);
+		$('#provinsiAuditan').textbox('readonly', false);
+		$('#koordinatAuditan').textbox('readonly', false);
+		$('#telephoneAuditan').textbox('readonly', false);
+		$('#faximiliAuditan').textbox('readonly', false);
+		$('#userNamePicTl').textbox('readonly', false);
+		$('#passwordPicTl').textbox('readonly', false);
+		$('#statusAuditan').textbox('readonly', false);
+		$('#kdParent').textbox('readonly', true);
+		$('#nikPicTl').textbox('readonly', false);
+		$('#namaPicTl').textbox('readonly', false);
+		$('#noHpPicTl').textbox('readonly', false);
+		$('#emailPicTl').textbox('readonly', false);
+
+		$('#btnSave').linkbutton('enable');
+	}
+	/*===============================================REPORT==================================*/
+	function doCetak() {
+		var repUrl = 'pasEaAuditanReport.htm?' + 'KodeTkAuditan='
+				+ $('#KodeTkAuditan').val() + "&" + 'KodeAuditan='
+				+ $('#KodeAuditan').val() + "&" + 'NamaAuditan='
+				+ $('#NamaAuditan').val() + "&" + 'KotaAuditan='
+				+ $('#KotaAuditan').val() + "&" + 'ProvinsiAuditan='
+				+ $('#ProvinsiAuditan').val() + "&" + 'KdParent='
+				+ $('#KdParent').val() + "&" + "userId=" + "${userId}";
+		;
+		var s = window.location.search.replace("?", "");
+		window
+				.open(
+						repUrl + "&" + s,
+						"_blank",
+						"toolbar=no, scrollbars=yes, resizable=yes,	directories=no, location=no, \
+				 menubar=no, status=no,'");
+	}
 </script>

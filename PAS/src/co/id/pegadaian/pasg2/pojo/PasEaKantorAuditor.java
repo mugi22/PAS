@@ -10,8 +10,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "TBL_PAS_EA_KANTOR_AUDITOR", schema = "PASG2")
-public class TblPasEaKantorAuditor extends AuditTrail implements
+@Table(name = "PAS_EA_KANTOR_AUDITOR", schema = "PASG2")
+public class PasEaKantorAuditor extends AuditTrail implements
 		java.io.Serializable {
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class TblPasEaKantorAuditor extends AuditTrail implements
 	private String kodeParent;
 	private String status;
 
-	public TblPasEaKantorAuditor() {
+	public PasEaKantorAuditor() {
 	}
 
 	@Column(name = "KODE_TK_KANTOR_AUDITOR", unique = false, nullable = true, length = 2, scale = 0)
