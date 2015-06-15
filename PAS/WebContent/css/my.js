@@ -218,7 +218,7 @@
 	
 	
 	
-	/* Combo tingkat kantor
+	/* Combo tingkat kantor*/
 	function comboEaTkKantorAuditor1(k,kodeTk) {
 		k.combobox({
 			url : 'comboEaTkKantorAuditor.htm?param=' + kodeTk+'&param2=',
@@ -228,7 +228,7 @@
 		});
 		kodeTk = '';
 	}	
-	*/
+	
 //	comboGroup
 	//satatus pegawai
 /*		function comboGroup(t) {

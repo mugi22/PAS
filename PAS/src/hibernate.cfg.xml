@@ -75,7 +75,7 @@
     <mapping class="co.id.pegadaian.pasg2.pojo.PasEaKetuaTimAuditor"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.PasEaAnggotaTimAuditor"/>
     <mapping class="co.id.pegadaian.pasg2.pojo.PasEaJenisPemeriksaan"/>
-    
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblAppProperties"/>
     
     
     

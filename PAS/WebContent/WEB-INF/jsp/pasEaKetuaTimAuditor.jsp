@@ -20,15 +20,15 @@ jspTemplate
 			<table align="center">
 				<tr>
 					<td><label style="width: 150px;"><%=properties
-					.getProperty("pasEaKetuaTimAuditor.KodeTkKantorAuditor")%></label>
-						: <input name="KodeTkKantorAuditor" type="text"
-						id="KodeTkKantorAuditor" size="30" maxlength="30"></td>
-				</tr>
-				<tr>
-					<td><label style="width: 150px;"><%=properties
 					.getProperty("pasEaKetuaTimAuditor.KodeKantorAuditor")%></label>
 						: <input name="KodeKantorAuditor" type="text"
 						id="KodeKantorAuditor" size="30" maxlength="30"></td>
+				</tr>
+				<tr>
+					<td><label style="width: 150px;"><%=properties
+					.getProperty("pasEaKetuaTimAuditor.KodeTkKantorAuditor")%></label>
+						: <input name="KodeTkKantorAuditor" type="text"
+						id="KodeTkKantorAuditor" size="30" maxlength="30"></td>
 				</tr>
 				<tr>
 					<td><label style="width: 150px;"><%=properties
@@ -59,8 +59,8 @@ jspTemplate
                rownumbers="true" fitColumns="true" singleSelect="true">
             <thead>
                 <tr>
-                    <th field="kodeTkKantorAuditor" width="100"sortable="true"><%=properties.getProperty("pasEaKetuaTimAuditor.KodeTkKantorAuditor")%></th> 
                     <th field="kodeKantorAuditor" width="100"sortable="true"><%=properties.getProperty("pasEaKetuaTimAuditor.KodeKantorAuditor")%></th> 
+                    <th field="kodeTkKantorAuditor" width="100"sortable="true"><%=properties.getProperty("pasEaKetuaTimAuditor.KodeTkKantorAuditor")%></th> 
                     <th field="kodeUserKetuaTimAuditor" width="100"sortable="true"><%=properties.getProperty("pasEaKetuaTimAuditor.KodeUserKetuaTimAuditor")%></th> 
                      
                 </tr>
@@ -80,15 +80,45 @@ jspTemplate
     
           
 <!-- ************************** FORM ******************************************** -->
-	<div id="dlg" class="easyui-dialog"	style="width: 750px;  padding: 10px 20px" closed="true"	buttons="#dlg-buttons" data-options="modal:true">
+	<div id="dlg" class="easyui-dialog"	style="width: 90%;  padding: 10px 20px" closed="true"	buttons="#dlg-buttons" data-options="modal:true">
 		<div class="ftitle">PASEAKETUATIMAUDITOR</div>
 		<form id="fm" method="post" novalidate>
-		<table align="center"> 
-                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasEaKetuaTimAuditor.KodeTkKantorAuditor")%></label> :<input name="kodeTkKantorAuditor"	class="easyui-textbox" id="kodeTkKantorAuditor"></div></td></tr>	
-                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasEaKetuaTimAuditor.KodeKantorAuditor")%></label> :<input name="kodeKantorAuditor"	class="easyui-textbox" id="kodeKantorAuditor"></div></td></tr>	
-                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasEaKetuaTimAuditor.KodeUserKetuaTimAuditor")%></label> :<input name="kodeUserKetuaTimAuditor"	class="easyui-textbox" id="kodeUserKetuaTimAuditor"></div></td></tr>	
-			
-		</table>
+			<table align="center">
+				<tr>
+					<td><div class="fitem">
+							<label><%=properties
+					.getProperty("pasEaKetuaTimAuditor.KodeKantorAuditor")%></label>
+							:<input name="kodeKantorAuditor" class="easyui-textbox"
+								id="kodeKantorAuditor">
+						</div></td>
+						<td><input type="button" value="Kantor Auditor" style="width: 100px;" onclick="cariKantorAuditan();"></td>
+						<td><input id="branchName" name="branchName" 	class="easyui-textbox" style="width: 200px;" ></td>
+						
+				</tr>
+				<tr>
+					<td><div class="fitem">
+							<label><%=properties
+					.getProperty("pasEaKetuaTimAuditor.KodeTkKantorAuditor")%></label>
+							:<input name="kodeTkKantorAuditor" class="easyui-textbox"
+								id="kodeTkKantorAuditor">
+						</div></td>
+						<td></td>
+						<td></td>
+				</tr>
+				<tr>
+					<td><div class="fitem">
+							<label><%=properties
+					.getProperty("pasEaKetuaTimAuditor.KodeUserKetuaTimAuditor")%></label>
+							:<input name="kodeUserKetuaTimAuditor" class="easyui-textbox"
+								id="kodeUserKetuaTimAuditor">
+						</div></td>
+						<td><input name="cariUser" value="Cari" type="button" onclick="cariuser();" style="width: 35px;">
+					</td>
+					<td><input name="namaUser" class="easyui-textbox"
+						id="namaUser" style="width: 200px;"></td>
+				</tr>
+
+			</table>
 		</form>
 	</div>
 	<div id="dlg-buttons">
@@ -96,7 +126,7 @@ jspTemplate
 		<a href="javascript:void(0)" class="easyui-linkbutton" 	iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')"style="width: 90px" id="btnCancel">Cancel</a>
 	</div>
 	<!-- ************************************************END FORM******************* -->
-
+<div id="win"></div>
 </body>
 </html>
 
@@ -110,12 +140,58 @@ var branchcode;
 		$("#btnEdit").linkbutton('${btnEdit}');
 		$("#btnDelete").linkbutton('${btnDelete}');
 		$("#btnShow").linkbutton('${btnShow}');	
-		comboEaKantorAuditor($('#kodeKantorAuditor'));//form
+		//comboEaKantorAuditor($('#kodeKantorAuditor'));//form
 		comboEaTkKantorAuditor($('#kodeTkKantorAuditor'),'',$('#kodeKantorAuditor'),'');//form
-		comboEaKantorAuditor($('#KodeKantorAuditor'));
-		comboEaTkKantorAuditor($('#KodeTkKantorAuditor'),'',$('#KodeKantorAuditor'),'');
+		//comboEaKantorAuditor($('#KodeKantorAuditor'));
+		//comboEaTkKantorAuditor($('#KodeTkKantorAuditor'),'',$('#KodeKantorAuditor'),'');
+		comboEaTkKantorAuditor1($('#KodeTkKantorAuditor',''));//tidak ada click by
 	});
 
+
+	function cariKantorAuditan() {
+		$('#win').window(
+				{
+					width : 800,
+					height : 400,
+					href : 'pasEaKantorAuditorCari.htm?'
+							+ window.location.search.replace("?", ""),
+					modal : true,
+					minimizable : false,
+					maximizable : false,
+					collapsible : false
+				});
+	}
+
+	function ambil(s) {
+		var row = $('#dg2').datagrid('getSelected');
+		$("#kodeKantorAuditor").textbox('setValue', row.kodeKantor);
+		$("#branchName").textbox('setValue', row.nama);
+		urlx= 'comboEaTkKantorAuditor.htm?param='+row.kodeTk+'&param2=';
+		$('#kodeTkKantorAuditor').combobox('reload',urlx);
+		$('#win').window('close');
+	}
+	
+	
+
+	function cariuser() {
+		$('#win').window(
+				{
+					width : 800,
+					height : 400,
+					href : 'userCari.htm?'	+ window.location.search.replace("?", ""),
+					modal : true,					minimizable : false,					maximizable : false,					collapsible : false
+				});
+	}
+
+	
+	function ambilUser(s) {
+		var row = $('#dg2').datagrid('getSelected');
+		$("#namaUser").textbox('setValue', row.name);
+		$("#kodeUserKetuaTimAuditor").textbox('setValue', row.userId);
+		$('#win').window('close');
+	}
+		
+	
 	
 	function test() {
 		alert("testtttt..... click");
@@ -163,8 +239,8 @@ var branchcode;
 		$('#dlg').dialog('open').dialog('setTitle', 'Tambah');
 		$('#fm').form('clear');
 		url = 'pasEaKetuaTimAuditorAdd.htm?' + "userId=" + "${userId}";
-		comboEaKantorAuditor($('#kodeKantorAuditor'));
-		comboEaTkKantorAuditor($('#kodeTkKantorAuditor'), '',$('#kodeKantorAuditor'), '');
+		//comboEaKantorAuditor($('#kodeKantorAuditor'));
+		//comboEaTkKantorAuditor($('#kodeTkKantorAuditor'), '',$('#kodeKantorAuditor'), '');
 		onAdd();
 	}
 	function doEdit() {
@@ -178,12 +254,22 @@ var branchcode;
 			url = 'pasEaKetuaTimAuditorEdit.htm?' + "userId=" + "${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten; //SESUAIKAN
 			//-----------
 					
-				$('#kodeKantorAuditor').combobox('clear');
-				urlz ='comboPasEaKantorAuditorByTk.htm?param='+row.kodeTkKantorAuditor+'&param2='+row.kodeKantorAuditor;
-				$('#kodeKantorAuditor').combobox('reload',urlz);
+			//	$('#kodeKantorAuditor').combobox('clear');
+			//	urlz ='comboPasEaKantorAuditorByTk.htm?param='+row.kodeTkKantorAuditor+'&param2='+row.kodeKantorAuditor;
+			//	$('#kodeKantorAuditor').combobox('reload',urlz);
 			
 			//-------
-			
+			$.ajax({
+				url:'getKantorAuditorById.htm?param='+row.kodeKantorAuditor,
+				success : function(result) {
+					alert("result "+result);
+					t = JSON.parse(result);
+					urlx= 'comboEaTkKantorAuditor.htm?param='+t.kodeTk+'&param2=';
+					$('#kodeTkKantorAuditor').combobox('reload',urlx);
+					$("#kodeKantorAuditor").textbox('setValue', t.kodeKantor);
+					$("#branchName").textbox('setValue', t.nama);
+				}
+			});
 			onEdit();
 		}
 	}
@@ -288,8 +374,8 @@ var branchcode;
 
 	/*inputan readonly atau tidak saat Add*/
 	function onAdd() {
-		$('#kodeTkKantorAuditor').textbox('readonly', false);
-		$('#kodeKantorAuditor').textbox('readonly', false);
+		$('#kodeTkKantorAuditor').textbox('readonly', true);
+		$('#kodeKantorAuditor').textbox('readonly', true);
 		$('#kodeUserKetuaTimAuditor').textbox('readonly', false);
 
 		$('#btnSave').linkbutton('enable');

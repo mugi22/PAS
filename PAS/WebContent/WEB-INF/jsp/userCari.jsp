@@ -39,8 +39,8 @@ jspTemplate
         		<label>User Name</label><input type="text" name="userName" id="userName" style="width: 100px;" class="easyui-textbox" >
         		<label>User ID</label><input type="text" name="userIDX" id="userIDX" style="width: 100px;" class="easyui-textbox" >
         		<label>Kode Unit</label><input type="text" name="kodeUnit" id="kodeUnit" style="width: 100px;" class="easyui-textbox" >
-	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="cariauditanList()" id="cariauditanList"><%= properties.getProperty("button.cari") %></a>
-	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="ambilauditan()" id="btnAmbil"><%= properties.getProperty("button.ambil") %></a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="cariUserList()" id="cariauditanList"><%= properties.getProperty("button.cari") %></a>
+	            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="ambilUser()" id="btnAmbil"><%= properties.getProperty("button.ambil") %></a>
         		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="doClear()" id="btnReset"><%= properties.getProperty("button.reset") %></a>
         	
         	</td>
@@ -51,7 +51,7 @@ jspTemplate
  <!-- *************userListAll************* END LIST/TABLE ******************************************** -->       
     
 <script type="text/javascript">
-function cariauditanList(s) {
+function cariUserList(s) {
 	//var jsonurl = 'userCari.htm?'+'namaAuditan='+$('#userName').val()+"&userId="+"${userId}";
 	var jsonurl = 'userCariList.htm?param=' + $('#userIDX').val()+"&"+"userID="+"${userId}"+"&unitId="+"&nama="+$('#userName').val()
 	+"&kodeUnit="+$('#kodeUnit').val();

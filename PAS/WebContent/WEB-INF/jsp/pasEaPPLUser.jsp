@@ -209,7 +209,7 @@ var branchcode;
 	}
 
 	
-	function ambilauditan(s) {
+	function ambilUser(s) {
 		var row = $('#dg2').datagrid('getSelected');
 		$("#namaUser").textbox('setValue', row.name);
 		$("#kodeUser").textbox('setValue', row.userId);

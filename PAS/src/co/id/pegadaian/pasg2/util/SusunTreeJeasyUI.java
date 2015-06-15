@@ -61,12 +61,12 @@ public class SusunTreeJeasyUI {
             	//tambahkan parameter menu_id//            	prililedge
             	sb.append(jarak+"<li"+" id='"+tblmenu.getMenuPage()+"?param="+priv+"&"+"param2="+this.sKey+"&UID="+this.user+"'"+">");
                 x=null;
-                sb.append(tblmenu.getMenuName());
+                sb.append(tblmenu.getMenuName()+" ("+tblmenu.getMenuId()+")");//===TAMBAHHIN MENU ID
                 SusunTreeJeasyUI susunTree = new SusunTreeJeasyUI();
                 susunTree(session,BigInteger.valueOf(tblmenu.getMenuId().longValue()),jarak,l);
             }else{
                 sb.append(jarak+"<li "+" id='"+"utamaMain.htm"+"?param="+priv+"&"+"param2="+this.sKey+"&UID="+this.user+"'"+"><span>");
-                sb.append(tblmenu.getMenuName()+"</span>");
+                sb.append(tblmenu.getMenuName()+" ("+tblmenu.getMenuId()+")"+"</span>");//===TAMBAHHIN MENU ID
                 sb.append("\r\n"+jarak+"<ul"+" id='"+"utamaMain.htm"+"?param="+priv+"&"+"param2="+this.sKey+"&UID="+this.user+"'"+">\r\n");
                 SusunTreeJeasyUI susunTree = new SusunTreeJeasyUI();
                 susunTree(session,BigInteger.valueOf(tblmenu.getMenuId().longValue()),jarak,l);           
