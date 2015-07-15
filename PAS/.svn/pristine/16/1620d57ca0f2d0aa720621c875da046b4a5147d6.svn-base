@@ -1,0 +1,126 @@
+package co.id.pegadaian.pasg2.controller;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+import org.hibernate.Session;
+//import org.hibernate.annotations.common.util.impl.Log_.logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+//import com.id.kas.login.LoginController;
+
+
+
+
+//import com.id.kas.util.AppProp;
+
+
+
+
+import co.id.pegadaian.pasg2.db.HibernateUtil;
+import co.id.pegadaian.pasg2.pojo.TblUser;
+import co.id.pegadaian.pasg2.util.AppConstant;
+import co.id.pegadaian.pasg2.util.AppProp;
+import co.id.pegadaian.pasg2.util.JCrypto;
+import co.id.pegadaian.pasg2.util.LoginProses;
+import co.id.pegadaian.pasg2.util.RandomString;
+import co.id.pegadaian.pasg2.util.Util;
+
+@Controller
+public class AwalController {
+	final static Logger logger = Logger.getLogger(AwalController.class);
+	
+	@RequestMapping(value="/awal.htm",method=RequestMethod.GET)
+	public String doGet(Map<String, Object> model, HttpSession session,HttpServletRequest req, HttpServletResponse res ){
+		return "awal/awal";
+	}
+
+	@RequestMapping(value="/awal.htm",method=RequestMethod.POST)
+	public String doPost(Map<String, Object> model, HttpSession session,HttpServletRequest req, HttpServletResponse res ){
+		String userName = req.getParameter("username");
+		String password = req.getParameter("password");
+		String key="";
+		int valid = 0;
+		
+		LoginProses loginProses = new LoginProses();
+		boolean validBol = loginProses.checkValidUserPassword(userName, password);
+		TblUser tblUser = loginProses.getTblUser();
+		Session sess = null;
+		sess = HibernateUtil.getSessionFactory().openSession();
+		if(tblUser!=null)
+		{
+			valid = 1;
+			session.setAttribute("valid"+userName, "valid");//simpan disession dengan nama valid+userid
+			RandomString rs = new RandomString();
+			key = rs.randomString();
+			session.setAttribute("user"+userName, loginProses.getTblUser());
+			session.setAttribute("key"+userName,key );
+			if(AppProp.getsAppStatus().equals(AppConstant.AdminMode.AdminModeClose)){						
+				if(!Util.cekUserAdminMode(tblUser.getUserId(), sess)){
+					valid = 2;
+				}
+			}	
+			AppProp.setmSession(tblUser.getUserId(),key);
+		}else{
+//			return null;
+		}
+		sess.close();
+		
+		if (valid==1){			
+			logger.info(userName + "Login.....................Success");
+			JCrypto crip = new JCrypto(key);
+			String uidEncript = crip.encrypt(userName);
+			System.out.println("enkrpt = "+uidEncript+" decript "+crip.decrypt(uidEncript)+" key:"+key);
+			AppProp.setmSession(crip.decrypt(uidEncript),key);
+            return "redirect:/utama.htm?paramA="+uidEncript+"&paramB="+key;
+	    }else if (valid==2){
+			logger.info(userName + " Login..................... APP STATUS : ADMIN MODE");
+	         return "redirect:/appstatus.htm";
+	    }else{
+	         return "loginGagal";
+	    }
+	}
+
+	
+	
+	
+	@RequestMapping(value="/loginGagal.htm",method=RequestMethod.GET)
+	public String loginGagal(Map<String, Object> model, HttpSession session,HttpServletRequest req, HttpServletResponse res ){
+		return "login/loginGagal";
+	}
+	
+	
+	@RequestMapping(value="/loginSukses.htm",method=RequestMethod.GET)
+	public String loginSukses(Map<String, Object> model, HttpSession session,HttpServletRequest req, HttpServletResponse res ){
+		return "login/loginSukses";
+	}
+	
+	
+	@RequestMapping(value="/logout.htm",method=RequestMethod.GET)
+	public String dologout(HttpSession session,HttpServletRequest req, HttpServletResponse res){
+		System.out.println("logout");
+		String sUserId = req.getParameter("userId");
+		Map mSession = AppProp.getmSession();
+		mSession.remove(sUserId);
+		System.out.println("valid "+session.getAttribute("valid"+sUserId));
+		session.removeAttribute("valid"+sUserId);
+		session.removeAttribute("user"+sUserId);
+		session.removeAttribute("key"+sUserId);
+		//session.invalidate();
+		return "login/logout";
+	}
+	
+	 @RequestMapping(value="/sessionExpire.htm", method=RequestMethod.GET)
+	  public  String sessionExpire(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+		 //session.invalidate();
+		 return "sessionExpire";
+	 }
+	
+	
+}

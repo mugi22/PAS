@@ -1,0 +1,6 @@
+{"groupId":1,"groupName":"ADMIN","jabatan":"00","params":"Penggalang","updateBy":"P81035","updateDate":"22-05-2015","versi":1.00}
+{"groupId":2,"groupName":"ADMIN MODE","jabatan":"00","params":"12345","createBy":"P81035","updateBy":"P81035","createDate":"18-03-2015","updateDate":"22-05-2015"}
+{"groupId":3,"groupName":"ADMINBRANCH","jabatan":"00","params":"0","createBy":"P81035","updateBy":"P81035","createDate":"31-03-2015","updateDate":"22-05-2015"}
+{"groupId":11,"groupName":"USER","jabatan":"30","params":"0","createBy":"P81036","updateBy":"P81035","createDate":"30-03-2015","updateDate":"11-06-2015"}
+{"groupId":20,"groupName":"Direksi","jabatan":"01","params":"param","createBy":"P81035","updateBy":"P81035","createDate":"22-05-2015","updateDate":"11-06-2015"}
+{"groupId":23,"groupName":"eeee","jabatan":"00","params":"12","createBy":"P81035","createDate":"25-05-2015"}

@@ -1,0 +1,334 @@
+<%-- 
+Create by CodeGenerator
+jspTemplate
+--%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<%@ include file="/util/include.jsp" %>  
+<title>User</title>
+</head>
+<body>
+
+<!-- ******************************FORM PENCARIAN******************************* -->   
+        <div id="div2">
+            <form name="FREG" id="formCari" method="post" action="#"  >   
+            <table align="center">  	                       
+                    <tr>
+<td><label style="width: 150px;"><%=properties.getProperty("pasRaKegiatanRKBPT.KodeKegiatanRKBPT")%></label> : <input name="KodeKegiatanRKBPT" type="text" id="KodeKegiatanRKBPT" class="easyui-textbox" size="30" maxlength="30"></td>
+</tr>
+                    <tr>
+<td><label style="width: 150px;"><%=properties.getProperty("pasRaKegiatanRKBPT.KeteranganKegiatan")%></label> : <input name="KeteranganKegiatan" type="text" id="KeteranganKegiatan" class="easyui-textbox" size="30" maxlength="30"></td>
+</tr>
+                    <tr>
+<td><label style="width: 150px;"><%=properties.getProperty("pasRaKegiatanRKBPT.KodeRKBPT")%></label> : <input name="KodeRKBPT" type="text" id="KodeRKBPT" class="easyui-textbox" size="30" maxlength="30"></td>
+</tr>
+
+				 <tr>
+	            	<td colspan="1">
+	                <div id="btn">     
+	                    <%@ include file="/util/searchButton.jsp" %>
+	                </div>
+            	</td>
+	            	
+	            </tr>  
+            </table>  
+            </form> 
+            <div id="result"></div>
+        </div>
+        <hr>
+<!-- ******************************END  FORM PENCARIAN******************************* -->  
+
+
+<!-- **********************TABLE RESULT************************************** -->
+        <table id="dg" title="PASRAKEGIATANRKBPT" class="easyui-datagrid" style="width:100%;"
+               toolbar="#toolbar" pagination="true"  data-options="total:2000,pageSize:10"
+               rownumbers="true" fitColumns="true" singleSelect="true">
+            <thead>
+                <tr>
+                    <th field="kodeKegiatanRKBPT" width="100"sortable="true"><%=properties.getProperty("pasRaKegiatanRKBPT.KodeKegiatanRKBPT")%></th> 
+                    <th field="tanggalAwal" width="100"sortable="true"><%=properties.getProperty("pasRaKegiatanRKBPT.TanggalAwal")%></th> 
+                    <th field="tanggalAkhir" width="100"sortable="true"><%=properties.getProperty("pasRaKegiatanRKBPT.TanggalAkhir")%></th> 
+                    <th field="namaKegiatan" width="100"sortable="true"><%=properties.getProperty("pasRaKegiatanRKBPT.NamaKegiatan")%></th> 
+                    <th field="keteranganKegiatan" width="100"sortable="true"><%=properties.getProperty("pasRaKegiatanRKBPT.KeteranganKegiatan")%></th> 
+                    <th field="tempatKegiatan" width="100"sortable="true"><%=properties.getProperty("pasRaKegiatanRKBPT.TempatKegiatan")%></th> 
+                    <th field="jumlahPersonil" width="100"sortable="true"data-options="formatter:function(value, row){return accounting.formatNumber(row.jumlahPersonil,0,'.',','); }"align="right"><%=properties.getProperty("pasRaKegiatanRKBPT.JumlahPersonil")%></th> 
+                    <th field="jenisTransportasi" width="100"sortable="true"><%=properties.getProperty("pasRaKegiatanRKBPT.JenisTransportasi")%></th> 
+                    <th field="biayaTransportasi" width="100"sortable="true"data-options="formatter:function(value, row){return accounting.formatNumber(row.biayaTransportasi,0,'.',','); }"align="right"><%=properties.getProperty("pasRaKegiatanRKBPT.BiayaTransportasi")%></th> 
+                    <th field="biayaLumpsum" width="100"sortable="true"data-options="formatter:function(value, row){return accounting.formatNumber(row.biayaLumpsum,0,'.',','); }"align="right"><%=properties.getProperty("pasRaKegiatanRKBPT.BiayaLumpsum")%></th> 
+                    <th field="kodeRKBPT" width="100"sortable="true"><%=properties.getProperty("pasRaKegiatanRKBPT.KodeRKBPT")%></th> 
+                    <th field="statusInap" width="100"sortable="true"><%=properties.getProperty("pasRaKegiatanRKBPT.StatusInap")%></th> 
+                    <th field="jarak" width="100"sortable="true"data-options="formatter:function(value, row){return accounting.formatNumber(row.jarak,0,'.',','); }"align="right"><%=properties.getProperty("pasRaKegiatanRKBPT.Jarak")%></th> 
+                     
+                </tr>
+            </thead>
+        </table>  
+        <div id="toolbar">
+        	<%@ include file="/util/toolbar.jsp" %>
+        	<td align="right">
+        	<!-- <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-authorize" plain="true" onclick="" id="btnAdd" ><%=properties.getProperty("button.otorize") %></a>
+        	 -->
+        	</td>
+        	</tr>
+        </table>
+        </div>
+
+ <!-- ************************** END LIST/TABLE ******************************************** -->       
+    
+          
+<!-- ************************** FORM ******************************************** -->
+	<div id="dlg" class="easyui-dialog"	style="width: 750px;  padding: 10px 20px" closed="true"	buttons="#dlg-buttons" data-options="modal:true">
+		<div class="ftitle">PASRAKEGIATANRKBPT</div>
+		<form id="fm" method="post" novalidate>
+		<table align="center"> 
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.KodeKegiatanRKBPT")%></label> :<input name="kodeKegiatanRKBPT"	class="easyui-textbox" id="kodeKegiatanRKBPT"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.TanggalAwal")%></label> :<input name="tanggalAwal"	class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" id="tanggalAwal"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.TanggalAkhir")%></label> :<input name="tanggalAkhir"	class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" id="tanggalAkhir"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.NamaKegiatan")%></label> :<input name="namaKegiatan"	class="easyui-textbox" id="namaKegiatan"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.KeteranganKegiatan")%></label> :<input name="keteranganKegiatan"	class="easyui-textbox" id="keteranganKegiatan"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.TempatKegiatan")%></label> :<input name="tempatKegiatan"	class="easyui-textbox" id="tempatKegiatan"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.JumlahPersonil")%></label> :<input name="jumlahPersonil"	class="easyui-numberbox" data-options="min:0,precision:0,groupSeparator:','" id="jumlahPersonil"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.JenisTransportasi")%></label> :<input name="jenisTransportasi"	class="easyui-textbox" id="jenisTransportasi"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.BiayaTransportasi")%></label> :<input name="biayaTransportasi"	class="easyui-numberbox" data-options="min:0,precision:0,groupSeparator:','" id="biayaTransportasi"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.BiayaLumpsum")%></label> :<input name="biayaLumpsum"	class="easyui-numberbox" data-options="min:0,precision:0,groupSeparator:','" id="biayaLumpsum"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.KodeRKBPT")%></label> :<input name="kodeRKBPT"	class="easyui-textbox" id="kodeRKBPT"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.StatusInap")%></label> :<input name="statusInap"	class="easyui-textbox" id="statusInap"></div></td></tr>	
+                    <tr><td><div class="fitem">	<label><%=properties.getProperty("pasRaKegiatanRKBPT.Jarak")%></label> :<input name="jarak"	class="easyui-numberbox" data-options="min:0,precision:0,groupSeparator:','" id="jarak"></div></td></tr>	
+			
+		</table>
+		</form>
+	</div>
+	<div id="dlg-buttons">
+		<a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="doSave()" style="width: 90px" id="btnSave">Save</a> 
+		<a href="javascript:void(0)" class="easyui-linkbutton" 	iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')"style="width: 90px" id="btnCancel">Cancel</a>
+	</div>
+	<!-- ************************************************END FORM******************* -->
+
+</body>
+</html>
+
+
+
+<script>
+var url;
+var branchcode;
+	$("document").ready(function() {
+		$("#btnAdd").linkbutton('${btnAdd}');
+		$("#btnEdit").linkbutton('${btnEdit}');
+		$("#btnDelete").linkbutton('${btnDelete}');
+		$("#btnShow").linkbutton('${btnShow}');		
+	});
+
+	function test() {
+		alert("testtttt..... click");
+	}
+
+	function retrieve() {		
+		var jsonurl = 'pasRaKegiatanRKBPTListAll.htm?'+
+'KodeKegiatanRKBPT='+$('#KodeKegiatanRKBPT').val()+"&"+'KeteranganKegiatan='+$('#KeteranganKegiatan').val()+"&"+'KodeRKBPT='+$('#KodeRKBPT').val()+"&"+"userId="+"${userId}";
+		$('#dg').datagrid({
+			url : jsonurl,
+			onLoadSuccess : function(data) {
+				if (data.total == 0) {
+					alert("Data Tidak Ditemukan..................");
+				}
+			}
+		});
+	}
+
+	function doClear() {
+		$('#formCari').form('clear');
+		var jsonurl = "listClear.htm";
+		$('#dg').datagrid({
+			url : jsonurl,
+			onLoadSuccess : function(data) {
+				if (data.total > 0) {
+					alert("Clear Gagal..................");
+				}
+			}
+		});
+	}
+
+	/* END function untuk list data*/
+	
+	/* ============FORM FUNCTION ========== pasRaKegiatanRKBPTtambah*/
+
+	function doAdd() { 
+		idRequired(true);
+		$('#dlg').dialog('open').dialog('setTitle', 'Tambah');
+		$('#fm').form('clear');
+		url = 'pasRaKegiatanRKBPTAdd.htm?'+"userId="+"${userId}";
+		onAdd();
+	}
+	function doEdit() {
+		idRequired(false);
+		$('#fm').form('clear');
+		var row = $('#dg').datagrid('getSelected');
+		if (row) {
+			$('#dlg').dialog('open').dialog('setTitle', 'Edit');
+			$('#fm').form('clear');
+			$('#fm').form('load', row);
+			url = 'pasRaKegiatanRKBPTEdit.htm?'+"userId="+"${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten; //SESUAIKAN
+			onEdit();
+		}
+	}
+	function doShow() {
+		idRequired(false);
+		doEdit();
+		onShow();
+		$('#dlg').dialog('open').dialog('setTitle', 'Tampil');
+	/*
+		$('#fm').form('clear');
+		var row = $('#dg').datagrid('getSelected');		
+		if (row) {
+			$('#dlg').dialog('open').dialog('setTitle', 'Tampil');
+			$('#fm').form('clear');
+			$('#fm').form('load', row);
+			url = 'pasRaKegiatanRKBPTEdit.htm?'+"userId="+"${userId}";//?param='+row.kodeProvinsi+'&param2='+row.kodeKabupaten;
+			onShow();
+		}
+		*/
+	}
+	
+	function doDelete() {
+		idRequired(false);
+		var row = $('#dg').datagrid('getSelected');
+		if (row) {
+			$.messager.confirm('Confirm', 'Anda Ingin Mengapus Data?',
+					function(r) {
+						if (r) {
+							$.post('pasRaKegiatanRKBPTDelete.htm', {
+							kodeKegiatanRKBPT : row.kodeKegiatanRKBPT,
+                    kodeRKBPT : row.kodeRKBPT,
+							userId:"${userId}"
+							}, function(result) {
+								if (result.success) {
+									$('#dg').datagrid('reload'); // reload the user data
+								} else {
+									$.messager.show({ // show error message
+										title : 'Error',
+										msg : result.errorMsg + "Delete Gagal "
+									});
+								}
+							}, 'json');
+						}
+					});
+		}
+	}
+
+	function doSave() {
+	idRequired(false);
+		$('#fm').form('submit', {
+			url : url,
+			onSubmit : function() {
+				return $(this).form('validate');
+			},
+			success : function(result) {
+				var resultx = eval('(' + result + ')');
+				if (resultx === 'fail' || result === null) {
+					alertError("Simpan Gagal");					
+				} else {
+					alertAll('Simpan Sukses');
+					$('#dlg').dialog('close'); // close the dialog
+					$('#dg').datagrid('reload'); // reload the user data
+					//$('#dg').datagrid({	url : jsonurl});
+				}
+			}
+		});
+	}
+	
+	
+function idRequired(t){
+/*
+                    $('#kodeKegiatanRKBPT').textbox({   required: t});
+                    $('#kodeRKBPT').textbox({   required: t});
+
+	$('#idJurnalTransaksi').textbox({   required: t			});
+	$('#jurnalId').textbox({   required: t	});
+	*/
+}	
+	
+	
+	/* ================TAMBAHAN=================*/
+
+	
+	/*Untuk membuat menjadi huruf besar semua */
+	function upperCase(t) {
+		t.textbox('textbox').bind('keyup', function(e) {
+			$(this).val($(this).val().toUpperCase());
+		});
+	}
+	
+	/*inputan readonly atau tidak saat onShow  XXXenableField */
+	function onShow() {
+		                    $('#kodeKegiatanRKBPT').textbox('readonly', true);
+                    $('#tanggalAwal').textbox('readonly', true);
+                    $('#tanggalAkhir').textbox('readonly', true);
+                    $('#namaKegiatan').textbox('readonly', true);
+                    $('#keteranganKegiatan').textbox('readonly', true);
+                    $('#tempatKegiatan').textbox('readonly', true);
+                    $('#jumlahPersonil').textbox('readonly', true);
+                    $('#jenisTransportasi').textbox('readonly', true);
+                    $('#biayaTransportasi').textbox('readonly', true);
+                    $('#biayaLumpsum').textbox('readonly', true);
+                    $('#kodeRKBPT').textbox('readonly', true);
+                    $('#statusInap').textbox('readonly', true);
+                    $('#jarak').textbox('readonly', true);
+
+		$('#btnSave').linkbutton('disable');
+	}
+	
+	/*inputan readonly atau tidak saat Add*/
+	function onAdd() {
+		                    $('#kodeKegiatanRKBPT').textbox('readonly', false);
+                    $('#tanggalAwal').textbox('readonly', false);
+                    $('#tanggalAkhir').textbox('readonly', false);
+                    $('#namaKegiatan').textbox('readonly', false);
+                    $('#keteranganKegiatan').textbox('readonly', false);
+                    $('#tempatKegiatan').textbox('readonly', false);
+                    $('#jumlahPersonil').textbox('readonly', false);
+                    $('#jenisTransportasi').textbox('readonly', false);
+                    $('#biayaTransportasi').textbox('readonly', false);
+                    $('#biayaLumpsum').textbox('readonly', false);
+                    $('#kodeRKBPT').textbox('readonly', false);
+                    $('#statusInap').textbox('readonly', false);
+                    $('#jarak').textbox('readonly', false);
+		
+		$('#btnSave').linkbutton('enable');
+	}
+	
+	/*inputan readonly atau tidak saat Edit */
+	function onEdit() {
+		                    $('#kodeKegiatanRKBPT').textbox('readonly', true);
+                    $('#tanggalAwal').textbox('readonly', false);
+                    $('#tanggalAkhir').textbox('readonly', false);
+                    $('#namaKegiatan').textbox('readonly', false);
+                    $('#keteranganKegiatan').textbox('readonly', false);
+                    $('#tempatKegiatan').textbox('readonly', false);
+                    $('#jumlahPersonil').textbox('readonly', false);
+                    $('#jenisTransportasi').textbox('readonly', false);
+                    $('#biayaTransportasi').textbox('readonly', false);
+                    $('#biayaLumpsum').textbox('readonly', false);
+                    $('#kodeRKBPT').textbox('readonly', true);
+                    $('#statusInap').textbox('readonly', false);
+                    $('#jarak').textbox('readonly', false);
+	
+		$('#btnSave').linkbutton('enable');
+	}
+/*===============================================REPORT==================================*/
+function doCetak(){
+		var repUrl = 'pasRaKegiatanRKBPTReport.htm?'+
+					  'KodeKegiatanRKBPT='+$('#KodeKegiatanRKBPT').val()+"&"+'KeteranganKegiatan='+$('#KeteranganKegiatan').val()+"&"+'KodeRKBPT='+$('#KodeRKBPT').val()+"&"+"userId="+"${userId}";;
+		var s = window.location.search.replace("?", "");
+		window.open(repUrl+"&"+s,
+				"_blank", 
+				"toolbar=no, scrollbars=yes, resizable=yes,	directories=no, location=no, \
+				 menubar=no, status=no,'");
+	}
+
+	
+</script>

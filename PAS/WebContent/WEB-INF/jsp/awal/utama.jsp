@@ -13,7 +13,10 @@
 </html-->
 <html>
 <head>
-<meta charset="UTF-8">
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<!-- meta charset="UTF-8"-->
+
 <title>PAS G2</title>
 <!--  -->
 <link rel="stylesheet" type="text/css"	href="css/themes/metro/easyui.css">
@@ -25,32 +28,27 @@
 
               
 </head>
-<body style="padding: 2px;">
+<body id="cc" class="easyui-layout">
 	
 	<!-- div style="margin:  0px; padding: 0px"></div--> 
-	<div id="cc" class="easyui-layout" style="width: 100%; height: 700px; padding-top: 0px;">
-		<div data-options="region:'north'" style="height: 85px; background-color: #0081C2; ">
-			<h2 style="color: #ffffff">PAS G2 Project</h2>
-			<table width="100%">
-			<tr>
-				<td align="left" width="20%" style="color: #ffffff"><br> ${user.userId} ${user.name} ${user.branchCode}
-				<input type="hidden" id="key" value="${key}" >
-				</td>
-				<td align="right">
-				<a style="color: #ffffff" href="logout.htm?userId=${user.userId}">Logout</a>
-					<!-- img alt="" src="image/java.jpg"  height="35" width="60">
-					<img alt="" src="image/eclipse.png"  height="35" width="100">
-					<img alt="" src= "image/hibernate.png" height="35" width="70">
-					<img alt="" src="image/mysql.png"  height="35" width="60">
-					<img alt="" src= "image/easyui.jpg" height="35" width="60">
-					<img alt="" src= "image/jquery.png" height="35" width="50">
-					<img alt="" src="image/json.png"  height="35" width="60">
-					<img alt="" src= "image/javascript.jpg" height="35" width="60">
-					<img alt="" src="image/ajax.jpg"  height="35" width="60">
-					<img alt="" src="image/accounting-js.png" height="35" width="60">
-					 -->
-				</td>
-			</tr>
+		<div data-options="region:'north',border:false"" style="height: 85px; background-color: #0081C2; padding: 1px; height:auto">
+		<table width="100%" border="0" style="color: #ffffff">
+				<tr>
+					<td width="60%" >&nbsp&nbsp&nbsp&nbsp PEGADAIAN AUDIT SYSTEM
+						<br>
+						&nbsp&nbsp&nbsp&nbsp VER.1
+					</td>
+					<td>&nbsp</td>
+					<td width="30%" align="right">
+					<br>${kantorAuditor.nama}
+ 						<a href="#" class="easyui-menubutton" style="color: #ffffff" data-options="menu:'#mm1',iconCls:'icon-login'">${user.name} : ${user.branchCode}</a>
+ 						<div id="mm1" >
+						<div data-options="plain:false,iconCls:'icon-logout'"><a style="color: #000000" href="logout.htm">Logout</a></div>
+						<div data-options="plain:false,iconCls:'icon-lock'">  <a style="color: #000000"  onclick="changePasswod()" href="javascript:void(0)">Change Password</a></div>
+   				 		</div>
+					</td>
+					<td width="1%">&nbsp</td>
+				</tr>
 			</table>
 			
 		</div>
@@ -60,7 +58,7 @@
 			
 		</div>
 		<div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">		
-			<iframe src="utamaMain.htm?${paramx}" style="width: 100%; height: 100%;padding-top: 2px" id="iframe" frameborder="0"></iframe>			
+			<iframe src="utamaMain.htm?${paramx}" style="width: 100%; height: 99%;padding-top: 2px" id="iframe" frameborder="0"></iframe>			
 		</div>
 	</div>
 <!-- a href="cariPegawai.htm">Test</a-->
@@ -69,6 +67,17 @@
 
 <script type="text/javascript">
 
+
+function changePasswod(){
+	
+	var url = 'changePassword.htm?'+"userId=${user.userId}";
+	//$("#changePasswod").attr("href", url);
+	$('#iframe').attr('src',url);
+}
+
+
+
+
 $("document").ready(function(){
 	$('#tt').tree('collapseAll');
 });
@@ -76,9 +85,9 @@ $('#tt').tree({
 	onClick: function(node){
 		//$.messager.progress();
 		//alert(node.id);  // alert node text property when clicked
-		$.messager.progress({  title:'Your Title',  msg:'Processing, Please Wait'});
+		//$.messager.progress({  title:'Your Title',  msg:'Processing, Please Wait'});
 		//$.when(callMenu(node)).done(function(){call2();});
-		callMenu(node).done(call2());
+		callMenu(node);//.done(call2());
 	}
 	
 });

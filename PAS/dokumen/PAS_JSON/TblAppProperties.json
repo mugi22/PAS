@@ -1,0 +1,168 @@
+{"propertiesNama":"anto.Alamat","propertiesValue":"Alamat"}
+{"propertiesNama":"anto.Nik","propertiesValue":"Nik"}
+{"propertiesNama":"anto.Tglx","propertiesValue":"Tglx"}
+{"propertiesNama":"appProperties.PropertiesNama","propertiesValue":"PropertiesNama"}
+{"propertiesNama":"appProperties.PropertiesValue","propertiesValue":"PropertiesValue"}
+{"propertiesNama":"button.add","propertiesValue":"Tambah"}
+{"propertiesNama":"button.ambil","propertiesValue":"Ambil"}
+{"propertiesNama":"button.cari","propertiesValue":"Cari"}
+{"propertiesNama":"button.delete","propertiesValue":"Hapus"}
+{"propertiesNama":"button.edit","propertiesValue":"Ubah"}
+{"propertiesNama":"button.find","propertiesValue":"Cari"}
+{"propertiesNama":"button.otorize","propertiesValue":"Otorisasi"}
+{"propertiesNama":"button.print","propertiesValue":"Cetak"}
+{"propertiesNama":"button.reset","propertiesValue":"Reset"}
+{"propertiesNama":"button.show","propertiesValue":"Tampil"}
+{"propertiesNama":"coba.Nama","propertiesValue":"Nama"}
+{"propertiesNama":"coba.Nik","propertiesValue":"Nik"}
+{"propertiesNama":"coba.TglLhahir","propertiesValue":"TglLhahir"}
+{"propertiesNama":"group.GroupId","propertiesValue":"GroupId"}
+{"propertiesNama":"group.GroupName","propertiesValue":"GroupName"}
+{"propertiesNama":"group.Jabatan","propertiesValue":"Jabatan"}
+{"propertiesNama":"group.Params","propertiesValue":"Params"}
+{"propertiesNama":"kabupaten.KodeKabupaten","propertiesValue":"Kode Kabupaten"}
+{"propertiesNama":"kabupaten.KodeProvinsi","propertiesValue":"Kode Provinsi"}
+{"propertiesNama":"kabupaten.NamaKabupaten","propertiesValue":"Nama Kabupaten"}
+{"propertiesNama":"kecamatan.KodeKabupaten","propertiesValue":"Kode Kabupaten"}
+{"propertiesNama":"kecamatan.KodeKecamatan","propertiesValue":"Kode Kecamatan"}
+{"propertiesNama":"kecamatan.NamaKecamatan","propertiesValue":"Nama Kecamatan"}
+{"propertiesNama":"kelurahan.IdKelurahan","propertiesValue":"IdKelurahan"}
+{"propertiesNama":"kelurahan.KodeKecamatan","propertiesValue":"KodeKecamatan"}
+{"propertiesNama":"kelurahan.KodePos","propertiesValue":"KodePos"}
+{"propertiesNama":"kelurahan.NamaKelurahan","propertiesValue":"NamaKelurahan"}
+{"propertiesNama":"lookup.LookupLabel","propertiesValue":"Lookup Label"}
+{"propertiesNama":"lookup.LookupName","propertiesValue":"Looku pName"}
+{"propertiesNama":"lookup.LookupValue","propertiesValue":"Lookup Value"}
+{"propertiesNama":"lookup.NoUrut","propertiesValue":"No Urut"}
+{"propertiesNama":"menu.HaveChild","propertiesValue":"HaveChild"}
+{"propertiesNama":"menu.IsUsingGroovy","propertiesValue":"IsUsingGroovy"}
+{"propertiesNama":"menu.MenuId","propertiesValue":"Menu ID"}
+{"propertiesNama":"menu.MenuName","propertiesValue":"Menu Name"}
+{"propertiesNama":"menu.MenuPage","propertiesValue":"MenuPage"}
+{"propertiesNama":"menu.NoUrut","propertiesValue":"NoUrut"}
+{"propertiesNama":"menu.Params","propertiesValue":"Params"}
+{"propertiesNama":"menu.ParentId","propertiesValue":"Parent ID"}
+{"propertiesNama":"menu.ScreenClass","propertiesValue":"ScreenClass"}
+{"propertiesNama":"pasEaAnggotaTimAuditor.KodeKantorAuditor","propertiesValue":"KodeKantorAuditor"}
+{"propertiesNama":"pasEaAnggotaTimAuditor.KodeTkKantorAuditor","propertiesValue":"KodeTkKantorAuditor"}
+{"propertiesNama":"pasEaAnggotaTimAuditor.KodeUserAnggotaTimAuditor","propertiesValue":"KodeUserAnggotaTimAuditor"}
+{"propertiesNama":"pasEaAnggotaTimAuditor.KodeUserKetuaTimAuditor","propertiesValue":"KodeUserKetuaTimAuditor"}
+{"propertiesNama":"pasEaAspekPemeriksaan.KdParent","propertiesValue":"KdParent"}
+{"propertiesNama":"pasEaAspekPemeriksaan.KeteranganAspekPemeriksaan","propertiesValue":"KeteranganAspekPemeriksaan"}
+{"propertiesNama":"pasEaAspekPemeriksaan.KodeAspekPemeriksaan","propertiesValue":"KodeAspekPemeriksaan"}
+{"propertiesNama":"pasEaAspekPemeriksaan.KodeJenisPemeriksaan","propertiesValue":"KodeJenisPemeriksaan"}
+{"propertiesNama":"pasEaAspekPemeriksaan.NamaAspekPemeriksaan","propertiesValue":"NamaAspekPemeriksaan"}
+{"propertiesNama":"pasEaAspekPemeriksaan.Status","propertiesValue":"Status"}
+{"propertiesNama":"pasEaAspekPemeriksaan.TujuanAspekPemeriksaan","propertiesValue":"TujuanAspekPemeriksaan"}
+{"propertiesNama":"pasEaAuditan.AlamatAuditan","propertiesValue":"AlamatAuditan"}
+{"propertiesNama":"pasEaAuditan.EmailPicTl","propertiesValue":"EmailPicTl"}
+{"propertiesNama":"pasEaAuditan.FaximiliAuditan","propertiesValue":"FaximiliAuditan"}
+{"propertiesNama":"pasEaAuditan.KdParent","propertiesValue":"KdParent"}
+{"propertiesNama":"pasEaAuditan.KodeAuditan","propertiesValue":"KodeAuditan"}
+{"propertiesNama":"pasEaAuditan.KodeTkAuditan","propertiesValue":"KodeTkAuditan"}
+{"propertiesNama":"pasEaAuditan.KoordinatAuditan","propertiesValue":"KoordinatAuditan"}
+{"propertiesNama":"pasEaAuditan.KotaAuditan","propertiesValue":"KotaAuditan"}
+{"propertiesNama":"pasEaAuditan.NamaAuditan","propertiesValue":"NamaAuditan"}
+{"propertiesNama":"pasEaAuditan.NamaPicTl","propertiesValue":"NamaPicTl"}
+{"propertiesNama":"pasEaAuditan.NikPicTl","propertiesValue":"NikPicTl"}
+{"propertiesNama":"pasEaAuditan.NoHpPicTl","propertiesValue":"NoHpPicTl"}
+{"propertiesNama":"pasEaAuditan.PasswordPicTl","propertiesValue":"PasswordPicTl"}
+{"propertiesNama":"pasEaAuditan.ProvinsiAuditan","propertiesValue":"ProvinsiAuditan"}
+{"propertiesNama":"pasEaAuditan.StatusAuditan","propertiesValue":"StatusAuditan"}
+{"propertiesNama":"pasEaAuditan.TelephoneAuditan","propertiesValue":"TelephoneAuditan"}
+{"propertiesNama":"pasEaAuditan.UserNamePicTl","propertiesValue":"UserNamePicTl"}
+{"propertiesNama":"pasEaFormasiAuditan.Grade","propertiesValue":"Grade"}
+{"propertiesNama":"pasEaFormasiAuditan.Jabatan","propertiesValue":"Jabatan"}
+{"propertiesNama":"pasEaFormasiAuditan.KodeAuditan","propertiesValue":"KodeAuditan"}
+{"propertiesNama":"pasEaFormasiAuditan.KodeFormasiAuditan","propertiesValue":"KodeFormasiAuditan"}
+{"propertiesNama":"pasEaFormasiAuditan.KodeTkAuditan","propertiesValue":"KodeTkAuditan"}
+{"propertiesNama":"pasEaFormasiAuditan.Nama","propertiesValue":"Nama"}
+{"propertiesNama":"pasEaFormasiAuditan.Nik","propertiesValue":"Nik"}
+{"propertiesNama":"pasEaJenisPemeriksaan.KeteranganJenisPemeriksaan","propertiesValue":"KeteranganJenisPemeriksaan"}
+{"propertiesNama":"pasEaJenisPemeriksaan.KodeJenisPemeriksaan","propertiesValue":"KodeJenisPemeriksaan"}
+{"propertiesNama":"pasEaJenisPemeriksaan.NamaJenisPemeriksaan","propertiesValue":"NamaJenisPemeriksaan"}
+{"propertiesNama":"pasEaJenisPemeriksaan.Status","propertiesValue":"Status"}
+{"propertiesNama":"pasEaKantorAuditor.Alamat","propertiesValue":"Alamat"}
+{"propertiesNama":"pasEaKantorAuditor.Fax","propertiesValue":"Faximili"}
+{"propertiesNama":"pasEaKantorAuditor.KodeKantor","propertiesValue":"Kode"}
+{"propertiesNama":"pasEaKantorAuditor.KodeParent","propertiesValue":"Parent"}
+{"propertiesNama":"pasEaKantorAuditor.KodeTk","propertiesValue":"Tingkat"}
+{"propertiesNama":"pasEaKantorAuditor.Koordinat","propertiesValue":"Koordinat"}
+{"propertiesNama":"pasEaKantorAuditor.Kota","propertiesValue":"Kota"}
+{"propertiesNama":"pasEaKantorAuditor.Nama","propertiesValue":"Nama"}
+{"propertiesNama":"pasEaKantorAuditor.Provinsi","propertiesValue":"Provinsi"}
+{"propertiesNama":"pasEaKantorAuditor.Status","propertiesValue":"Status"}
+{"propertiesNama":"pasEaKantorAuditor.Telp","propertiesValue":"Telp"}
+{"propertiesNama":"pasEaKetuaTimAuditor.KodeKantorAuditor","propertiesValue":"KodeKantorAuditor"}
+{"propertiesNama":"pasEaKetuaTimAuditor.KodeTkKantorAuditor","propertiesValue":"KodeTkKantorAuditor"}
+{"propertiesNama":"pasEaKetuaTimAuditor.KodeUserKetuaTimAuditor","propertiesValue":"KodeUserKetuaTimAuditor"}
+{"propertiesNama":"pasEaPPL.KodePPL","propertiesValue":"KodePPL"}
+{"propertiesNama":"pasEaPPL.NamaPPL","propertiesValue":"NamaPPL"}
+{"propertiesNama":"pasEaPPLUser.FileBuktiPPL","propertiesValue":"FileBuktiPPL"}
+{"propertiesNama":"pasEaPPLUser.KodePPLUSer","propertiesValue":"KodePPLUSer"}
+{"propertiesNama":"pasEaPPLUser.KodeUser","propertiesValue":"KodeUser"}
+{"propertiesNama":"pasEaPPLUser.LamaPPL","propertiesValue":"LamaPPL"}
+{"propertiesNama":"pasEaPPLUser.NamaFileBuktiPPL","propertiesValue":"NamaFileBuktiPPL"}
+{"propertiesNama":"pasEaPPLUser.Nilai","propertiesValue":"Nilai"}
+{"propertiesNama":"pasEaPPLUser.PenyelenggaraPPL","propertiesValue":"PenyelenggaraPPL"}
+{"propertiesNama":"pasEaPPLUser.TglAkhirPPL","propertiesValue":"TglAkhirPPL"}
+{"propertiesNama":"pasEaPPLUser.TglAwalPPL","propertiesValue":"TglAwalPPL"}
+{"propertiesNama":"pasEaTkAuditan.KeteranganTkAuditan","propertiesValue":"KeteranganTkAuditan"}
+{"propertiesNama":"pasEaTkAuditan.KodeTkAuditan","propertiesValue":"KodeTkAuditan"}
+{"propertiesNama":"pasEaTkAuditan.NamaTkAuditan","propertiesValue":"NamaTkAuditan"}
+{"propertiesNama":"pasEaTkAuditan.StatusTkAuditan","propertiesValue":"StatusTkAuditan"}
+{"propertiesNama":"pasEaTkKantorAuditor.KeteranganTk","propertiesValue":"Keterangan"}
+{"propertiesNama":"pasEaTkKantorAuditor.KodeTk","propertiesValue":"Kode "}
+{"propertiesNama":"pasEaTkKantorAuditor.NamaTk","propertiesValue":"Nama "}
+{"propertiesNama":"pasEaTkKantorAuditor.StatusTk","propertiesValue":"Status"}
+{"propertiesNama":"pasKsAuditTrail.Aksi","propertiesValue":"Aksi"}
+{"propertiesNama":"pasKsAuditTrail.AlamatIP","propertiesValue":"AlamatIP"}
+{"propertiesNama":"pasKsAuditTrail.KodeAuditTrail","propertiesValue":"KodeAuditTrail"}
+{"propertiesNama":"pasKsAuditTrail.KodeRecord","propertiesValue":"KodeRecord"}
+{"propertiesNama":"pasKsAuditTrail.KodeUserPelaku","propertiesValue":"KodeUserPelaku"}
+{"propertiesNama":"pasKsAuditTrail.NamaKomputer","propertiesValue":"NamaKomputer"}
+{"propertiesNama":"pasKsAuditTrail.NamaTable","propertiesValue":"NamaTable"}
+{"propertiesNama":"pasKsHariLibur.KeteranganHariLibur","propertiesValue":"KeteranganHariLibur"}
+{"propertiesNama":"pasKsHariLibur.KodeHariLibur","propertiesValue":"KodeHariLibur"}
+{"propertiesNama":"pasKsHariLibur.TanggalHariLibur","propertiesValue":"TanggalHariLibur"}
+{"propertiesNama":"pasKsKodefikasiBidangKasus.KodeBidangKasus","propertiesValue":"KodeBidangKasus"}
+{"propertiesNama":"pasKsKodefikasiBidangKasus.NamaBidangKasus","propertiesValue":"NamaBidangKasus"}
+{"propertiesNama":"pasKsKodefikasiBidangKasus.Status","propertiesValue":"Status"}
+{"propertiesNama":"pasKsKodefikasiKasus.KodeKasus","propertiesValue":"KodeKasus"}
+{"propertiesNama":"pasKsKodefikasiKasus.NamaKasus","propertiesValue":"NamaKasus"}
+{"propertiesNama":"pasKsKodefikasiKasus.Status","propertiesValue":"Status"}
+{"propertiesNama":"pasKsKodefikasiSebab.KodeSebab","propertiesValue":"KodeSebab"}
+{"propertiesNama":"pasKsKodefikasiSebab.NamaSebab","propertiesValue":"NamaSebab"}
+{"propertiesNama":"pasKsKodefikasiSebab.Status","propertiesValue":"Status"}
+{"propertiesNama":"pasKsKodefikasiTemuan.KdParent","propertiesValue":"KdParent"}
+{"propertiesNama":"pasKsKodefikasiTemuan.KodeAspekPemeriksaan","propertiesValue":"KodeAspekPemeriksaan"}
+{"propertiesNama":"pasKsKodefikasiTemuan.KodeJenisPemeriksaan","propertiesValue":"KodeJenisPemeriksaan"}
+{"propertiesNama":"pasKsKodefikasiTemuan.KodeTemuan","propertiesValue":"KodeTemuan"}
+{"propertiesNama":"pasKsKodefikasiTemuan.NamaTemuan","propertiesValue":"NamaTemuan"}
+{"propertiesNama":"pasKsKodefikasiTemuan.Status","propertiesValue":"Status"}
+{"propertiesNama":"pasKsKodefikasiTkTemuan.KodeTkTemuan","propertiesValue":"KodeTkTemuan"}
+{"propertiesNama":"pasKsKodefikasiTkTemuan.NamaTkTemuan","propertiesValue":"NamaTkTemuan"}
+{"propertiesNama":"pasKsKodefikasiTkTemuan.Status","propertiesValue":"Status"}
+{"propertiesNama":"priviledge.GroupId","propertiesValue":"Group Id"}
+{"propertiesNama":"priviledge.IsAdd","propertiesValue":"IsAdd"}
+{"propertiesNama":"priviledge.IsDelete","propertiesValue":"IsDelete"}
+{"propertiesNama":"priviledge.IsUpdate","propertiesValue":"IsUpdate"}
+{"propertiesNama":"priviledge.IsView","propertiesValue":"IsView"}
+{"propertiesNama":"priviledge.MenuId","propertiesValue":"Menu Id"}
+{"propertiesNama":"provinsi.KodeProvinsi","propertiesValue":"Kode Provinsi"}
+{"propertiesNama":"provinsi.NamaProvinsi","propertiesValue":"Nama Provinsi"}
+{"propertiesNama":"user.BranchCode","propertiesValue":"BranchCode"}
+{"propertiesNama":"user.BranchMobileId","propertiesValue":"BranchMobileId"}
+{"propertiesNama":"user.Email","propertiesValue":"Email"}
+{"propertiesNama":"user.Enabled","propertiesValue":"Enabled"}
+{"propertiesNama":"user.EndTime","propertiesValue":"EndTime"}
+{"propertiesNama":"user.LastChangePwd","propertiesValue":"LastChangePwd"}
+{"propertiesNama":"user.LastLogIn","propertiesValue":"LastLogIn"}
+{"propertiesNama":"user.LimitApproval","propertiesValue":"LimitApproval"}
+{"propertiesNama":"user.LoginFailCount","propertiesValue":"LoginFailCount"}
+{"propertiesNama":"user.Name","propertiesValue":"Name"}
+{"propertiesNama":"user.Password","propertiesValue":"Password"}
+{"propertiesNama":"user.StartTime","propertiesValue":"StartTime"}
+{"propertiesNama":"user.UserId","propertiesValue":"UserId"}
+{"propertiesNama":"userGroup.GroupId","propertiesValue":"GroupId"}
+{"propertiesNama":"userGroup.UserId","propertiesValue":"UserId"}

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <!--memkai database oracle XE -->
+  <session-factory>
+  <!-- ORACLE 100
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="hibernate.connection.username">PASG2</property>
+    <property name="hibernate.connection.password">pegadaian</property>
+ -->
+   <!--  LOKAL ORACLE
+	<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property> 
+	<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property> 
+	<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+	<property name="hibernate.connection.username">PASG2</property>
+	<property name="hibernate.connection.password">pegadaian</property> 
+	 -->
+    <!-- MYSQL 100  
+    
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://10.2.21.100:3306/PASG2?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">server</property>
+  -->
+    
+    
+    <!--LOCAL MYSQL   --> 
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/PASG2?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">password</property>
+  
+
+    
+    <property name="connection.autocommit">false</property>
+		
+		<!-- Optional configuration  -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">false</property>
+		<property name="use_sql_comments">false</property>
+		<property name="generate_statistics">false</property>
+		<property name="max_fetch_depth">2</property>
+		<property name="default_batch_fetch_size">16</property>
+		<property name="use_streams_for_binary">true</property>
+		<property name="connection.isolation">2</property>
+		<property name="hibernate.transaction.flush_before_completion">true</property>
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+    <property name="hibernate.hbm2ddl.auto">update</property> <!-- untuk pembentukan/update table <property name="propertyName">propertyValue</property>-->
+    <!-- 
+    <property name="hibernate.ejb.event.post-insert">org.hibernate.ejb.event.EJB3PostInsertEventListener,org.hibernate.envers.event.AuditEventListener</property>
+   <property name="hibernate.ejb.event.post-update">org.hibernate.ejb.event.EJB3PostUpdateEventListener,org.hibernate.envers.event.AuditEventListener</property>
+   <property name="hibernate.ejb.event.post-delete">org.hibernate.ejb.event.EJB3PostDeleteEventListener,org.hibernate.envers.event.AuditEventListener</property>
+   <property name="hibernate.ejb.event.pre-collection-update">org.hibernate.envers.event.AuditEventListener</property>
+   <property name="hibernate.ejb.event.pre-collection-remove">org.hibernate.envers.event.AuditEventListener</property>
+   <property name="hibernate.ejb.event.post-collection-recreate">org.hibernate.envers.event.AuditEventListener</property>
+   
+   <property name="org.hibernate.envers.versionsTableSuffix">_V</property>
+   <property name="org.hibernate.envers.revisionFieldName">ver_rev</property>
+
+     -->
+    
+    
+    <!--   -->
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasKsAuditTrail"/>
+	<mapping class="co.id.pegadaian.pasg2.pojo.PasEaTkAuditan"/>
+	<mapping class="co.id.pegadaian.pasg2.pojo.PasEaAuditan"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaFormasiAuditan"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaPPL"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaPPLUser"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaKantorAuditor"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaKetuaTimAuditor"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaAnggotaTimAuditor"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaJenisPemeriksaan"/>
+	<mapping class="co.id.pegadaian.pasg2.pojo.PasEaTkKantorAuditor"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.PasEaAspekPemeriksaan"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblAppProperties"/>
+    
+    
+    
+    
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblUser"/>
+ 
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPriviledge"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblUserGroup"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblMenu"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblGroup"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblBranch"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblTest"/>
+   
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblLookup"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblProvinsi"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblKabupaten"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblKecamatan"/> 
+	<mapping class="co.id.pegadaian.pasg2.pojo.TblKelurahan"/> 
+	
+  	<mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiKasus"/>
+  	<mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiSebab"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiTkTemuan"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiTemuan"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsKodefikasiBidangKasus"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPasKsHariLibur"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblParam"/>
+   
+    
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblAnto"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblCoba"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblBuzz"/>
+    <!--    -->
+    <!-- 
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblUserGroup"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblSeq"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblPegawai"/>
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblTagihan"/>   
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblTarif"/> 
+     -->
+     <!-- package sesuaikan 
+    <mapping class="com.id.kas.DEVELOPMENT.TblTest"/>
+    <mapping class="com.id.kas.DEVELOPMENT.TblCoba"/>
+    -->
+    <!--TblRekeningIaMaster -->
+    <!-- 
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblKaryawan"/> 
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblCoaMaster" />
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblRekeningIA" />
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblRekeningIaMaster" />
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblKasir" />
+     
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblJurnal" />
+    <mapping class="co.id.pegadaian.pasg2.pojo.TblJurnalTransaksi" /> 
+      -->
+  </session-factory>
+    
+</hibernate-configuration>

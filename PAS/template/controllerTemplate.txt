@@ -79,11 +79,11 @@ XXXStringParam
         	long rowCount=0;
 			sess = HibernateUtil.getSessionFactory().openSession();
 			XXtblDAO dao = new XXtblDAO(sess);
-			Map h = new HashMap<String, Object>();
+			Map m = new HashMap<String, Object>();
 			List<XXtbl> l = new ArrayList<XXtbl>();
-				h = dao.getByPerPage(XXXCritParam,loffset, row);
+				m = dao.getByPerPage(XXXCritParam,loffset, row);
 			sess.close();
-            result = gson.toJson(h);
+            result = gson.toJson(m);
             System.out.println(result);
             
             /**  BILA ADA PERUBAHAN DATA JSON
@@ -91,10 +91,9 @@ XXXStringParam
             sess.close();
         	result ="{"+'"'+"total"+'"'+":"+h.get("total")+","+'"'+"rows"+'"'+":["+x+']'+'}';
             */
-            
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			if(sess != null && sess.isOpen()) sess.close();
 			e.printStackTrace();
 		}         
          return result;
@@ -102,7 +101,7 @@ XXXStringParam
 
 // *********************ADD***********************
  @RequestMapping(value="/XXXmapAdd.htm", method=RequestMethod.POST)
-     public @ResponseBody String userAdd(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+     public @ResponseBody String XXXmapAdd(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
 		String userId = reg.getParameter("userId");
          //String ses = (String) session.getAttribute("session"+userId);
          TblUser user = (TblUser) session.getAttribute("user"+userId);
@@ -131,6 +130,7 @@ XXFormFild
                sess.close();
                x=gson.toJson("SUKSES");
          }catch(Exception e){
+         	if(sess != null && sess.isOpen()) sess.close();
              x=gson.toJson("fail");
              e.printStackTrace();
          }
@@ -170,6 +170,7 @@ XXFormFild
                sess.close();
                x=gson.toJson("UPDATE SUKSES");
          }catch(Exception e){
+         	if(sess != null && sess.isOpen()) sess.close();
              x=gson.toJson("fail");
              e.printStackTrace();
          }
@@ -205,6 +206,7 @@ XXXByIdParam
                h.put("success", true);
                x=gson.toJson(h);
          }catch(Exception e){
+         	if(sess != null && sess.isOpen()) sess.close();
         	 x=gson.toJson("fail");
              e.printStackTrace();
          }
@@ -274,10 +276,8 @@ XXXStringParam
             sess.close();
         	result ="{"+'"'+"total"+'"'+":"+h.get("total")+","+'"'+"rows"+'"'+":["+x+']'+'}';
             */
-            
-			
 		} catch (Exception e) {
-			// TODO: handle exception
+			if(sess != null && sess.isOpen()) sess.close();
 			e.printStackTrace();
 		}         
          return result;

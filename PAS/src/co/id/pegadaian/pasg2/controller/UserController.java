@@ -76,47 +76,9 @@ public class UserController extends AbstractListScreen {
  			sess.close();
              result = gson.toJson(h);
              System.out.println(result);
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-//        	long rowCount=0;
-//			sess = HibernateUtil.getSessionFactory().openSession();
-//			TblUserDAO dao = new TblUserDAO(sess);
-//			Map h = new HashMap<String, Object>();
-//			List<TblUser> l = new ArrayList<TblUser>();
-//			if (reg.getParameter("param").equals("")|| reg.getParameter("param") == null) {
-//				rowCount = dao.getAllCount();
-//				l = dao.getAll(loffset, row);				
-//				h.put("total", rowCount);
-//				h.put("rows", l);
-//			} else {
-//				TblUser tblUser = dao.getById(reg.getParameter("param"));
-//				if(tblUser!=null){
-//					h.put("total", 1);
-//					l.add(tblUser);
-//					h.put("rows", l);
-//				}else{//bila pencarian tidak di temukan
-//					h.put("total", 0);
-//					List lz = new ArrayList();
-//					h.put("rows", lz);
-//				}
-//			}
-//			sess.close();
-//            result = gson.toJson(h);
-//            System.out.println(result);
-			
+		
 		} catch (Exception e) {
+			if(sess != null && sess.isOpen()) sess.close();
 			// TODO: handle exception
 			e.printStackTrace();
 		}         
@@ -166,6 +128,7 @@ public class UserController extends AbstractListScreen {
                sess.close();
                x=gson.toJson("SUKSES");
          }catch(Exception e){
+        	 if(sess != null && sess.isOpen()) sess.close();
              x=gson.toJson("fail");
              e.printStackTrace();
          }
@@ -196,7 +159,7 @@ public class UserController extends AbstractListScreen {
                tbl.setUserId(reg.getParameter("userId"));
                tbl.setName(reg.getParameter("name"));
                tbl.setBranchCode(reg.getParameter("branchCodeAll"));
-               tbl.setPassword(SecurityUtil.encrypt(reg.getParameter("password")));
+              // tbl.setPassword(SecurityUtil.encrypt(reg.getParameter("password")));
                tbl.setEmail(reg.getParameter("email"));
                tbl.setEndTime(formatter.parse(reg.getParameter("endTime")));
                tbl.setEnabled(reg.getParameter("enabled"));
@@ -209,6 +172,7 @@ public class UserController extends AbstractListScreen {
                sess.close();
                x=gson.toJson("UPDATE SUKSES");
          }catch(Exception e){
+        	 if(sess != null && sess.isOpen()) sess.close();
              x=gson.toJson("fail");
              e.printStackTrace();
          }
@@ -246,6 +210,7 @@ public class UserController extends AbstractListScreen {
                h.put("success", true);
                x=gson.toJson(h);
          }catch(Exception e){
+        	 if(sess != null && sess.isOpen()) sess.close();
         	 x=gson.toJson("fail");
              e.printStackTrace();
          }

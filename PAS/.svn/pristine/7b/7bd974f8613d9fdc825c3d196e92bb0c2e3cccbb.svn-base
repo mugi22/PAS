@@ -1,0 +1,425 @@
+/*
+*Create by CodeGenerator
+*controllerTemplate
+*M U G I
+*/
+
+package co.id.pegadaian.pasg2.controller;
+
+import java.math.BigDecimal;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.hibernate.Session;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import co.id.pegadaian.pasg2.util.AbstractListScreen;
+
+import co.id.pegadaian.pasg2.db.HibernateUtil;
+import co.id.pegadaian.pasg2.pojo.TblUser;
+import co.id.pegadaian.pasg2.pojo.PasRaDetailRKAP;//harap Sesuaikan
+import co.id.pegadaian.pasg2.dao.PasRaDetailRKAPDAO;
+
+import co.id.pegadaian.pasg2.util.AbstractListScreen;
+
+
+@Controller
+public class PasRaDetailRKAPController  extends AbstractListScreen{
+	@RequestMapping(value="/pasRaDetailRKAP.htm",method=RequestMethod.GET)
+	 public String doGet(java.util.Map<String,Object> model, HttpSession session, HttpServletRequest reg, HttpServletResponse res){ 
+		//System.out.println("kodeRKAP   :"+reg.getParameter("kodeRKAP"));nomorSuratPengajuan
+		model.put("kodeRKAP", reg.getParameter("kodeRKAP"));
+		model.put("statusPembuatan", reg.getParameter("statusPembuatan"));
+		model.put("nomorSuratPengajuan", reg.getParameter("nomorSuratPengajuan"));
+		super.doGet(model, session, reg,res);
+	 	return getView();
+	}
+	
+	
+	 @RequestMapping(value="/pasRaDetailRKAP.htm", method=RequestMethod.POST)
+	 public String doPost(Map<String, Object> model,HttpSession session, HttpServletRequest reg, HttpServletResponse res) {
+		 super.doPost(model, session,reg,res);
+		return getView();		 
+	 }
+	 
+	 @Override
+	protected String getView() {
+		// TODO Auto-generated method stub
+		return "pasRaDetailRKAP";
+	}
+	
+//	 ***************************** LIST  **************************************************************
+	 @RequestMapping(value="/pasRaDetailRKAPListAll.htm", method=RequestMethod.POST)
+     public @ResponseBody String pasRaDetailRKAPListAll(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+                    String KodeMataAnggaran=reg.getParameter("KodeMataAnggaran");
+                    String KodeRKAP=reg.getParameter("KodeRKAP");		 
+         String userId = reg.getParameter("userId");
+         String ses = (String) session.getAttribute("session"+userId);
+         TblUser user = (TblUser) session.getAttribute("user"+userId);
+  
+         model.put("session", ses);
+         if(!cekValidSession(session,userId)){
+        	 return "[]";
+         }
+         String result="";
+//         int row = Integer.parseInt(reg.getParameter("rows"));
+//         int loffset = (Integer.parseInt(reg.getParameter("page"))-1)*row;
+         Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
+         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+         Session sess = null;
+         try {
+        	long rowCount=0;
+			sess = HibernateUtil.getSessionFactory().openSession();
+			PasRaDetailRKAPDAO dao = new PasRaDetailRKAPDAO(sess);
+			Map h = new HashMap<String, Object>();
+			List<PasRaDetailRKAP> l = new ArrayList<PasRaDetailRKAP>();
+				h = dao.getByPerPage(KodeMataAnggaran,KodeRKAP/*,loffset, row*/);
+			
+            
+            /**  BILA ADA PERUBAHAN DATA JSON*/
+            String x = changeJson(h, sess);
+        	result ="{"+'"'+"total"+'"'+":"+h.get("total")+","+'"'+"rows"+'"'+":["+x+']'+'}';
+				sess.close();
+	            result = gson.toJson(h);
+	            System.out.println(result);
+		} catch (Exception e) {
+			if(sess != null && sess.isOpen()) sess.close();
+			e.printStackTrace();
+		}         
+         return result;
+     }
+
+// *********************ADD***********************
+ @RequestMapping(value="/pasRaDetailRKAPAdd.htm", method=RequestMethod.POST)
+     public @ResponseBody String pasRaDetailRKAPAdd(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+		String userId = reg.getParameter("userId");
+         //String ses = (String) session.getAttribute("session"+userId);
+         TblUser user = (TblUser) session.getAttribute("user"+userId);
+         
+         if(!cekValidSession(session,userId)){
+        	 return "fail";
+         }
+         Session sess = null;
+         String x ="";
+         Map h = new HashMap<String, Object>();
+         Gson gson = new Gson();
+         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+         try {
+               sess = HibernateUtil.getSessionFactory().openSession();
+               PasRaDetailRKAPDAO dao = new PasRaDetailRKAPDAO(sess);
+               PasRaDetailRKAP tbl = new PasRaDetailRKAP();
+                    tbl.setKodeMataAnggaran(reg.getParameter("kodeMataAnggaran"));
+                    tbl.setNamaMataAnggaran(reg.getParameter("namaMataAnggaran"));
+                    tbl.setNominalMataAnggaran(new BigDecimal((reg.getParameter("nominalMataAnggaran"))));
+                    tbl.setKodeRKAP(reg.getParameter("kodeRKAP"));
+                             
+               tbl.setCreateBy(user.getUserId());
+               tbl.setCreateDate(new Date());
+               
+               sess.beginTransaction();
+               dao.insert(tbl);
+               simpanLog(user.getUserId(),gson.toJson(tbl),"ADD",sess,tbl.getClass().getName());
+               sess.getTransaction().commit();
+               
+               sess.close();
+               x=gson.toJson("SUKSES");
+         }catch(Exception e){
+        	 if(sess != null && sess.isOpen()) sess.close();
+             x=gson.toJson("fail");
+             e.printStackTrace();
+         }
+         return x;
+ 	 }
+
+//**************************************EDIT*************************************
+//	 EDIT	 
+	 @RequestMapping(value="/pasRaDetailRKAPEdit.htm", method=RequestMethod.POST)
+     public @ResponseBody String pasRaDetailRKAPEdit(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+                    String KodeMataAnggaran=reg.getParameter("kodeMataAnggaran");
+                    String KodeRKAP=reg.getParameter("kodeRKAP");
+		 
+		String userId = reg.getParameter("userId");
+         //String ses = (String) session.getAttribute("session"+userId);
+         TblUser user = (TblUser) session.getAttribute("user"+userId);
+         if(!cekValidSession(session,userId)){        	 
+         	return "fail";
+         }
+         
+         Session sess = null;
+         String x ="";
+         Map h = new HashMap<String, Object>();
+         Gson gson = new Gson();
+         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+         try {
+               sess = HibernateUtil.getSessionFactory().openSession();
+               PasRaDetailRKAPDAO dao = new PasRaDetailRKAPDAO(sess);
+               PasRaDetailRKAP tbl = dao.getById(KodeMataAnggaran,KodeRKAP);
+                String tblOld = gson.toJson(tbl);
+//                    tbl.setKodeMataAnggaran(reg.getParameter("kodeMataAnggaran"));
+//                    tbl.setNamaMataAnggaran(reg.getParameter("namaMataAnggaran"));
+                    tbl.setNominalMataAnggaran(new BigDecimal((reg.getParameter("nominalMataAnggaran"))));
+//                    tbl.setKodeRKAP(reg.getParameter("kodeRKAP"));
+               
+               tbl.setUpdateBy(user.getUserId());
+               tbl.setUpdateDate(new Date());
+               
+               sess.beginTransaction();
+               dao.update(tbl);
+               simpanLog(user.getUserId(),gson.toJson(tbl)+"OLD "+tblOld,"MODIFY",sess,tbl.getClass().getName());
+               sess.getTransaction().commit();
+               sess.close();
+               x=gson.toJson("UPDATE SUKSES");
+         }catch(Exception e){
+        	 if(sess != null && sess.isOpen()) sess.close();
+             x=gson.toJson("fail");
+             e.printStackTrace();
+         }
+         return x;
+ 	 }
+	 
+//	***********************************DELETE**************************************** 
+	 @RequestMapping(value="/pasRaDetailRKAPDelete.htm", method=RequestMethod.POST)
+     public @ResponseBody String pasRaDetailRKAPDelete(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+                    String KodeMataAnggaran=reg.getParameter("kodeMataAnggaran");
+                    String KodeRKAP=reg.getParameter("kodeRKAP");
+	
+		 String userId = reg.getParameter("userId");
+         TblUser user = (TblUser) session.getAttribute("user"+userId);
+          if(!cekValidSession(session,userId)){
+                	 return "fail";
+         }
+         Session sess = null;
+         String x ="";
+         Map h = new HashMap<String, Object>();
+         Gson gson = new Gson();
+         try {
+               sess = HibernateUtil.getSessionFactory().openSession();
+               PasRaDetailRKAPDAO dao = new PasRaDetailRKAPDAO(sess);
+               PasRaDetailRKAP tbl = dao.getById(KodeMataAnggaran,KodeRKAP);
+               String tblDel = gson.toJson(tbl);
+               sess.beginTransaction();
+               dao.delete(tbl);
+               simpanLog(user.getUserId(),gson.toJson(tbl),"DELETE",sess,tbl.getClass().getName());
+               sess.getTransaction().commit();
+               sess.close();
+               h.put("success", true);
+               x=gson.toJson(h);
+         }catch(Exception e){
+        	 if(sess != null && sess.isOpen()) sess.close();
+        	 x=gson.toJson("fail");
+             e.printStackTrace();
+         }
+         return x;
+ 	 }
+
+//----------BILA ADA PERUBAHAN DATA JSON, RUBAH DI SINI------------------------------------------
+	public String changeJson(Map<String,Object> result, Session sess){//nemabhakan field nama group dan nama menu
+		List<PasRaDetailRKAP> listPri = (List<PasRaDetailRKAP>) result.get("rows");
+//		List<TblPriviledge> priv = (List<TblPriviledge>) h.get("rows");
+		Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
+		StringBuffer sb = new StringBuffer();
+		BigDecimal totNominalMA = new BigDecimal(0) ;
+		BigDecimal totNominalMAReviu = new BigDecimal(0) ;
+		for(PasRaDetailRKAP pr : listPri){
+			totNominalMA  = totNominalMA.add(pr.getNominalMataAnggaran());
+			if (pr.getNominalMataAnggaranReviu()==null ){
+				
+			}else{
+				totNominalMAReviu  = totNominalMAReviu.add(pr.getNominalMataAnggaranReviu());
+			}
+//			String s = gson.toJson(pr);			
+//			String a = s.replace("}", ","+'"'+"groupName"+'"'+":"+'"'+group.getGroupName()+'"'+","+'"'+"menuName"+'"'+":"+'"'+menu.getMenuName()+'"'+"},");
+//			sb.append(a);
+		}
+		PasRaDetailRKAP tot = new PasRaDetailRKAP();
+		tot.setNominalMataAnggaran(totNominalMA);
+		tot.setNominalMataAnggaranReviu(totNominalMAReviu);
+		tot.setKodeMataAnggaran("Total");
+		List<PasRaDetailRKAP> lTot = new ArrayList<PasRaDetailRKAP>();
+		lTot.add(tot);
+		result.put("footer", lTot);
+		sb.append(gson.toJson(result));
+		String x="";
+		if(sb.toString().length()>0){
+			x= (sb.toString()).substring(0,sb.toString().length()-1);
+		}	else{
+			x="";
+		}
+//		System.out.println("x ============= : "+x);
+		return x;
+	}
+
+	
+	
+	//**************************************EDIT*************************************
+//	 EDIT	 
+	 @RequestMapping(value="/pasRaDetailRKAPReviuEdit.htm", method=RequestMethod.POST)
+    public @ResponseBody String pasRaDetailRKAPReviuEdit(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+                   String KodeMataAnggaran=reg.getParameter("kodeMataAnggaran");
+                   String KodeRKAP=reg.getParameter("kodeRKAP");
+		String userId = reg.getParameter("userId");
+        //String ses = (String) session.getAttribute("session"+userId);
+        TblUser user = (TblUser) session.getAttribute("user"+userId);
+        if(!cekValidSession(session,userId)){        	 
+        	return "fail";
+        }
+        
+        Session sess = null;
+        String x ="";
+        Map h = new HashMap<String, Object>();
+        Gson gson = new Gson();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+              sess = HibernateUtil.getSessionFactory().openSession();
+              PasRaDetailRKAPDAO dao = new PasRaDetailRKAPDAO(sess);
+              PasRaDetailRKAP tbl = dao.getById(KodeMataAnggaran,KodeRKAP);
+               String tblOld = gson.toJson(tbl);
+                   tbl.setNominalMataAnggaranReviu(new BigDecimal((reg.getParameter("nominalMataAnggaranReviu"))));
+              
+              tbl.setUpdateBy(user.getUserId());
+              tbl.setUpdateDate(new Date());
+              
+              sess.beginTransaction();
+              dao.update(tbl);
+              simpanLog(user.getUserId(),gson.toJson(tbl)+"OLD "+tblOld,"MODIFY",sess,tbl.getClass().getName());
+              sess.getTransaction().commit();
+              sess.close();
+              x=gson.toJson("UPDATE SUKSES");
+        }catch(Exception e){
+        	if(sess != null && sess.isOpen()) sess.close();
+            x=gson.toJson("fail");
+            e.printStackTrace();
+        }
+        return x;
+	 }
+	 
+	
+	
+	
+
+		//**************************************EDIT*************************************
+//		 EDIT	 
+		 @RequestMapping(value="/pasRaDetailRKAPSahEdit.htm", method=RequestMethod.POST)
+	    public @ResponseBody String pasRaDetailRKAPSahEdit(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+	                   String KodeMataAnggaran=reg.getParameter("kodeMataAnggaran");
+	                   String KodeRKAP=reg.getParameter("kodeRKAP");
+			String userId = reg.getParameter("userId");
+	        //String ses = (String) session.getAttribute("session"+userId);
+	        TblUser user = (TblUser) session.getAttribute("user"+userId);
+	        if(!cekValidSession(session,userId)){        	 
+	        	return "fail";
+	        }
+	        
+	        Session sess = null;
+	        String x ="";
+	        Map h = new HashMap<String, Object>();
+	        Gson gson = new Gson();
+	        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+	        try {
+	              sess = HibernateUtil.getSessionFactory().openSession();
+	              PasRaDetailRKAPDAO dao = new PasRaDetailRKAPDAO(sess);
+	              PasRaDetailRKAP tbl = dao.getById(KodeMataAnggaran,KodeRKAP);
+	               String tblOld = gson.toJson(tbl);
+	                   tbl.setNominalMataAnggaranAprove(new BigDecimal((reg.getParameter("nominalMataAnggaranAprove"))));
+	              
+	              tbl.setUpdateBy(user.getUserId());
+	              tbl.setUpdateDate(new Date());
+	              
+	              sess.beginTransaction();
+	              dao.update(tbl);
+	              simpanLog(user.getUserId(),gson.toJson(tbl)+"OLD "+tblOld,"MODIFY",sess,tbl.getClass().getName());
+	              sess.getTransaction().commit();
+	              sess.close();
+	              x=gson.toJson("UPDATE SUKSES");
+	        }catch(Exception e){
+	        	if(sess != null && sess.isOpen()) sess.close();
+	            x=gson.toJson("fail");
+	            e.printStackTrace();
+	        }
+	        return x;
+		 }
+		 
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//===============================REPORT====================================================
+
+	@RequestMapping(value="/pasRaDetailRKAPReport.htm",method=RequestMethod.GET)
+	 public String doGetpasRaDetailRKAPReport(java.util.Map<String,Object> model, HttpSession session, HttpServletRequest reg, HttpServletResponse res){ 
+	 	super.doGet(model, session, reg,res);
+	 	return "/report/pasRaDetailRKAPReport";
+	}
+	
+	
+		 @RequestMapping(value="/pasRaDetailRKAPDataReport.htm", method=RequestMethod.GET)
+     public @ResponseBody String pasRaDetailRKAPDataReport(Map<String, Object> model,HttpSession session,HttpServletRequest reg) {
+                    String KodeMataAnggaran=reg.getParameter("KodeMataAnggaran");
+                    String KodeRKAP=reg.getParameter("KodeRKAP");		 
+         String userId = reg.getParameter("userId");
+         String ses = (String) session.getAttribute("session"+userId);
+         TblUser user = (TblUser) session.getAttribute("user"+userId);
+  
+         model.put("session", ses);
+         if(!cekValidSession(session,userId)){
+        	 return "[]";
+         }
+         String result="";
+          Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
+         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+         Session sess = null;
+         try {
+        	long rowCount=0;
+			sess = HibernateUtil.getSessionFactory().openSession();
+			PasRaDetailRKAPDAO dao = new PasRaDetailRKAPDAO(sess);
+			List<PasRaDetailRKAP> l = new ArrayList<PasRaDetailRKAP>();
+				l = dao.getBy(KodeMataAnggaran,KodeRKAP);
+			sess.close();
+            result = gson.toJson(l);
+            System.out.println(result);
+            
+            /**  BILA ADA PERUBAHAN DATA JSON
+            String x = changeJson(h, sess);
+            sess.close();
+        	result ="{"+'"'+"total"+'"'+":"+h.get("total")+","+'"'+"rows"+'"'+":["+x+']'+'}';
+            */
+            
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			if(sess != null && sess.isOpen()) sess.close();
+			e.printStackTrace();
+		}         
+         return result;
+     }
+	
+	
+	
+	
+	
+}

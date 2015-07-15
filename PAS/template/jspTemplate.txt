@@ -192,15 +192,23 @@ XXXparamSearch
 				return $(this).form('validate');
 			},
 			success : function(result) {
-				var resultx = eval('(' + result + ')');
-				if (resultx === 'fail' || result === null) {
-					alertError("Simpan Gagal");					
-				} else {
+			var x = JSON.parse(result);
+				if(successCode == 0){
+					alertError("Simpan Gagal <br>"+x.message);
+				}else{
 					alertAll('Simpan Sukses');
 					$('#dlg').dialog('close'); // close the dialog
 					$('#dg').datagrid('reload'); // reload the user data
-					//$('#dg').datagrid({	url : jsonurl});
 				}
+			
+			/*
+				var resultx = eval('(' + result + ')');
+				if (resultx === 'fail' || result === null) {	alertError("Simpan Gagal");					
+				} else {	alertAll('Simpan Sukses');
+					$('#dlg').dialog('close'); // close the dialog
+					$('#dg').datagrid('reload'); // reload the user data
+				}
+				*/
 			}
 		});
 	}

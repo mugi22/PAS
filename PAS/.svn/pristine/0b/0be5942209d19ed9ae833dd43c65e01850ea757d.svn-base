@@ -1,0 +1,82 @@
+package co.id.pegadaian.pasg2.pojo;
+
+import java.math.BigDecimal;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name = "PAS_RA_DETAIL_RKAP", schema = "PASG2")
+public class PasRaDetailRKAP extends AuditTrail implements java.io.Serializable {
+	private String kodeRKAP;
+	private String kodeMataAnggaran;
+	private String namaMataAnggaran;
+	private BigDecimal nominalMataAnggaran;
+	private BigDecimal nominalMataAnggaranReviu;
+	private BigDecimal nominalMataAnggaranAprove;
+
+	public PasRaDetailRKAP() {
+	}
+
+	@Id
+	@Column(name = "KODE_RKAP", unique = false, nullable = false, length = 20, scale = 0)
+	public String getKodeRKAP() {
+		return this.kodeRKAP;
+	}
+
+	public void setKodeRKAP(String kodeRKAP) {
+		this.kodeRKAP = kodeRKAP;
+	}
+	@Id
+	@Column(name = "KODE_MATA_ANGGARAN", unique = false, nullable = true, length = 20, scale = 0)
+	public String getKodeMataAnggaran() {
+		return this.kodeMataAnggaran;
+	}
+
+	public void setKodeMataAnggaran(String kodeMataAnggaran) {
+		this.kodeMataAnggaran = kodeMataAnggaran;
+	}
+
+	@Column(name = "NAMA_MATA_ANGGARAN", unique = false, nullable = true, length = 64, scale = 0)
+	public String getNamaMataAnggaran() {
+		return this.namaMataAnggaran;
+	}
+
+	public void setNamaMataAnggaran(String namaMataAnggaran) {
+		this.namaMataAnggaran = namaMataAnggaran;
+	}
+
+	@Column(name = "NOMINAL_MATA_ANGGARAN", unique = false, nullable = true, length = 14, scale = 0)
+	public BigDecimal getNominalMataAnggaran() {
+		return this.nominalMataAnggaran;
+	}
+
+	public void setNominalMataAnggaran(BigDecimal nominalMataAnggaran) {
+		this.nominalMataAnggaran = nominalMataAnggaran;
+	}
+
+	@Column(name = "NOMINAL_MATA_ANGGARAN_REVIU", unique = false, nullable = true, length = 14, scale = 0)
+	public BigDecimal getNominalMataAnggaranReviu() {
+		return nominalMataAnggaranReviu;
+	}
+
+	public void setNominalMataAnggaranReviu(BigDecimal nominalMataAnggaranReviu) {
+		this.nominalMataAnggaranReviu = nominalMataAnggaranReviu;
+	}
+	
+	@Column(name = "NOMINAL_MATA_ANGGARAN_APROVE", unique = false, nullable = true, length = 14, scale = 0)
+	public BigDecimal getNominalMataAnggaranAprove() {
+		return nominalMataAnggaranAprove;
+	}
+
+	public void setNominalMataAnggaranAprove(BigDecimal nominalMataAnggaranAprove) {
+		this.nominalMataAnggaranAprove = nominalMataAnggaranAprove;
+	}
+	
+	
+	
+}

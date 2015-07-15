@@ -1,12 +1,17 @@
 package co.id.pegadaian.pasg2.test;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
 
 import com.google.gson.Gson;
 
+import co.id.pegadaian.pasg2.dao.PasRaKegiatanRKBPTDAO;
 import co.id.pegadaian.pasg2.dao.TblKabupatenDAO;
 import co.id.pegadaian.pasg2.dao.TblKecamatanDAO;
 import co.id.pegadaian.pasg2.dao.TblMenuDAO;
@@ -14,6 +19,7 @@ import co.id.pegadaian.pasg2.dao.PasEaKantorAuditorDAO;
 import co.id.pegadaian.pasg2.dao.PasEaTkKantorAuditorDAO;
 import co.id.pegadaian.pasg2.dao.TblUserDAO;
 import co.id.pegadaian.pasg2.db.HibernateUtil;
+import co.id.pegadaian.pasg2.pojo.PasRaKegiatanRKBPT;
 import co.id.pegadaian.pasg2.pojo.TblKabupaten;
 import co.id.pegadaian.pasg2.pojo.TblKecamatan;
 import co.id.pegadaian.pasg2.pojo.PasEaKantorAuditor;
@@ -37,7 +43,25 @@ public class TestDao {
 //		}
 		//testKecamatanDao(sess);
 		//testTblPasEaKantorAuditorDao(sess);
-		testTblUserDao(sess);
+//		testTblUserDao(sess);
+//		testTblPasEaKantorAuditorDao(sess);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		String dateInString = "10-07-2015";
+		Date date;
+		try {
+			date = formatter.parse(dateInString);
+			
+			Calendar end = Calendar.getInstance();
+			end.setTime(date);
+			
+			
+			
+			testPasRaKegiatanRKBPT(sess,"01",date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		sess.close();
 	}
 	
@@ -55,7 +79,8 @@ public class TestDao {
 	
 	public static void testTblPasEaKantorAuditorDao(Session sess) {
 		PasEaKantorAuditorDAO auditor = new PasEaKantorAuditorDAO(sess);
-		List<PasEaKantorAuditor> l = auditor.getByKodeTk("02");
+//		List<PasEaKantorAuditor> l = auditor.getByKodeTk("02");
+		List<PasEaKantorAuditor> l = auditor.getByKodeParent("00002");
 		Gson gson = new Gson();
 		for(PasEaKantorAuditor tbl : l){
 			System.out.println(gson.toJson(tbl));
@@ -69,5 +94,15 @@ public class TestDao {
 		for(TblUser tbl : l){
 			System.out.println(gson.toJson(tbl));
 		}
+	}
+	
+	public static void testPasRaKegiatanRKBPT(Session sess,String KodeRKBPT,Date tgl ){
+		System.out.println("Tgl : "+tgl);
+		 //Calendar end = Calendar.getInstance();
+         //end.setTime(tgl);
+		PasRaKegiatanRKBPTDAO kegiatanRKBPTDAO = new PasRaKegiatanRKBPTDAO(sess);
+		List<PasRaKegiatanRKBPT> pasRaKegiatanRKBPT = (List<PasRaKegiatanRKBPT>) kegiatanRKBPTDAO.getTglAwalAndTglAkhir(KodeRKBPT, tgl);
+		Gson gson = new Gson();
+		System.out.println(gson.toJson(pasRaKegiatanRKBPT));
 	}
 }

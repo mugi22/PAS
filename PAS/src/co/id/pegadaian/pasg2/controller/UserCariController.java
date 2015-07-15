@@ -56,7 +56,6 @@ public class UserCariController extends AbstractListScreen {
 		 String sNama = reg.getParameter("nama");
 		 String kodeUnit = reg.getParameter("kodeUnit");
          TblUser user = (TblUser) session.getAttribute("user"+userId);
-         System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS  "+sNama+"  "+userId);
          //model.put("session", ses);
          if(!cekValidSession(session,userId)){
         	 return "[]";
@@ -77,18 +76,6 @@ public class UserCariController extends AbstractListScreen {
  			sess.close();
              result = gson.toJson(h);
              System.out.println(result);
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
         	 
         	 
 //        	long rowCount=0;
@@ -118,6 +105,7 @@ public class UserCariController extends AbstractListScreen {
 //            System.out.println(result);
 			
 		} catch (Exception e) {
+			if(sess != null && sess.isOpen()) sess.close();
 			// TODO: handle exception
 			e.printStackTrace();
 		}         

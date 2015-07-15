@@ -36,8 +36,6 @@ public class SusunTreeJeasyUI {
     private JCrypto crypto;
     public void susunTree(Session session, BigInteger parentId, String jarak,Set<BigDecimal> menuIdSet) {
         /*menu by user */
-       
-        
         String j =jarak; 
 	jarak = j + "   ";
         Criteria criteria = session.createCriteria(TblMenu.class);
@@ -55,19 +53,19 @@ public class SusunTreeJeasyUI {
 
         	String priv = crypto.encrypt(x);
             String dec ="";// crypto.decrypt(priv);
-           
+           String usrEnc = crypto.encrypt(this.user);
 
             if(tblmenu.getHaveChild() =='0'){
             	//tambahkan parameter menu_id//            	prililedge
-            	sb.append(jarak+"<li"+" id='"+tblmenu.getMenuPage()+"?param="+priv+"&"+"param2="+this.sKey+"&UID="+this.user+"'"+">");
+            	sb.append(jarak+"<li"+" id='"+tblmenu.getMenuPage()+"?param="+priv+"&"+"param2="+this.sKey+"&UID="+/*this.user*/usrEnc+"'"+">");
                 x=null;
                 sb.append(tblmenu.getMenuName()+" ("+tblmenu.getMenuId()+")");//===TAMBAHHIN MENU ID
                 SusunTreeJeasyUI susunTree = new SusunTreeJeasyUI();
                 susunTree(session,BigInteger.valueOf(tblmenu.getMenuId().longValue()),jarak,l);
             }else{
-                sb.append(jarak+"<li "+" id='"+"utamaMain.htm"+"?param="+priv+"&"+"param2="+this.sKey+"&UID="+this.user+"'"+"><span>");
+                sb.append(jarak+"<li "+" id='"+"utamaMain.htm"+"?param="+priv+"&"+"param2="+this.sKey+"&UID="+/*this.user*/usrEnc+"'"+"><span>");
                 sb.append(tblmenu.getMenuName()+" ("+tblmenu.getMenuId()+")"+"</span>");//===TAMBAHHIN MENU ID
-                sb.append("\r\n"+jarak+"<ul"+" id='"+"utamaMain.htm"+"?param="+priv+"&"+"param2="+this.sKey+"&UID="+this.user+"'"+">\r\n");
+                sb.append("\r\n"+jarak+"<ul"+" id='"+"utamaMain.htm"+"?param="+priv+"&"+"param2="+this.sKey+"&UID="+/*this.user*/usrEnc+"'"+">\r\n");
                 SusunTreeJeasyUI susunTree = new SusunTreeJeasyUI();
                 susunTree(session,BigInteger.valueOf(tblmenu.getMenuId().longValue()),jarak,l);           
                 sb.append(jarak+"</ul>\r\n");

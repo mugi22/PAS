@@ -1,0 +1,474 @@
+{"kodeProvinsi":"00","kodeKabupaten":"0000","namaKabupaten":"N/A"}
+{"kodeProvinsi":"00","kodeKabupaten":"0001","namaKabupaten":"test1","createBy":"P81035","createDate":"25-05-2015"}
+{"kodeProvinsi":"01","kodeKabupaten":"0101","namaKabupaten":"BENER MERIAH"}
+{"kodeProvinsi":"01","kodeKabupaten":"0102","namaKabupaten":"PIDIE"}
+{"kodeProvinsi":"01","kodeKabupaten":"0103","namaKabupaten":"ACEH UTARA"}
+{"kodeProvinsi":"01","kodeKabupaten":"0104","namaKabupaten":"SIMEULUE"}
+{"kodeProvinsi":"01","kodeKabupaten":"0105","namaKabupaten":"GAYO LUES"}
+{"kodeProvinsi":"01","kodeKabupaten":"0106","namaKabupaten":"ACEH TIMUR"}
+{"kodeProvinsi":"01","kodeKabupaten":"0107","namaKabupaten":"SUBULUSSALAM"}
+{"kodeProvinsi":"01","kodeKabupaten":"0108","namaKabupaten":"ACEH BESAR"}
+{"kodeProvinsi":"01","kodeKabupaten":"0109","namaKabupaten":"BANDA ACEH"}
+{"kodeProvinsi":"01","kodeKabupaten":"0110","namaKabupaten":"ACEH TAMIANG"}
+{"kodeProvinsi":"01","kodeKabupaten":"0111","namaKabupaten":"ACEH BARAT"}
+{"kodeProvinsi":"01","kodeKabupaten":"0112","namaKabupaten":"NAGAN RAYA"}
+{"kodeProvinsi":"01","kodeKabupaten":"0113","namaKabupaten":"ACEH JAYA"}
+{"kodeProvinsi":"01","kodeKabupaten":"0114","namaKabupaten":"ACEH BARAT DAYA"}
+{"kodeProvinsi":"01","kodeKabupaten":"0115","namaKabupaten":"PIDIE JAYA"}
+{"kodeProvinsi":"01","kodeKabupaten":"0116","namaKabupaten":"ACEH TENGGARA"}
+{"kodeProvinsi":"01","kodeKabupaten":"0117","namaKabupaten":"ACEH SINGKIL"}
+{"kodeProvinsi":"01","kodeKabupaten":"0118","namaKabupaten":"BIREUEN"}
+{"kodeProvinsi":"01","kodeKabupaten":"0119","namaKabupaten":"ACEH TENGAH"}
+{"kodeProvinsi":"01","kodeKabupaten":"0120","namaKabupaten":"ACEH SELATAN"}
+{"kodeProvinsi":"01","kodeKabupaten":"0121","namaKabupaten":"SABANG"}
+{"kodeProvinsi":"01","kodeKabupaten":"0122","namaKabupaten":"LHOKSEUMAWE"}
+{"kodeProvinsi":"01","kodeKabupaten":"0123","namaKabupaten":"LANGSA"}
+{"kodeProvinsi":"02","kodeKabupaten":"0201","namaKabupaten":"BATU BARA"}
+{"kodeProvinsi":"02","kodeKabupaten":"0202","namaKabupaten":"PADANG LAWAS"}
+{"kodeProvinsi":"02","kodeKabupaten":"0203","namaKabupaten":"LABUHAN BATU SELATAN"}
+{"kodeProvinsi":"02","kodeKabupaten":"0204","namaKabupaten":"NIAS"}
+{"kodeProvinsi":"02","kodeKabupaten":"0205","namaKabupaten":"NIAS BARAT"}
+{"kodeProvinsi":"02","kodeKabupaten":"0206","namaKabupaten":"SIMALUNGUN"}
+{"kodeProvinsi":"02","kodeKabupaten":"0207","namaKabupaten":"ASAHAN"}
+{"kodeProvinsi":"02","kodeKabupaten":"0208","namaKabupaten":"HUMBANG HASUNDUTAN"}
+{"kodeProvinsi":"02","kodeKabupaten":"0209","namaKabupaten":"TOBA SAMOSIR"}
+{"kodeProvinsi":"02","kodeKabupaten":"0210","namaKabupaten":"KARO"}
+{"kodeProvinsi":"02","kodeKabupaten":"0211","namaKabupaten":"PEMATANG SIANTAR"}
+{"kodeProvinsi":"02","kodeKabupaten":"0212","namaKabupaten":"MEDAN"}
+{"kodeProvinsi":"02","kodeKabupaten":"0213","namaKabupaten":"MANDAILING NATAL"}
+{"kodeProvinsi":"02","kodeKabupaten":"0214","namaKabupaten":"TANJUNG BALAI"}
+{"kodeProvinsi":"02","kodeKabupaten":"0215","namaKabupaten":"TEBING TINGGI"}
+{"kodeProvinsi":"02","kodeKabupaten":"0216","namaKabupaten":"TAPANULI SELATAN"}
+{"kodeProvinsi":"02","kodeKabupaten":"0217","namaKabupaten":"PADANG LAWAS UTARA"}
+{"kodeProvinsi":"02","kodeKabupaten":"0218","namaKabupaten":"GUNUNGSITOLI"}
+{"kodeProvinsi":"02","kodeKabupaten":"0219","namaKabupaten":"LANGKAT"}
+{"kodeProvinsi":"02","kodeKabupaten":"0220","namaKabupaten":"NIAS SELATAN"}
+{"kodeProvinsi":"02","kodeKabupaten":"0221","namaKabupaten":"SAMOSIR"}
+{"kodeProvinsi":"02","kodeKabupaten":"0222","namaKabupaten":"SIBOLGA"}
+{"kodeProvinsi":"02","kodeKabupaten":"0223","namaKabupaten":"LABUHAN BATU"}
+{"kodeProvinsi":"02","kodeKabupaten":"0224","namaKabupaten":"BINJAI"}
+{"kodeProvinsi":"02","kodeKabupaten":"0225","namaKabupaten":"PAKPAK BHARAT"}
+{"kodeProvinsi":"02","kodeKabupaten":"0226","namaKabupaten":"DAIRI"}
+{"kodeProvinsi":"02","kodeKabupaten":"0227","namaKabupaten":"SERDANG BEDAGAI"}
+{"kodeProvinsi":"02","kodeKabupaten":"0228","namaKabupaten":"LABUHAN BATU UTARA"}
+{"kodeProvinsi":"02","kodeKabupaten":"0229","namaKabupaten":"TAPANULI TENGAH"}
+{"kodeProvinsi":"02","kodeKabupaten":"0230","namaKabupaten":"NIAS UTARA"}
+{"kodeProvinsi":"02","kodeKabupaten":"0231","namaKabupaten":"TAPANULI UTARA"}
+{"kodeProvinsi":"02","kodeKabupaten":"0232","namaKabupaten":"DELI SERDANG"}
+{"kodeProvinsi":"02","kodeKabupaten":"0233","namaKabupaten":"PADANG SIDEMPUAN"}
+{"kodeProvinsi":"03","kodeKabupaten":"0301","namaKabupaten":"KEPULAUAN MERANTI"}
+{"kodeProvinsi":"03","kodeKabupaten":"0302","namaKabupaten":"DUMAI"}
+{"kodeProvinsi":"03","kodeKabupaten":"0303","namaKabupaten":"PEKANBARU"}
+{"kodeProvinsi":"03","kodeKabupaten":"0304","namaKabupaten":"KUANTAN SINGINGI"}
+{"kodeProvinsi":"03","kodeKabupaten":"0305","namaKabupaten":"BENGKALIS"}
+{"kodeProvinsi":"03","kodeKabupaten":"0306","namaKabupaten":"KAMPAR"}
+{"kodeProvinsi":"03","kodeKabupaten":"0307","namaKabupaten":"INDRAGIRI HILIR"}
+{"kodeProvinsi":"03","kodeKabupaten":"0308","namaKabupaten":"ROKAN HILIR"}
+{"kodeProvinsi":"03","kodeKabupaten":"0309","namaKabupaten":"INDRAGIRI HULU"}
+{"kodeProvinsi":"03","kodeKabupaten":"0310","namaKabupaten":"PELALAWAN"}
+{"kodeProvinsi":"03","kodeKabupaten":"0311","namaKabupaten":"SIAK"}
+{"kodeProvinsi":"03","kodeKabupaten":"0312","namaKabupaten":"ROKAN HULU"}
+{"kodeProvinsi":"04","kodeKabupaten":"0401","namaKabupaten":"TANJUNG PINANG"}
+{"kodeProvinsi":"04","kodeKabupaten":"0402","namaKabupaten":"KARIMUN"}
+{"kodeProvinsi":"04","kodeKabupaten":"0403","namaKabupaten":"BATAM"}
+{"kodeProvinsi":"04","kodeKabupaten":"0404","namaKabupaten":"NATUNA"}
+{"kodeProvinsi":"04","kodeKabupaten":"0405","namaKabupaten":"LINGGA"}
+{"kodeProvinsi":"04","kodeKabupaten":"0406","namaKabupaten":"KEPULAUAN ANAMBAS"}
+{"kodeProvinsi":"04","kodeKabupaten":"0407","namaKabupaten":"BINTAN"}
+{"kodeProvinsi":"05","kodeKabupaten":"0501","namaKabupaten":"AGAM"}
+{"kodeProvinsi":"05","kodeKabupaten":"0502","namaKabupaten":"SOLOK"}
+{"kodeProvinsi":"05","kodeKabupaten":"0503","namaKabupaten":"TANAH DATAR"}
+{"kodeProvinsi":"05","kodeKabupaten":"0504","namaKabupaten":"PADANG"}
+{"kodeProvinsi":"05","kodeKabupaten":"0505","namaKabupaten":"DHARMASRAYA"}
+{"kodeProvinsi":"05","kodeKabupaten":"0506","namaKabupaten":"PASAMAN"}
+{"kodeProvinsi":"05","kodeKabupaten":"0507","namaKabupaten":"SAWAH LUNTO"}
+{"kodeProvinsi":"05","kodeKabupaten":"0508","namaKabupaten":"PASAMAN BARAT"}
+{"kodeProvinsi":"05","kodeKabupaten":"0509","namaKabupaten":"SOLOK SELATAN"}
+{"kodeProvinsi":"05","kodeKabupaten":"0510","namaKabupaten":"LIMA PULUH KOTO/KOTA"}
+{"kodeProvinsi":"05","kodeKabupaten":"0511","namaKabupaten":"PAYAKUMBUH"}
+{"kodeProvinsi":"05","kodeKabupaten":"0512","namaKabupaten":"PADANG PARIAMAN"}
+{"kodeProvinsi":"05","kodeKabupaten":"0513","namaKabupaten":"PESISIR SELATAN"}
+{"kodeProvinsi":"05","kodeKabupaten":"0514","namaKabupaten":"PARIAMAN"}
+{"kodeProvinsi":"05","kodeKabupaten":"0515","namaKabupaten":"BUKITTINGGI"}
+{"kodeProvinsi":"05","kodeKabupaten":"0516","namaKabupaten":"SIJUNJUNG (SAWAH LUNTO SIJUNJUNG)"}
+{"kodeProvinsi":"05","kodeKabupaten":"0517","namaKabupaten":"KEPULAUAN MENTAWAI"}
+{"kodeProvinsi":"05","kodeKabupaten":"0518","namaKabupaten":"PADANG PANJANG"}
+{"kodeProvinsi":"06","kodeKabupaten":"0601","namaKabupaten":"BATANG HARI"}
+{"kodeProvinsi":"06","kodeKabupaten":"0602","namaKabupaten":"TANJUNG JABUNG TIMUR"}
+{"kodeProvinsi":"06","kodeKabupaten":"0603","namaKabupaten":"BUNGO"}
+{"kodeProvinsi":"06","kodeKabupaten":"0604","namaKabupaten":"MERANGIN"}
+{"kodeProvinsi":"06","kodeKabupaten":"0605","namaKabupaten":"KERINCI"}
+{"kodeProvinsi":"06","kodeKabupaten":"0606","namaKabupaten":"SAROLANGUN"}
+{"kodeProvinsi":"06","kodeKabupaten":"0607","namaKabupaten":"TANJUNG JABUNG BARAT"}
+{"kodeProvinsi":"06","kodeKabupaten":"0608","namaKabupaten":"SUNGAIPENUH"}
+{"kodeProvinsi":"06","kodeKabupaten":"0609","namaKabupaten":"TEBO"}
+{"kodeProvinsi":"06","kodeKabupaten":"0610","namaKabupaten":"JAMBI"}
+{"kodeProvinsi":"06","kodeKabupaten":"0611","namaKabupaten":"MUARO JAMBI"}
+{"kodeProvinsi":"07","kodeKabupaten":"0701","namaKabupaten":"BANYUASIN"}
+{"kodeProvinsi":"07","kodeKabupaten":"0702","namaKabupaten":"LUBUK LINGGAU"}
+{"kodeProvinsi":"07","kodeKabupaten":"0703","namaKabupaten":"OGAN ILIR"}
+{"kodeProvinsi":"07","kodeKabupaten":"0704","namaKabupaten":"MUSI RAWAS"}
+{"kodeProvinsi":"07","kodeKabupaten":"0705","namaKabupaten":"OGAN KOMERING ULU"}
+{"kodeProvinsi":"07","kodeKabupaten":"0706","namaKabupaten":"OGAN KOMERING ULU TIMUR"}
+{"kodeProvinsi":"07","kodeKabupaten":"0707","namaKabupaten":"EMPAT LAWANG"}
+{"kodeProvinsi":"07","kodeKabupaten":"0708","namaKabupaten":"PALEMBANG"}
+{"kodeProvinsi":"07","kodeKabupaten":"0709","namaKabupaten":"MUARA ENIM"}
+{"kodeProvinsi":"07","kodeKabupaten":"0710","namaKabupaten":"OGAN KOMERING ILIR"}
+{"kodeProvinsi":"07","kodeKabupaten":"0711","namaKabupaten":"LAHAT"}
+{"kodeProvinsi":"07","kodeKabupaten":"0712","namaKabupaten":"MUSI BANYUASIN"}
+{"kodeProvinsi":"07","kodeKabupaten":"0713","namaKabupaten":"PAGAR ALAM"}
+{"kodeProvinsi":"07","kodeKabupaten":"0714","namaKabupaten":"OGAN KOMERING ULU SELATAN"}
+{"kodeProvinsi":"07","kodeKabupaten":"0715","namaKabupaten":"PRABUMULIH"}
+{"kodeProvinsi":"08","kodeKabupaten":"0801","namaKabupaten":"BANGKA TENGAH"}
+{"kodeProvinsi":"08","kodeKabupaten":"0802","namaKabupaten":"BANGKA SELATAN"}
+{"kodeProvinsi":"08","kodeKabupaten":"0803","namaKabupaten":"PANGKAL PINANG"}
+{"kodeProvinsi":"08","kodeKabupaten":"0804","namaKabupaten":"BELITUNG TIMUR"}
+{"kodeProvinsi":"08","kodeKabupaten":"0805","namaKabupaten":"BANGKA"}
+{"kodeProvinsi":"08","kodeKabupaten":"0806","namaKabupaten":"BANGKA BARAT"}
+{"kodeProvinsi":"08","kodeKabupaten":"0807","namaKabupaten":"BELITUNG"}
+{"kodeProvinsi":"09","kodeKabupaten":"0901","namaKabupaten":"BENGKULU"}
+{"kodeProvinsi":"09","kodeKabupaten":"0902","namaKabupaten":"BENGKULU SELATAN"}
+{"kodeProvinsi":"09","kodeKabupaten":"0903","namaKabupaten":"REJANG LEBONG"}
+{"kodeProvinsi":"09","kodeKabupaten":"0904","namaKabupaten":"KEPAHIANG"}
+{"kodeProvinsi":"09","kodeKabupaten":"0905","namaKabupaten":"BENGKULU TENGAH"}
+{"kodeProvinsi":"09","kodeKabupaten":"0906","namaKabupaten":"LEBONG"}
+{"kodeProvinsi":"09","kodeKabupaten":"0907","namaKabupaten":"MUKO MUKO"}
+{"kodeProvinsi":"09","kodeKabupaten":"0908","namaKabupaten":"KAUR"}
+{"kodeProvinsi":"09","kodeKabupaten":"0909","namaKabupaten":"SELUMA"}
+{"kodeProvinsi":"09","kodeKabupaten":"0910","namaKabupaten":"BENGKULU UTARA"}
+{"kodeProvinsi":"10","kodeKabupaten":"1001","namaKabupaten":"LAMPUNG TENGAH"}
+{"kodeProvinsi":"10","kodeKabupaten":"1002","namaKabupaten":"LAMPUNG SELATAN"}
+{"kodeProvinsi":"10","kodeKabupaten":"1003","namaKabupaten":"LAMPUNG UTARA"}
+{"kodeProvinsi":"10","kodeKabupaten":"1004","namaKabupaten":"PRINGSEWU"}
+{"kodeProvinsi":"10","kodeKabupaten":"1005","namaKabupaten":"LAMPUNG BARAT"}
+{"kodeProvinsi":"10","kodeKabupaten":"1006","namaKabupaten":"MESUJI"}
+{"kodeProvinsi":"10","kodeKabupaten":"1007","namaKabupaten":"BANDAR LAMPUNG"}
+{"kodeProvinsi":"10","kodeKabupaten":"1008","namaKabupaten":"PESAWARAN"}
+{"kodeProvinsi":"10","kodeKabupaten":"1009","namaKabupaten":"TULANG BAWANG BARAT"}
+{"kodeProvinsi":"10","kodeKabupaten":"1010","namaKabupaten":"TANGGAMUS"}
+{"kodeProvinsi":"10","kodeKabupaten":"1011","namaKabupaten":"LAMPUNG TIMUR"}
+{"kodeProvinsi":"10","kodeKabupaten":"1012","namaKabupaten":"TULANG BAWANG"}
+{"kodeProvinsi":"10","kodeKabupaten":"1013","namaKabupaten":"METRO"}
+{"kodeProvinsi":"10","kodeKabupaten":"1014","namaKabupaten":"WAY KANAN"}
+{"kodeProvinsi":"11","kodeKabupaten":"1101","namaKabupaten":"JAKARTA PUSAT"}
+{"kodeProvinsi":"11","kodeKabupaten":"1102","namaKabupaten":"JAKARTA TIMUR"}
+{"kodeProvinsi":"11","kodeKabupaten":"1103","namaKabupaten":"JAKARTA UTARA"}
+{"kodeProvinsi":"11","kodeKabupaten":"1104","namaKabupaten":"KEPULAUAN SERIBU"}
+{"kodeProvinsi":"11","kodeKabupaten":"1105","namaKabupaten":"JAKARTA BARAT"}
+{"kodeProvinsi":"11","kodeKabupaten":"1106","namaKabupaten":"JAKARTA SELATAN"}
+{"kodeProvinsi":"12","kodeKabupaten":"1201","namaKabupaten":"PANDEGLANG"}
+{"kodeProvinsi":"12","kodeKabupaten":"1202","namaKabupaten":"SERANG"}
+{"kodeProvinsi":"12","kodeKabupaten":"1203","namaKabupaten":"TANGERANG"}
+{"kodeProvinsi":"12","kodeKabupaten":"1204","namaKabupaten":"TANGERANG SELATAN"}
+{"kodeProvinsi":"12","kodeKabupaten":"1205","namaKabupaten":"CILEGON"}
+{"kodeProvinsi":"12","kodeKabupaten":"1206","namaKabupaten":"LEBAK"}
+{"kodeProvinsi":"13","kodeKabupaten":"1307","namaKabupaten":"CIREBON"}
+{"kodeProvinsi":"13","kodeKabupaten":"1308","namaKabupaten":"TASIKMALAYA"}
+{"kodeProvinsi":"13","kodeKabupaten":"1309","namaKabupaten":"GARUT"}
+{"kodeProvinsi":"13","kodeKabupaten":"1310","namaKabupaten":"KARAWANG"}
+{"kodeProvinsi":"13","kodeKabupaten":"1311","namaKabupaten":"BEKASI"}
+{"kodeProvinsi":"13","kodeKabupaten":"1312","namaKabupaten":"CIMAHI"}
+{"kodeProvinsi":"13","kodeKabupaten":"1313","namaKabupaten":"CIANJUR"}
+{"kodeProvinsi":"13","kodeKabupaten":"1314","namaKabupaten":"BANJAR"}
+{"kodeProvinsi":"13","kodeKabupaten":"1315","namaKabupaten":"DEPOK"}
+{"kodeProvinsi":"13","kodeKabupaten":"1316","namaKabupaten":"KUNINGAN"}
+{"kodeProvinsi":"13","kodeKabupaten":"1317","namaKabupaten":"BANDUNG"}
+{"kodeProvinsi":"13","kodeKabupaten":"1318","namaKabupaten":"CIAMIS"}
+{"kodeProvinsi":"13","kodeKabupaten":"1319","namaKabupaten":"INDRAMAYU"}
+{"kodeProvinsi":"13","kodeKabupaten":"1320","namaKabupaten":"BOGOR"}
+{"kodeProvinsi":"13","kodeKabupaten":"1321","namaKabupaten":"SUKABUMI"}
+{"kodeProvinsi":"13","kodeKabupaten":"1322","namaKabupaten":"BANDUNG BARAT"}
+{"kodeProvinsi":"13","kodeKabupaten":"1323","namaKabupaten":"MAJALENGKA"}
+{"kodeProvinsi":"13","kodeKabupaten":"1324","namaKabupaten":"PURWAKARTA"}
+{"kodeProvinsi":"13","kodeKabupaten":"1325","namaKabupaten":"SUBANG"}
+{"kodeProvinsi":"13","kodeKabupaten":"1326","namaKabupaten":"SUMEDANG"}
+{"kodeProvinsi":"14","kodeKabupaten":"1401","namaKabupaten":"KULON PROGO"}
+{"kodeProvinsi":"14","kodeKabupaten":"1402","namaKabupaten":"BANTUL"}
+{"kodeProvinsi":"14","kodeKabupaten":"1403","namaKabupaten":"GUNUNG KIDUL"}
+{"kodeProvinsi":"14","kodeKabupaten":"1404","namaKabupaten":"YOGYAKARTA"}
+{"kodeProvinsi":"14","kodeKabupaten":"1405","namaKabupaten":"SLEMAN"}
+{"kodeProvinsi":"15","kodeKabupaten":"1501","namaKabupaten":"PATI"}
+{"kodeProvinsi":"15","kodeKabupaten":"1502","namaKabupaten":"REMBANG"}
+{"kodeProvinsi":"15","kodeKabupaten":"1503","namaKabupaten":"WONOSOBO"}
+{"kodeProvinsi":"15","kodeKabupaten":"1504","namaKabupaten":"BOYOLALI"}
+{"kodeProvinsi":"15","kodeKabupaten":"1505","namaKabupaten":"KLATEN"}
+{"kodeProvinsi":"15","kodeKabupaten":"1506","namaKabupaten":"KENDAL"}
+{"kodeProvinsi":"15","kodeKabupaten":"1507","namaKabupaten":"BLORA"}
+{"kodeProvinsi":"15","kodeKabupaten":"1508","namaKabupaten":"SURAKARTA (SOLO)"}
+{"kodeProvinsi":"15","kodeKabupaten":"1509","namaKabupaten":"MAGELANG"}
+{"kodeProvinsi":"15","kodeKabupaten":"1510","namaKabupaten":"BANJARNEGARA"}
+{"kodeProvinsi":"15","kodeKabupaten":"1511","namaKabupaten":"CILACAP"}
+{"kodeProvinsi":"15","kodeKabupaten":"1512","namaKabupaten":"SEMARANG"}
+{"kodeProvinsi":"15","kodeKabupaten":"1513","namaKabupaten":"PURWOREJO"}
+{"kodeProvinsi":"15","kodeKabupaten":"1514","namaKabupaten":"DEMAK"}
+{"kodeProvinsi":"15","kodeKabupaten":"1515","namaKabupaten":"GROBOGAN"}
+{"kodeProvinsi":"15","kodeKabupaten":"1516","namaKabupaten":"SUKOHARJO"}
+{"kodeProvinsi":"15","kodeKabupaten":"1517","namaKabupaten":"KUDUS"}
+{"kodeProvinsi":"15","kodeKabupaten":"1518","namaKabupaten":"KARANGANYAR"}
+{"kodeProvinsi":"15","kodeKabupaten":"1519","namaKabupaten":"PURBALINGGA"}
+{"kodeProvinsi":"15","kodeKabupaten":"1520","namaKabupaten":"PEKALONGAN"}
+{"kodeProvinsi":"15","kodeKabupaten":"1521","namaKabupaten":"SRAGEN"}
+{"kodeProvinsi":"15","kodeKabupaten":"1522","namaKabupaten":"BATANG"}
+{"kodeProvinsi":"15","kodeKabupaten":"1523","namaKabupaten":"TEMANGGUNG"}
+{"kodeProvinsi":"15","kodeKabupaten":"1524","namaKabupaten":"TEGAL"}
+{"kodeProvinsi":"15","kodeKabupaten":"1525","namaKabupaten":"BANYUMAS"}
+{"kodeProvinsi":"15","kodeKabupaten":"1526","namaKabupaten":"KEBUMEN"}
+{"kodeProvinsi":"15","kodeKabupaten":"1527","namaKabupaten":"WONOGIRI"}
+{"kodeProvinsi":"15","kodeKabupaten":"1528","namaKabupaten":"JEPARA"}
+{"kodeProvinsi":"15","kodeKabupaten":"1529","namaKabupaten":"PEMALANG"}
+{"kodeProvinsi":"15","kodeKabupaten":"1530","namaKabupaten":"BREBES"}
+{"kodeProvinsi":"15","kodeKabupaten":"1531","namaKabupaten":"SALATIGA"}
+{"kodeProvinsi":"16","kodeKabupaten":"1601","namaKabupaten":"PASURUAN"}
+{"kodeProvinsi":"16","kodeKabupaten":"1602","namaKabupaten":"PROBOLINGGO"}
+{"kodeProvinsi":"16","kodeKabupaten":"1603","namaKabupaten":"NGAWI"}
+{"kodeProvinsi":"16","kodeKabupaten":"1604","namaKabupaten":"TULUNGAGUNG"}
+{"kodeProvinsi":"16","kodeKabupaten":"1605","namaKabupaten":"BANGKALAN"}
+{"kodeProvinsi":"16","kodeKabupaten":"1606","namaKabupaten":"JEMBER"}
+{"kodeProvinsi":"16","kodeKabupaten":"1607","namaKabupaten":"BONDOWOSO"}
+{"kodeProvinsi":"16","kodeKabupaten":"1608","namaKabupaten":"SIDOARJO"}
+{"kodeProvinsi":"16","kodeKabupaten":"1609","namaKabupaten":"TRENGGALEK"}
+{"kodeProvinsi":"16","kodeKabupaten":"1610","namaKabupaten":"PACITAN"}
+{"kodeProvinsi":"16","kodeKabupaten":"1611","namaKabupaten":"SUMENEP"}
+{"kodeProvinsi":"16","kodeKabupaten":"1612","namaKabupaten":"MAGETAN"}
+{"kodeProvinsi":"16","kodeKabupaten":"1613","namaKabupaten":"PONOROGO"}
+{"kodeProvinsi":"16","kodeKabupaten":"1614","namaKabupaten":"LAMONGAN"}
+{"kodeProvinsi":"16","kodeKabupaten":"1615","namaKabupaten":"MOJOKERTO"}
+{"kodeProvinsi":"16","kodeKabupaten":"1616","namaKabupaten":"SURABAYA"}
+{"kodeProvinsi":"16","kodeKabupaten":"1617","namaKabupaten":"NGANJUK"}
+{"kodeProvinsi":"16","kodeKabupaten":"1618","namaKabupaten":"KEDIRI"}
+{"kodeProvinsi":"16","kodeKabupaten":"1619","namaKabupaten":"PAMEKASAN"}
+{"kodeProvinsi":"16","kodeKabupaten":"1620","namaKabupaten":"BOJONEGORO"}
+{"kodeProvinsi":"16","kodeKabupaten":"1621","namaKabupaten":"GRESIK"}
+{"kodeProvinsi":"16","kodeKabupaten":"1622","namaKabupaten":"SITUBONDO"}
+{"kodeProvinsi":"16","kodeKabupaten":"1623","namaKabupaten":"BANYUWANGI"}
+{"kodeProvinsi":"16","kodeKabupaten":"1624","namaKabupaten":"TUBAN"}
+{"kodeProvinsi":"16","kodeKabupaten":"1625","namaKabupaten":"SAMPANG"}
+{"kodeProvinsi":"16","kodeKabupaten":"1626","namaKabupaten":"MADIUN"}
+{"kodeProvinsi":"16","kodeKabupaten":"1627","namaKabupaten":"BLITAR"}
+{"kodeProvinsi":"16","kodeKabupaten":"1628","namaKabupaten":"BATU"}
+{"kodeProvinsi":"16","kodeKabupaten":"1629","namaKabupaten":"LUMAJANG"}
+{"kodeProvinsi":"16","kodeKabupaten":"1630","namaKabupaten":"MALANG"}
+{"kodeProvinsi":"16","kodeKabupaten":"1631","namaKabupaten":"JOMBANG"}
+{"kodeProvinsi":"17","kodeKabupaten":"1701","namaKabupaten":"SAMBAS"}
+{"kodeProvinsi":"17","kodeKabupaten":"1702","namaKabupaten":"KAYONG UTARA"}
+{"kodeProvinsi":"17","kodeKabupaten":"1703","namaKabupaten":"MELAWI"}
+{"kodeProvinsi":"17","kodeKabupaten":"1704","namaKabupaten":"SINGKAWANG"}
+{"kodeProvinsi":"17","kodeKabupaten":"1705","namaKabupaten":"KUBU RAYA"}
+{"kodeProvinsi":"17","kodeKabupaten":"1706","namaKabupaten":"SINTANG"}
+{"kodeProvinsi":"17","kodeKabupaten":"1707","namaKabupaten":"LANDAK"}
+{"kodeProvinsi":"17","kodeKabupaten":"1708","namaKabupaten":"BENGKAYANG"}
+{"kodeProvinsi":"17","kodeKabupaten":"1709","namaKabupaten":"PONTIANAK"}
+{"kodeProvinsi":"17","kodeKabupaten":"1710","namaKabupaten":"SANGGAU"}
+{"kodeProvinsi":"17","kodeKabupaten":"1711","namaKabupaten":"KAPUAS HULU"}
+{"kodeProvinsi":"17","kodeKabupaten":"1712","namaKabupaten":"SEKADAU"}
+{"kodeProvinsi":"17","kodeKabupaten":"1713","namaKabupaten":"KETAPANG"}
+{"kodeProvinsi":"18","kodeKabupaten":"1801","namaKabupaten":"KAPUAS"}
+{"kodeProvinsi":"18","kodeKabupaten":"1802","namaKabupaten":"KOTAWARINGIN BARAT"}
+{"kodeProvinsi":"18","kodeKabupaten":"1803","namaKabupaten":"BARITO SELATAN"}
+{"kodeProvinsi":"18","kodeKabupaten":"1804","namaKabupaten":"GUNUNG MAS"}
+{"kodeProvinsi":"18","kodeKabupaten":"1805","namaKabupaten":"MURUNG RAYA"}
+{"kodeProvinsi":"18","kodeKabupaten":"1806","namaKabupaten":"BARITO TIMUR"}
+{"kodeProvinsi":"18","kodeKabupaten":"1807","namaKabupaten":"KATINGAN"}
+{"kodeProvinsi":"18","kodeKabupaten":"1808","namaKabupaten":"LAMANDAU"}
+{"kodeProvinsi":"18","kodeKabupaten":"1809","namaKabupaten":"PALANGKA RAYA"}
+{"kodeProvinsi":"18","kodeKabupaten":"1810","namaKabupaten":"SERUYAN"}
+{"kodeProvinsi":"18","kodeKabupaten":"1811","namaKabupaten":"PULANG PISAU"}
+{"kodeProvinsi":"18","kodeKabupaten":"1812","namaKabupaten":"BARITO UTARA"}
+{"kodeProvinsi":"18","kodeKabupaten":"1813","namaKabupaten":"KOTAWARINGIN TIMUR"}
+{"kodeProvinsi":"18","kodeKabupaten":"1814","namaKabupaten":"SUKAMARA"}
+{"kodeProvinsi":"19","kodeKabupaten":"1901","namaKabupaten":"BANJARBARU"}
+{"kodeProvinsi":"19","kodeKabupaten":"1902","namaKabupaten":"BARITO KUALA"}
+{"kodeProvinsi":"19","kodeKabupaten":"1903","namaKabupaten":"TABALONG"}
+{"kodeProvinsi":"19","kodeKabupaten":"1904","namaKabupaten":"HULU SUNGAI TENGAH"}
+{"kodeProvinsi":"19","kodeKabupaten":"1905","namaKabupaten":"HULU SUNGAI UTARA"}
+{"kodeProvinsi":"19","kodeKabupaten":"1906","namaKabupaten":"BANJAR"}
+{"kodeProvinsi":"19","kodeKabupaten":"1907","namaKabupaten":"TANAH LAUT"}
+{"kodeProvinsi":"19","kodeKabupaten":"1908","namaKabupaten":"TAPIN"}
+{"kodeProvinsi":"19","kodeKabupaten":"1909","namaKabupaten":"HULU SUNGAI SELATAN"}
+{"kodeProvinsi":"19","kodeKabupaten":"1910","namaKabupaten":"BALANGAN"}
+{"kodeProvinsi":"19","kodeKabupaten":"1911","namaKabupaten":"BANJARMASIN"}
+{"kodeProvinsi":"19","kodeKabupaten":"1912","namaKabupaten":"TANAH BUMBU"}
+{"kodeProvinsi":"19","kodeKabupaten":"1913","namaKabupaten":"KOTABARU"}
+{"kodeProvinsi":"19","kodeKabupaten":"1914","namaKabupaten":"BANJAR","createBy":"DM_USER","createDate":"04-02-2014"}
+{"kodeProvinsi":"20","kodeKabupaten":"2001","namaKabupaten":"PENAJAM PASER UTARA"}
+{"kodeProvinsi":"20","kodeKabupaten":"2002","namaKabupaten":"KUTAI KARTANEGARA"}
+{"kodeProvinsi":"20","kodeKabupaten":"2003","namaKabupaten":"BERAU"}
+{"kodeProvinsi":"20","kodeKabupaten":"2004","namaKabupaten":"BONTANG"}
+{"kodeProvinsi":"20","kodeKabupaten":"2005","namaKabupaten":"BULUNGAN (BULONGAN)"}
+{"kodeProvinsi":"20","kodeKabupaten":"2006","namaKabupaten":"NUNUKAN"}
+{"kodeProvinsi":"20","kodeKabupaten":"2007","namaKabupaten":"PASER"}
+{"kodeProvinsi":"20","kodeKabupaten":"2008","namaKabupaten":"KUTAI BARAT"}
+{"kodeProvinsi":"20","kodeKabupaten":"2009","namaKabupaten":"MALINAU"}
+{"kodeProvinsi":"20","kodeKabupaten":"2010","namaKabupaten":"BALIKPAPAN"}
+{"kodeProvinsi":"20","kodeKabupaten":"2011","namaKabupaten":"TARAKAN"}
+{"kodeProvinsi":"20","kodeKabupaten":"2012","namaKabupaten":"TANA TIDUNG"}
+{"kodeProvinsi":"20","kodeKabupaten":"2013","namaKabupaten":"SAMARINDA"}
+{"kodeProvinsi":"20","kodeKabupaten":"2014","namaKabupaten":"KUTAI TIMUR"}
+{"kodeProvinsi":"21","kodeKabupaten":"2101","namaKabupaten":"BULELENG"}
+{"kodeProvinsi":"21","kodeKabupaten":"2102","namaKabupaten":"KLUNGKUNG"}
+{"kodeProvinsi":"21","kodeKabupaten":"2103","namaKabupaten":"KARANGASEM"}
+{"kodeProvinsi":"21","kodeKabupaten":"2104","namaKabupaten":"JEMBRANA"}
+{"kodeProvinsi":"21","kodeKabupaten":"2105","namaKabupaten":"DENPASAR"}
+{"kodeProvinsi":"21","kodeKabupaten":"2106","namaKabupaten":"TABANAN"}
+{"kodeProvinsi":"21","kodeKabupaten":"2107","namaKabupaten":"BANGLI"}
+{"kodeProvinsi":"21","kodeKabupaten":"2108","namaKabupaten":"GIANYAR"}
+{"kodeProvinsi":"21","kodeKabupaten":"2109","namaKabupaten":"BADUNG"}
+{"kodeProvinsi":"22","kodeKabupaten":"2201","namaKabupaten":"SUMBA BARAT DAYA"}
+{"kodeProvinsi":"22","kodeKabupaten":"2202","namaKabupaten":"SUMBA TIMUR"}
+{"kodeProvinsi":"22","kodeKabupaten":"2203","namaKabupaten":"SIKKA"}
+{"kodeProvinsi":"22","kodeKabupaten":"2204","namaKabupaten":"SUMBA TENGAH"}
+{"kodeProvinsi":"22","kodeKabupaten":"2205","namaKabupaten":"TIMOR TENGAH UTARA"}
+{"kodeProvinsi":"22","kodeKabupaten":"2206","namaKabupaten":"FLORES TIMUR"}
+{"kodeProvinsi":"22","kodeKabupaten":"2207","namaKabupaten":"NAGEKEO"}
+{"kodeProvinsi":"22","kodeKabupaten":"2208","namaKabupaten":"TIMOR TENGAH SELATAN"}
+{"kodeProvinsi":"22","kodeKabupaten":"2209","namaKabupaten":"MANGGARAI"}
+{"kodeProvinsi":"22","kodeKabupaten":"2210","namaKabupaten":"NGADA"}
+{"kodeProvinsi":"22","kodeKabupaten":"2211","namaKabupaten":"ROTE NDAO"}
+{"kodeProvinsi":"22","kodeKabupaten":"2212","namaKabupaten":"MANGGARAI BARAT"}
+{"kodeProvinsi":"22","kodeKabupaten":"2213","namaKabupaten":"LEMBATA"}
+{"kodeProvinsi":"22","kodeKabupaten":"2214","namaKabupaten":"ENDE"}
+{"kodeProvinsi":"22","kodeKabupaten":"2215","namaKabupaten":"SUMBA BARAT"}
+{"kodeProvinsi":"22","kodeKabupaten":"2216","namaKabupaten":"BELU"}
+{"kodeProvinsi":"22","kodeKabupaten":"2217","namaKabupaten":"ALOR"}
+{"kodeProvinsi":"22","kodeKabupaten":"2218","namaKabupaten":"KUPANG"}
+{"kodeProvinsi":"22","kodeKabupaten":"2219","namaKabupaten":"MANGGARAI TIMUR"}
+{"kodeProvinsi":"22","kodeKabupaten":"2220","namaKabupaten":"SABU RAIJUA"}
+{"kodeProvinsi":"23","kodeKabupaten":"2301","namaKabupaten":"DOMPU"}
+{"kodeProvinsi":"23","kodeKabupaten":"2302","namaKabupaten":"LOMBOK TIMUR"}
+{"kodeProvinsi":"23","kodeKabupaten":"2303","namaKabupaten":"MATARAM"}
+{"kodeProvinsi":"23","kodeKabupaten":"2304","namaKabupaten":"LOMBOK BARAT"}
+{"kodeProvinsi":"23","kodeKabupaten":"2305","namaKabupaten":"LOMBOK UTARA"}
+{"kodeProvinsi":"23","kodeKabupaten":"2306","namaKabupaten":"LOMBOK TENGAH"}
+{"kodeProvinsi":"23","kodeKabupaten":"2307","namaKabupaten":"BIMA"}
+{"kodeProvinsi":"23","kodeKabupaten":"2308","namaKabupaten":"SUMBAWA"}
+{"kodeProvinsi":"23","kodeKabupaten":"2309","namaKabupaten":"SUMBAWA BARAT"}
+{"kodeProvinsi":"24","kodeKabupaten":"2401","namaKabupaten":"MAMUJU UTARA"}
+{"kodeProvinsi":"24","kodeKabupaten":"2402","namaKabupaten":"MAJENE"}
+{"kodeProvinsi":"24","kodeKabupaten":"2403","namaKabupaten":"POLEWALI MANDAR"}
+{"kodeProvinsi":"24","kodeKabupaten":"2404","namaKabupaten":"MAMASA"}
+{"kodeProvinsi":"24","kodeKabupaten":"2405","namaKabupaten":"MAMUJU"}
+{"kodeProvinsi":"25","kodeKabupaten":"2501","namaKabupaten":"TOJO UNA-UNA"}
+{"kodeProvinsi":"25","kodeKabupaten":"2502","namaKabupaten":"POSO"}
+{"kodeProvinsi":"25","kodeKabupaten":"2503","namaKabupaten":"PALU"}
+{"kodeProvinsi":"25","kodeKabupaten":"2504","namaKabupaten":"BANGGAI"}
+{"kodeProvinsi":"25","kodeKabupaten":"2505","namaKabupaten":"BUOL"}
+{"kodeProvinsi":"25","kodeKabupaten":"2506","namaKabupaten":"BANGGAI KEPULAUAN"}
+{"kodeProvinsi":"25","kodeKabupaten":"2507","namaKabupaten":"PARIGI MOUTONG"}
+{"kodeProvinsi":"25","kodeKabupaten":"2508","namaKabupaten":"SIGI"}
+{"kodeProvinsi":"25","kodeKabupaten":"2509","namaKabupaten":"MOROWALI"}
+{"kodeProvinsi":"25","kodeKabupaten":"2510","namaKabupaten":"DONGGALA"}
+{"kodeProvinsi":"25","kodeKabupaten":"2511","namaKabupaten":"TOLITOLI","updateBy":"Q01118","updateDate":"22-09-2014","versi":1411349966470.00}
+{"kodeProvinsi":"26","kodeKabupaten":"2601","namaKabupaten":"LUWU TIMUR"}
+{"kodeProvinsi":"26","kodeKabupaten":"2602","namaKabupaten":"PAREPARE"}
+{"kodeProvinsi":"26","kodeKabupaten":"2603","namaKabupaten":"TORAJA UTARA"}
+{"kodeProvinsi":"26","kodeKabupaten":"2604","namaKabupaten":"WAJO"}
+{"kodeProvinsi":"26","kodeKabupaten":"2605","namaKabupaten":"ENREKANG"}
+{"kodeProvinsi":"26","kodeKabupaten":"2606","namaKabupaten":"PANGKAJENE KEPULAUAN"}
+{"kodeProvinsi":"26","kodeKabupaten":"2607","namaKabupaten":"TANA TORAJA"}
+{"kodeProvinsi":"26","kodeKabupaten":"2608","namaKabupaten":"LUWU UTARA"}
+{"kodeProvinsi":"26","kodeKabupaten":"2609","namaKabupaten":"TAKALAR"}
+{"kodeProvinsi":"26","kodeKabupaten":"2610","namaKabupaten":"MAKASSAR"}
+{"kodeProvinsi":"26","kodeKabupaten":"2611","namaKabupaten":"BANTAENG"}
+{"kodeProvinsi":"26","kodeKabupaten":"2612","namaKabupaten":"BULUKUMBA"}
+{"kodeProvinsi":"26","kodeKabupaten":"2613","namaKabupaten":"SIDENRENG RAPPANG"}
+{"kodeProvinsi":"26","kodeKabupaten":"2614","namaKabupaten":"PALOPO"}
+{"kodeProvinsi":"26","kodeKabupaten":"2615","namaKabupaten":"SELAYAR (KEPULAUAN SELAYAR)"}
+{"kodeProvinsi":"26","kodeKabupaten":"2616","namaKabupaten":"MAROS"}
+{"kodeProvinsi":"26","kodeKabupaten":"2617","namaKabupaten":"SOPPENG"}
+{"kodeProvinsi":"26","kodeKabupaten":"2618","namaKabupaten":"BONE"}
+{"kodeProvinsi":"26","kodeKabupaten":"2619","namaKabupaten":"JENEPONTO"}
+{"kodeProvinsi":"26","kodeKabupaten":"2620","namaKabupaten":"GOWA"}
+{"kodeProvinsi":"26","kodeKabupaten":"2621","namaKabupaten":"BARRU"}
+{"kodeProvinsi":"26","kodeKabupaten":"2622","namaKabupaten":"PINRANG"}
+{"kodeProvinsi":"26","kodeKabupaten":"2623","namaKabupaten":"LUWU"}
+{"kodeProvinsi":"26","kodeKabupaten":"2624","namaKabupaten":"SINJAI"}
+{"kodeProvinsi":"27","kodeKabupaten":"2701","namaKabupaten":"KOLAKA"}
+{"kodeProvinsi":"27","kodeKabupaten":"2702","namaKabupaten":"KONAWE UTARA"}
+{"kodeProvinsi":"27","kodeKabupaten":"2703","namaKabupaten":"KONAWE"}
+{"kodeProvinsi":"27","kodeKabupaten":"2704","namaKabupaten":"KENDARI"}
+{"kodeProvinsi":"27","kodeKabupaten":"2705","namaKabupaten":"BUTON"}
+{"kodeProvinsi":"27","kodeKabupaten":"2706","namaKabupaten":"KOLAKA UTARA"}
+{"kodeProvinsi":"27","kodeKabupaten":"2707","namaKabupaten":"KONAWE SELATAN"}
+{"kodeProvinsi":"27","kodeKabupaten":"2708","namaKabupaten":"WAKATOBI"}
+{"kodeProvinsi":"27","kodeKabupaten":"2709","namaKabupaten":"BUTON UTARA"}
+{"kodeProvinsi":"27","kodeKabupaten":"2710","namaKabupaten":"BAU-BAU"}
+{"kodeProvinsi":"27","kodeKabupaten":"2711","namaKabupaten":"MUNA"}
+{"kodeProvinsi":"27","kodeKabupaten":"2712","namaKabupaten":"BOMBANA"}
+{"kodeProvinsi":"28","kodeKabupaten":"2801","namaKabupaten":"BOLAANG MONGONDOW TIMUR"}
+{"kodeProvinsi":"28","kodeKabupaten":"2802","namaKabupaten":"MINAHASA TENGGARA"}
+{"kodeProvinsi":"28","kodeKabupaten":"2803","namaKabupaten":"KEPULAUAN SIAU TAGULANDANG BIARO (SITARO)"}
+{"kodeProvinsi":"28","kodeKabupaten":"2804","namaKabupaten":"MANADO"}
+{"kodeProvinsi":"28","kodeKabupaten":"2805","namaKabupaten":"KOTAMOBAGU"}
+{"kodeProvinsi":"28","kodeKabupaten":"2806","namaKabupaten":"MINAHASA"}
+{"kodeProvinsi":"28","kodeKabupaten":"2807","namaKabupaten":"BOLAANG MONGONDOW (BOLMONG)"}
+{"kodeProvinsi":"28","kodeKabupaten":"2808","namaKabupaten":"BOLAANG MONGONDOW UTARA"}
+{"kodeProvinsi":"28","kodeKabupaten":"2809","namaKabupaten":"BOLAANG MONGONDOW SELATAN"}
+{"kodeProvinsi":"28","kodeKabupaten":"2810","namaKabupaten":"MINAHASA UTARA"}
+{"kodeProvinsi":"28","kodeKabupaten":"2811","namaKabupaten":"KEPULAUAN SANGIHE"}
+{"kodeProvinsi":"28","kodeKabupaten":"2812","namaKabupaten":"TOMOHON"}
+{"kodeProvinsi":"28","kodeKabupaten":"2813","namaKabupaten":"MINAHASA SELATAN"}
+{"kodeProvinsi":"28","kodeKabupaten":"2814","namaKabupaten":"KEPULAUAN TALAUD"}
+{"kodeProvinsi":"28","kodeKabupaten":"2815","namaKabupaten":"BITUNG"}
+{"kodeProvinsi":"29","kodeKabupaten":"2901","namaKabupaten":"GORONTALO"}
+{"kodeProvinsi":"29","kodeKabupaten":"2902","namaKabupaten":"BONE BOLANGO"}
+{"kodeProvinsi":"29","kodeKabupaten":"2903","namaKabupaten":"POHUWATO"}
+{"kodeProvinsi":"29","kodeKabupaten":"2904","namaKabupaten":"GORONTALO UTARA"}
+{"kodeProvinsi":"29","kodeKabupaten":"2905","namaKabupaten":"BOALEMO"}
+{"kodeProvinsi":"30","kodeKabupaten":"3001","namaKabupaten":"MALUKU TENGGARA BARAT"}
+{"kodeProvinsi":"30","kodeKabupaten":"3002","namaKabupaten":"TUAL"}
+{"kodeProvinsi":"30","kodeKabupaten":"3003","namaKabupaten":"MALUKU TENGGARA"}
+{"kodeProvinsi":"30","kodeKabupaten":"3004","namaKabupaten":"SERAM BAGIAN TIMUR"}
+{"kodeProvinsi":"30","kodeKabupaten":"3005","namaKabupaten":"AMBON"}
+{"kodeProvinsi":"30","kodeKabupaten":"3006","namaKabupaten":"MALUKU BARAT DAYA"}
+{"kodeProvinsi":"30","kodeKabupaten":"3007","namaKabupaten":"BURU SELATAN"}
+{"kodeProvinsi":"30","kodeKabupaten":"3008","namaKabupaten":"KEPULAUAN ARU"}
+{"kodeProvinsi":"30","kodeKabupaten":"3009","namaKabupaten":"MALUKU TENGAH"}
+{"kodeProvinsi":"30","kodeKabupaten":"3010","namaKabupaten":"SERAM BAGIAN BARAT"}
+{"kodeProvinsi":"30","kodeKabupaten":"3011","namaKabupaten":"BURU"}
+{"kodeProvinsi":"31","kodeKabupaten":"3101","namaKabupaten":"KEPULAUAN SULA"}
+{"kodeProvinsi":"31","kodeKabupaten":"3102","namaKabupaten":"HALMAHERA BARAT"}
+{"kodeProvinsi":"31","kodeKabupaten":"3103","namaKabupaten":"HALMAHERA TIMUR"}
+{"kodeProvinsi":"31","kodeKabupaten":"3104","namaKabupaten":"HALMAHERA TENGAH"}
+{"kodeProvinsi":"31","kodeKabupaten":"3105","namaKabupaten":"HALMAHERA UTARA"}
+{"kodeProvinsi":"31","kodeKabupaten":"3106","namaKabupaten":"TIDORE KEPULAUAN"}
+{"kodeProvinsi":"31","kodeKabupaten":"3107","namaKabupaten":"HALMAHERA SELATAN"}
+{"kodeProvinsi":"31","kodeKabupaten":"3108","namaKabupaten":"TERNATE"}
+{"kodeProvinsi":"31","kodeKabupaten":"3109","namaKabupaten":"PULAU MOROTAI"}
+{"kodeProvinsi":"32","kodeKabupaten":"3201","namaKabupaten":"KAIMANA"}
+{"kodeProvinsi":"32","kodeKabupaten":"3202","namaKabupaten":"TAMBRAUW"}
+{"kodeProvinsi":"32","kodeKabupaten":"3203","namaKabupaten":"TELUK BINTUNI"}
+{"kodeProvinsi":"32","kodeKabupaten":"3204","namaKabupaten":"SORONG SELATAN"}
+{"kodeProvinsi":"32","kodeKabupaten":"3205","namaKabupaten":"MAYBRAT"}
+{"kodeProvinsi":"32","kodeKabupaten":"3206","namaKabupaten":"TELUK WONDAMA"}
+{"kodeProvinsi":"32","kodeKabupaten":"3207","namaKabupaten":"MANOKWARI"}
+{"kodeProvinsi":"32","kodeKabupaten":"3208","namaKabupaten":"SORONG"}
+{"kodeProvinsi":"32","kodeKabupaten":"3209","namaKabupaten":"RAJA AMPAT"}
+{"kodeProvinsi":"32","kodeKabupaten":"3210","namaKabupaten":"FAKFAK"}
+{"kodeProvinsi":"33","kodeKabupaten":"3301","namaKabupaten":"MAMBERAMO RAYA"}
+{"kodeProvinsi":"33","kodeKabupaten":"3302","namaKabupaten":"PUNCAK"}
+{"kodeProvinsi":"33","kodeKabupaten":"3303","namaKabupaten":"INTAN JAYA"}
+{"kodeProvinsi":"33","kodeKabupaten":"3304","namaKabupaten":"SUPIORI"}
+{"kodeProvinsi":"33","kodeKabupaten":"3305","namaKabupaten":"TOLIKARA"}
+{"kodeProvinsi":"33","kodeKabupaten":"3306","namaKabupaten":"JAYAPURA"}
+{"kodeProvinsi":"33","kodeKabupaten":"3307","namaKabupaten":"PANIAI"}
+{"kodeProvinsi":"33","kodeKabupaten":"3308","namaKabupaten":"NDUGA"}
+{"kodeProvinsi":"33","kodeKabupaten":"3309","namaKabupaten":"KEEROM"}
+{"kodeProvinsi":"33","kodeKabupaten":"3310","namaKabupaten":"MAPPI"}
+{"kodeProvinsi":"33","kodeKabupaten":"3311","namaKabupaten":"YALIMO"}
+{"kodeProvinsi":"33","kodeKabupaten":"3312","namaKabupaten":"WAROPEN"}
+{"kodeProvinsi":"33","kodeKabupaten":"3313","namaKabupaten":"DOGIYAI"}
+{"kodeProvinsi":"33","kodeKabupaten":"3314","namaKabupaten":"PEGUNUNGAN BINTANG"}
+{"kodeProvinsi":"33","kodeKabupaten":"3315","namaKabupaten":"PUNCAK JAYA"}
+{"kodeProvinsi":"33","kodeKabupaten":"3316","namaKabupaten":"JAYAWIJAYA"}
+{"kodeProvinsi":"33","kodeKabupaten":"3317","namaKabupaten":"MERAUKE"}
+{"kodeProvinsi":"33","kodeKabupaten":"3318","namaKabupaten":"SARMI"}
+{"kodeProvinsi":"33","kodeKabupaten":"3319","namaKabupaten":"LANNY JAYA"}
+{"kodeProvinsi":"33","kodeKabupaten":"3320","namaKabupaten":"MIMIKA"}
+{"kodeProvinsi":"33","kodeKabupaten":"3321","namaKabupaten":"MAMBERAMO TENGAH"}
+{"kodeProvinsi":"33","kodeKabupaten":"3322","namaKabupaten":"KEPULAUAN YAPEN (YAPEN WAROPEN)"}
+{"kodeProvinsi":"33","kodeKabupaten":"3323","namaKabupaten":"BOVEN DIGOEL"}
+{"kodeProvinsi":"33","kodeKabupaten":"3324","namaKabupaten":"ASMAT"}
+{"kodeProvinsi":"33","kodeKabupaten":"3325","namaKabupaten":"YAHUKIMO"}
+{"kodeProvinsi":"33","kodeKabupaten":"3326","namaKabupaten":"BIAK NUMFOR"}
+{"kodeProvinsi":"33","kodeKabupaten":"3327","namaKabupaten":"NABIRE"}
+{"kodeProvinsi":"33","kodeKabupaten":"3328","namaKabupaten":"DEIYAI (DELIYAI)"}

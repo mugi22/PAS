@@ -1,0 +1,131 @@
+package co.id.pegadaian.pasg2.util;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Date;
+
+import org.hibernate.Session;
+
+import co.id.pegadaian.pasg2.db.HibernateUtil;
+import co.id.pegadaian.pasg2.pojo.AuditTrail;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+//import com.id.kas.pojo.AuditTrail;
+
+public class SetTableData {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println("----------------MULAI  SET--------------");
+		// TODO Auto-generated method stub
+			SetTableData rest = new SetTableData();
+//			rest.restorePojo("TblCoaMaster");
+			GetTableData getTableData = new GetTableData();
+		    getTableData.getDataByTableAndSave("PasKsAuditTrail");
+			getTableData.getDataByTableAndSave("PasEaTkAuditan");
+			getTableData.getDataByTableAndSave("PasEaAuditan");
+		    getTableData.getDataByTableAndSave("PasEaFormasiAuditan");
+		    getTableData.getDataByTableAndSave("PasEaPPL");
+		    getTableData.getDataByTableAndSave("PasEaPPLUser");
+		    getTableData.getDataByTableAndSave("PasEaKantorAuditor");
+		    getTableData.getDataByTableAndSave("PasEaKetuaTimAuditor");
+		    getTableData.getDataByTableAndSave("PasEaAnggotaTimAuditor");
+		    getTableData.getDataByTableAndSave("PasEaJenisPemeriksaan");
+			getTableData.getDataByTableAndSave("PasEaTkKantorAuditor");
+		    getTableData.getDataByTableAndSave("PasEaAspekPemeriksaan");
+		    getTableData.getDataByTableAndSave("TblAppProperties");
+		    getTableData.getDataByTableAndSave("PasEaProsedurPemeriksaan");
+		    
+		    getTableData.getDataByTableAndSave("TblSukasuka");
+		    
+		    getTableData.getDataByTableAndSave("TblUser");
+		 
+		    getTableData.getDataByTableAndSave("TblPriviledge");
+		    getTableData.getDataByTableAndSave("TblUserGroup");
+		    getTableData.getDataByTableAndSave("TblMenu");
+		    getTableData.getDataByTableAndSave("TblGroup");
+		    getTableData.getDataByTableAndSave("TblBranch");
+		    getTableData.getDataByTableAndSave("TblTest");
+		   
+		    getTableData.getDataByTableAndSave("TblLookup");
+		    getTableData.getDataByTableAndSave("TblProvinsi");
+		    getTableData.getDataByTableAndSave("TblKabupaten");
+		    getTableData.getDataByTableAndSave("TblKecamatan"); 
+			getTableData.getDataByTableAndSave("TblKelurahan"); 
+			
+		  	getTableData.getDataByTableAndSave("TblPasKsKodefikasiKasus");
+		  	getTableData.getDataByTableAndSave("TblPasKsKodefikasiSebab");
+		    getTableData.getDataByTableAndSave("TblPasKsKodefikasiTkTemuan");
+		    getTableData.getDataByTableAndSave("TblPasKsKodefikasiTemuan");
+		    getTableData.getDataByTableAndSave("TblPasKsKodefikasiBidangKasus");
+		    getTableData.getDataByTableAndSave("TblPasKsHariLibur");
+		    getTableData.getDataByTableAndSave("TblParam");
+		    getTableData.getDataByTableAndSave("TblSeq");
+		    getTableData.getDataByTableAndSave("PasRaMasterRKAP");
+		    getTableData.getDataByTableAndSave("PasRaDetailRKAP");
+		    
+		    System.out.println("-------------SELESAI SET------------------");
+
+	}
+private String sFolder ="H:\\trans\\pasg2\\";
+	public void restorePojo(String pojo){
+		
+		String filename = sFolder+pojo+".json";
+		String sPakage ="co.id.pegadaian.pasg2.pojo.";
+		String namaClass = sPakage+pojo;
+//		Gson gson = new Gson();
+		Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
+		
+		try {
+			File file = new File(filename);
+			if (file.exists()) {
+				System.out.println("File Ada............");
+				
+				BufferedReader br = null;
+				int z = 0;
+				try {
+					String sCurrentLine;
+					br = new BufferedReader(new FileReader(filename));
+//					ITransaction trx = null;
+					Session session=null;
+					session = HibernateUtil.getSessionFactory().openSession();
+					session.beginTransaction();
+					while ((sCurrentLine = br.readLine()) != null) { // baca_perbaris_dari_file
+						System.out.println("sCurrentLine "+sCurrentLine);
+						z++;
+						Object o = Class.forName(namaClass).newInstance();
+						// System.out.println(sCurrentLine);
+						o = gson.fromJson(sCurrentLine, Class.forName(namaClass));
+						if (o instanceof AuditTrail) {
+							// System.out.println(o.getNamaKelurahan());
+							((AuditTrail) o).setCreateBy("IMPORTX");
+							((AuditTrail) o).setCreateDate(new Date());
+							((AuditTrail) o).setUpdateBy("IMPORTX");
+							((AuditTrail) o).setUpdateDate(new Date());
+						}
+						session.saveOrUpdate(o);						
+					}
+					session.getTransaction().commit();
+					session.close();
+					System.out.println("Selesai................");
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+				
+				
+			}else{
+				System.out.println("File Not Exist...............");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+}

@@ -65,9 +65,26 @@
 		});
 	}
 	
-
-	
-	
+	function comboBulan(t){
+		t.combobox({
+			valueField : 'id',
+			textField : 'text',
+			panelHeight:'auto',
+			data:     [{"id":'01', "text":"Januari"},
+			           {"id":'02', "text":"Februari"},
+			           {"id":'03', "text":"Maret"},
+			           {"id":'04', "text":"April"},
+			           {"id":'05', "text":"Mei"},
+			           {"id":'06', "text":"Juni"},
+			           {"id":'07', "text":"Juli"},
+			           {"id":'08', "text":"Agustus"},
+			           {"id":'09', "text":"September"},
+			           {"id":'10', "text":"Oktober"},
+			           {"id":'11', "text":"November"},
+			           {"id":'12', "text":"Desember"}
+			           ]
+		});
+	}
 	//comboprovinsi
 	function comboProvinsi(t) {
 		t.combobox({
@@ -157,7 +174,7 @@
 	/*Kantor jenis pemeriksaan*/
 	function comboEaJenisPemeriksaan(cmb,jenisSelected) {
 		cmb.combobox({
-			url :'comboEaJenisPemeriksaan.htm?param='+'&param2='+jenisSelected,
+			url :'comboEaJenisPemeriksaan.htm?param='+/*'&param2='*/jenisSelected,
 			valueField : 'id',
 			textField : 'text',
 			panelHeight:'auto',

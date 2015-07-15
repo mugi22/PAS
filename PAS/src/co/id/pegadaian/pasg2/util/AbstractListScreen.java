@@ -18,15 +18,10 @@ import org.hibernate.criterion.Restrictions;
 
 import co.id.pegadaian.pasg2.dao.PasKsAuditTrailDAO;
 import co.id.pegadaian.pasg2.db.HibernateUtil;
+import co.id.pegadaian.pasg2.pojo.PasEaKantorAuditor;
 import co.id.pegadaian.pasg2.pojo.PasKsAuditTrail;
 import co.id.pegadaian.pasg2.pojo.TblUser;
 
-//import com.id.kas.db.HibernateUtil;
-//import com.id.kas.pojo.TblPriviledge;
-//import com.id.kas.pojo.TblUser;
-//import com.id.kas.pojo.TblUserGroup;
-//import com.id.kas.pojo.dao.TblLookupDAO;
-//import com.id.kas.util.log.LogClass;
 
 public abstract class AbstractListScreen {
 	private final transient Logger log=Logger.getLogger(getClass());
@@ -36,11 +31,11 @@ public abstract class AbstractListScreen {
 	//=========================
 	
 	 public String doGet(Map<String, Object> model,HttpSession session,HttpServletRequest reg,HttpServletResponse res) {
-
 		 
 		 String param =reg.getParameter("param");//.replace(" ", "");
 		 String param2 =reg.getParameter("param2");//param2 dari klik menu -> key(random string)
-		 String UID =reg.getParameter("UID");
+		 String UIDEnc =reg.getParameter("UID");//UID di encript
+		 String UID ="";
 		 //String Key = reg.getParameter("paramB");
 		 
 		 //untuk form yang tidak ada tombol add delete dll nya
@@ -49,9 +44,8 @@ public abstract class AbstractListScreen {
 //			 param2="xntldrqmbpqwhrry";
 //		 }
 		 JCrypto crypto = new JCrypto(param2);
+		 UID = crypto.decrypt(UIDEnc);
 			 String sPriv = crypto.decrypt(param);
-//			 System.out.println("sPriv    : "+sPriv);
-			
 			 String sDec[] =sPriv.split("&");//==
 			 String sIsAdd ="";		 String sIsEdit ="";		 String sIsDelete ="";		 String sIsView="";				 
 			 for(String s: sDec){
@@ -69,16 +63,19 @@ public abstract class AbstractListScreen {
 				}
 			 }
 			
-				 
-			 String sUserId = reg.getParameter("UID");
+			 String sUserId = UID;//reg.getParameter("UID");
 	         String ses = (String) session.getAttribute("session"+sUserId);
 	         TblUser user = (TblUser) session.getAttribute("user"+sUserId);
+	         model.put("tblUser", user);
+//	         waktu login session.setAttribute("unit"+userName, kantorAuditor);
+	         PasEaKantorAuditor kantorAuditor = (PasEaKantorAuditor) session.getAttribute("unit"+sUserId);
+	         model.put("kantorAuditor", kantorAuditor);
+	        
 	         if(user==null) return "redirect:/logout.htm";
 	         String ret = null;
 	         //ADMIN MODE OPEN
          if(AppProp.getsAppStatus().equals(AppConstant.AdminMode.AdminModeOpen)){
 	         if(cekValidSession(session,UID)){
-//	        	 System.out.println(sIsAdd+"*==========================");
 		         model.put("btnAdd",sIsAdd);// "disable");
 		         model.put("btnEdit",sIsEdit);//reg.getParameter("isEdit") );//"disable");
 		         model.put("btnDelete",sIsDelete);//reg.getParameter("isDelete"));//"disable");   isShow
@@ -96,7 +93,6 @@ public abstract class AbstractListScreen {
         	 if(Util.cekUserAdminMode(user.getUserId(), sess)){//cek apakah user punya group adminmode
         		sess.close();
 	        		 if(cekValidSession(session,UID)){//session disini httpservletsession
-	    	        	 //System.out.println(sIsAdd+"*==========================");
 	    		         model.put("btnAdd",sIsAdd);// "disable");
 	    		         model.put("btnEdit",sIsEdit);//reg.getParameter("isEdit") );//"disable");
 	    		         model.put("btnDelete",sIsDelete);//reg.getParameter("isDelete"));//"disable");   isShow
@@ -130,9 +126,6 @@ public abstract class AbstractListScreen {
 	
 	
 	public String doPost(Map<String, Object> model, HttpSession session,HttpServletRequest reg, HttpServletResponse res) {
-//		String ses = (String) session.getAttribute("session");
-//		TblUser user = (TblUser) session.getAttribute("user");
-//		model.put("session", ses);
 		return getView();
 	}
 	
@@ -156,13 +149,6 @@ public abstract class AbstractListScreen {
 		TblUser user = (TblUser) session.getAttribute("user"+userId);
 		return user;
 	}
-	
-	//old
-//	public void simpanLog(String sUserId,String sLog){
-//		String logger =sUserId+"  CRUD  "/*+ new Date()*/+" "+sLog; //engga [perlu pake data suda ada dari looger
-//		log.warn(logger);
-////		System.out.println(sLog);
-//	}
 	
 	
 	public void simpanLog(String sUserId,String sLog,String aksi,Session sessLog,String pojo ){

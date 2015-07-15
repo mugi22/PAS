@@ -1,0 +1,37 @@
+{"lookupLabel":"ADMINISTRATOR","noUrut":0.00,"lookupName":"JABATAN","lookupValue":"00","createBy":"P81035","createDate":"22-05-2015"}
+{"lookupLabel":"Pinca","noUrut":1.00,"lookupName":"FORMASI","lookupValue":"01","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"Direksi","noUrut":1.00,"lookupName":"JABATAN","lookupValue":"01","createBy":"P81035","createDate":"22-05-2015"}
+{"lookupLabel":"Penaksir Madya","noUrut":2.00,"lookupName":"FORMASI","lookupValue":"02","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"Komite Audit","noUrut":2.00,"lookupName":"JABATAN","lookupValue":"02","createBy":"P81035","createDate":"22-05-2015"}
+{"lookupLabel":"Kasir","noUrut":3.00,"lookupName":"FORMASI","lookupValue":"03","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"Kepala SPI","noUrut":3.00,"lookupName":"JABATAN","lookupValue":"03","createBy":"P81035","createDate":"22-05-2015"}
+{"lookupLabel":"Petugas ADM","noUrut":4.00,"lookupName":"FORMASI","lookupValue":"04","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"1","noUrut":1.00,"lookupName":"GRADE","lookupValue":"1","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"10","noUrut":10.00,"lookupName":"GRADE","lookupValue":"10","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"Auditor Utama","noUrut":10.00,"lookupName":"JABATAN","lookupValue":"10","createBy":"P81035","createDate":"22-05-2015"}
+{"lookupLabel":"11","noUrut":11.00,"lookupName":"GRADE","lookupValue":"11","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"Auditor Madya","noUrut":11.00,"lookupName":"JABATAN","lookupValue":"11","createBy":"P81035","createDate":"22-05-2015"}
+{"lookupLabel":"12","noUrut":12.00,"lookupName":"GRADE","lookupValue":"12","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"Auditor Pramata","noUrut":12.00,"lookupName":"JABATAN","lookupValue":"12","createBy":"P81035","createDate":"22-05-2015"}
+{"lookupLabel":"13","noUrut":13.00,"lookupName":"GRADE","lookupValue":"13","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"14","noUrut":14.00,"lookupName":"GRADE","lookupValue":"14","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"15","noUrut":15.00,"lookupName":"GRADE","lookupValue":"15","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"2","noUrut":2.00,"lookupName":"GRADE","lookupValue":"2","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"3","noUrut":3.00,"lookupName":"GRADE","lookupValue":"3","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"Administrasi SPI","noUrut":30.00,"lookupName":"JABATAN","lookupValue":"30","createBy":"P81035","createDate":"22-05-2015"}
+{"lookupLabel":"Pemimpin Cabang","noUrut":31.00,"lookupName":"JABATAN","lookupValue":"31","createBy":"P81035","createDate":"15-06-2015"}
+{"lookupLabel":"Penaksir","noUrut":32.00,"lookupName":"JABATAN","lookupValue":"32","createBy":"P81035","createDate":"15-06-2015"}
+{"lookupLabel":"Kasir","noUrut":33.00,"lookupName":"JABATAN","lookupValue":"33","createBy":"P81035","createDate":"15-06-2015"}
+{"lookupLabel":"Adminitrasi","noUrut":34.00,"lookupName":"JABATAN","lookupValue":"34","createBy":"P81035","createDate":"15-06-2015"}
+{"lookupLabel":"Supir","noUrut":35.00,"lookupName":"JABATAN","lookupValue":"35","createBy":"P81035","createDate":"15-06-2015"}
+{"lookupLabel":"4","noUrut":4.00,"lookupName":"GRADE","lookupValue":"4","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"5","noUrut":5.00,"lookupName":"GRADE","lookupValue":"5","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"6","noUrut":6.00,"lookupName":"GRADE","lookupValue":"6","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"7","noUrut":7.00,"lookupName":"GRADE","lookupValue":"7","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"8","noUrut":8.00,"lookupName":"GRADE","lookupValue":"8","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"9","noUrut":9.00,"lookupName":"GRADE","lookupValue":"9","createBy":"P81035","createDate":"08-06-2015"}
+{"lookupLabel":"AKTIF","noUrut":1.00,"lookupName":"STATUS","lookupValue":"A","createBy":"P81035","updateBy":"P81035","createDate":"27-05-2015","updateDate":"27-05-2015"}
+{"lookupLabel":"Aktif","noUrut":1.00,"lookupName":"STATUS-AUDITAN","lookupValue":"A","createBy":"P81035","createDate":"21-05-2015"}
+{"lookupLabel":"NON AKTIF","noUrut":2.00,"lookupName":"STATUS","lookupValue":"N","createBy":"P81035","createDate":"27-05-2015"}
+{"lookupLabel":"Pasif","noUrut":2.00,"lookupName":"STATUS-AUDITAN","lookupValue":"P","createBy":"P81035","createDate":"21-05-2015"}
+{"lookupLabel":"Hapus","noUrut":3.00,"lookupName":"STATUS-AUDITAN","lookupValue":"X","createBy":"P81035","createDate":"21-05-2015"}
